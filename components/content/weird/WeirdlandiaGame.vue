@@ -49,7 +49,7 @@ const initiateGame = () => {
 
 const fetchBackgroundImage = async () => {
   try {
-    const response = await fetch('https://kindrobots.org/api/galleries/random/name/weirdlandia')
+    const response = await fetch('/api/galleries/random/name/weirdlandia')
 
     if (!response.ok) {
       throw new Error('Failed to fetch the image.')

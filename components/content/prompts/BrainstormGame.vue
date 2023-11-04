@@ -53,7 +53,7 @@ const fetchBrainstorm = async () => {
   isLoading.value = true
   errorMessage.value = null
   try {
-    const response = await fetch('https://kindrobots.org/api/botcafe/brainstorm', {
+    const response = await fetch('/api/botcafe/brainstorm', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

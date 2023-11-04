@@ -31,6 +31,12 @@
     "@nuxt/content": "^2.9.0",
     "@pinia/nuxt": "^0.5.1",
     "@prisma/client": "^5.5.2",
+    "@stripe/stripe-js": "^2.1.11",
+    "axios": "^1.6.0",
+    "bcrypt": "^5.1.1",
+    "canvas-confetti": "^1.9.0",
+    "jose": "^5.1.0",
+    "open-simplex-noise": "^2.5.0",
     "pinia": "^2.1.7"
   }
 }

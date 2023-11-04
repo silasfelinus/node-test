@@ -28,7 +28,7 @@ const prompt = ref('')
 
 const generateArt = async () => {
   try {
-    const response = await fetch('https://kindrobots.org/api/art/generate', {
+    const response = await fetch('/api/art/generate', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

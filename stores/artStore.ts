@@ -48,7 +48,7 @@ export const useArtStore = defineStore({
     },
     async fetchAllArt() {
       try {
-        const response = await fetch('https://kindrobots.org/api/art')
+        const response = await fetch('/api/art')
         if (response.ok) {
           const data = await response.json()
           this.artAssets = data.artEntries
@@ -98,7 +98,7 @@ export const useArtStore = defineStore({
     },
     async createArtReaction(reactionData: ArtReaction) {
       try {
-        const response = await fetch('https://kindrobots.org/api/reactions', {
+        const response = await fetch('/api/reactions', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -116,7 +116,7 @@ export const useArtStore = defineStore({
     },
     async generateArt(data: GenerateArtData): Promise<Art | null> {
       try {
-        const response = await fetch('https://kindrobots.org/api/art/generate', {
+        const response = await fetch('/api/art/generate', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

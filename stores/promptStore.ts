@@ -79,7 +79,7 @@ export const usePromptStore = defineStore('promptStore', {
     // Create a new art prompt
     async createArtPrompt(newPrompt: string) {
       try {
-        const response = await fetch('https://kindrobots.org/api/art/prompts', {
+        const response = await fetch('/api/art/prompts', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
