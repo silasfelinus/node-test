@@ -6,11 +6,6 @@
     <p class="text-lg text-gray-600">{{ reward.power }}</p>
     <p class="text-sm text-gray-400">Rarity: {{ reward.rarity }}</p>
 
-    <!-- Edit Button -->
-    <button class="bg-primary text-default mt-4 rounded p-2" @click="showEditReward = !showEditReward">
-      Edit Reward
-    </button>
-
     <!-- Edit Reward Form -->
     <transition name="fade" mode="out-in">
       <EditReward v-if="showEditReward" :reward="reward" />

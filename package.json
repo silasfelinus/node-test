@@ -19,6 +19,7 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
+    "@interactjs/interact": "^1.10.19",
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
     "@nuxtjs/tailwindcss": "^6.9.4",
     "@types/bcrypt": "^5.0.1",
@@ -48,6 +49,7 @@
     "canvas-confetti": "^1.9.0",
     "jose": "^5.1.0",
     "open-simplex-noise": "^2.5.0",
-    "pinia": "^2.1.7"
+    "pinia": "^2.1.7",
+    "theme-change": "^2.5.0"
   }
 }
