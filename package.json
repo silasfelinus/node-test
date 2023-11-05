@@ -12,6 +12,7 @@
   "devDependencies": {
     "@nuxtjs/eslint-module": "^4.1.0",
     "@nuxtjs/tailwindcss": "^6.9.4",
+    "@types/bcrypt": "^5.0.1",
     "@typescript-eslint/eslint-plugin": "^6.9.1",
     "daisyui": "^3.9.4",
     "eslint": "^8.53.0",
