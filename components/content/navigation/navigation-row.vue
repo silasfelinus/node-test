@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center justify-between w-full">
+  <div class="flex w-full items-center justify-between">
     <!-- BackLink Component -->
     <BackLink />
     <!-- HomeLink Component -->

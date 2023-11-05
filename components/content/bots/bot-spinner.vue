@@ -1,7 +1,7 @@
 <template>
-  <div class="relative flex flex-col items-center p-2 bg-base overflow-auto h-screen z-10">
+  <div class="bg-base relative z-10 flex h-screen flex-col items-center overflow-auto p-2">
     <div
-      class="absolute inset-0 bg-gradient-to-t from-base via-transparent to-base opacity-30 pointer-events-none z-10"
+      class="from-base to-base pointer-events-none absolute inset-0 z-10 bg-gradient-to-t via-transparent opacity-30"
     ></div>
     <div class="mx-2 my-2">
       <transition-group name="list" tag="div" class="space-y-2">
@@ -10,18 +10,18 @@
           :id="`bot-${bot.id}`"
           :key="bot.id"
           :style="{ backgroundColor: bot.theme || 'defaultColor' }"
-          class="flex flex-col items-center justify-between w-full cursor-pointer transition-colors ease-in-out duration-200"
+          class="flex w-full cursor-pointer flex-col items-center justify-between transition-colors duration-200 ease-in-out"
           :class="{
             'bg-accent text-secondary': currentBot && currentBot.id === bot.id,
             'bg-primary': !currentBot || currentBot.id !== bot.id,
           }"
           @click="setCurrentBot(bot)"
         >
-          <div :data-theme="bot.theme" class="rounded-lg m-1">
+          <div :data-theme="bot.theme" class="m-1 rounded-lg">
             <avatar-image />
-            <div class="bg-opacity-80 bg-primary text-dark p-2">
+            <div class="bg-primary text-dark bg-opacity-80 p-2">
               <!-- Modified line -->
-              <h2 class="mt-1 text-xl font-semibold text-center">{{ bot.name }}</h2>
+              <h2 class="mt-1 text-center text-xl font-semibold">{{ bot.name }}</h2>
               <p class="mt-1 text-center">{{ bot.description }}</p>
             </div>
           </div>
@@ -38,7 +38,7 @@ import { useBotStore, type Bot } from '@/stores/botStore';
 const botsStore = useBotStore();
 const bots = computed(() => botsStore.bots);
 
-let currentBot = computed(() => botsStore.currentBot);
+const currentBot = computed(() => botsStore.currentBot);
 
 onMounted(async () => {
   if (!bots.value) {

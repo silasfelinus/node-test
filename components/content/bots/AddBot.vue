@@ -1,18 +1,18 @@
 <template>
-  <div class="rounded-2xl border p-2 m-2 flex">
-    <h1 class="text-3xl mb-4 text-center">Create a New Bot</h1>
-    <form class="bg-white shadow-lg rounded-lg p-8" @submit="handleSubmit">
+  <div class="m-2 flex rounded-2xl border p-2">
+    <h1 class="mb-4 text-center text-3xl">Create a New Bot</h1>
+    <form class="rounded-lg bg-white p-8 shadow-lg" @submit="handleSubmit">
       <div class="mb-4">
         <label for="name" class="block text-sm font-medium">Name:</label>
-        <input id="name" v-model="name" type="text" class="w-full p-2 rounded border" />
+        <input id="name" v-model="name" type="text" class="w-full rounded border p-2" />
       </div>
       <div class="mb-4">
         <label for="subtitle" class="block text-sm font-medium">Subtitle:</label>
-        <input id="subtitle" v-model="subtitle" type="text" class="w-full p-2 rounded border" />
+        <input id="subtitle" v-model="subtitle" type="text" class="w-full rounded border p-2" />
       </div>
       <div class="mb-4">
         <label for="description" class="block text-sm font-medium">Description:</label>
-        <textarea id="description" v-model="description" class="resize w-full p-2 rounded border"></textarea>
+        <textarea id="description" v-model="description" class="w-full resize rounded border p-2"></textarea>
       </div>
       <div class="mb-4">
         <label for="avatarImage" class="block text-sm font-medium">Avatar Image URL:</label>
@@ -20,7 +20,7 @@
           <img :src="art.path" alt="Generated Avatar" />
           <div class="mb-4">
             <label for="botType" class="block text-sm font-medium">Bot Type:</label>
-            <select id="botType" v-model="botType" class="w-full p-2 rounded border">
+            <select id="botType" v-model="botType" class="w-full rounded border p-2">
               <option value="PROMPTBOT">Prompt Bot: A bot that provides prompts</option>
               <option value="CHATBOT">Chat Bot: A bot that can chat with users</option>
               <option value="ARTBOT">Art Bot: A bot that creates art</option>
@@ -32,7 +32,7 @@
 
         <div class="mb-4">
           <label for="imagePrompt" class="block text-sm font-medium">Image Prompt:</label>
-          <input id="imagePrompt" v-model="imagePrompt" type="text" class="w-full p-2 rounded border" />
+          <input id="imagePrompt" v-model="imagePrompt" type="text" class="w-full rounded border p-2" />
         </div>
 
         <button type="button" class="btn btn-info mt-2" @click="getRandomAvatar">Get Random Avatar</button>
@@ -43,38 +43,38 @@
       </div>
       <div class="mb-4">
         <label for="botIntro" class="block text-sm font-medium">Bot Introduction:</label>
-        <input id="botIntro" v-model="botIntro" type="text" class="w-full p-2 rounded border" />
+        <input id="botIntro" v-model="botIntro" type="text" class="w-full rounded border p-2" />
       </div>
       <div class="mb-4">
         <label for="userIntro" class="block text-sm font-medium">User Introduction:</label>
-        <input id="userIntro" v-model="userIntro" type="text" class="w-full p-2 rounded border" />
+        <input id="userIntro" v-model="userIntro" type="text" class="w-full rounded border p-2" />
       </div>
       <div class="mb-4">
         <label for="prompt" class="block text-sm font-medium">Prompt:</label>
-        <textarea id="prompt" v-model="prompt" class="resize w-full p-2 rounded border"></textarea>
+        <textarea id="prompt" v-model="prompt" class="w-full resize rounded border p-2"></textarea>
         <div class="mb-4">
           <label for="sampleResponse" class="block text-sm font-medium">Sample Response:</label>
-          <textarea id="sampleResponse" v-model="sampleResponse" class="resize w-full p-2 rounded border"></textarea>
+          <textarea id="sampleResponse" v-model="sampleResponse" class="w-full resize rounded border p-2"></textarea>
         </div>
         <button type="button" class="btn btn-primary mt-2" @click="testPrompt">Test Prompt</button>
-        <div v-if="promptTestResult" class="mt-2 text-green-500 animate-pulse">Test Result: {{ promptTestResult }}</div>
+        <div v-if="promptTestResult" class="mt-2 animate-pulse text-green-500">Test Result: {{ promptTestResult }}</div>
       </div>
       <!-- Additional Fields -->
       <div class="mb-4">
         <label for="isPublic" class="block text-sm font-medium">Is Public:</label>
-        <input id="isPublic" v-model="isPublic" type="checkbox" class="p-2 rounded border" />
+        <input id="isPublic" v-model="isPublic" type="checkbox" class="rounded border p-2" />
       </div>
       <div class="mb-4">
         <label for="underConstruction" class="block text-sm font-medium">Under Construction:</label>
-        <input id="underConstruction" v-model="underConstruction" type="checkbox" class="p-2 rounded border" />
+        <input id="underConstruction" v-model="underConstruction" type="checkbox" class="rounded border p-2" />
       </div>
       <div class="mb-4">
         <label for="theme" class="block text-sm font-medium">Theme:</label>
-        <input id="theme" v-model="theme" type="text" class="w-full p-2 rounded border" />
+        <input id="theme" v-model="theme" type="text" class="w-full rounded border p-2" />
       </div>
       <div class="mb-4">
         <label for="personality" class="block text-sm font-medium">Personality:</label>
-        <input id="personality" v-model="personality" type="text" class="w-full p-2 rounded border" />
+        <input id="personality" v-model="personality" type="text" class="w-full rounded border p-2" />
       </div>
       <bot-sample
         :name="name"

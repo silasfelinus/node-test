@@ -1,28 +1,28 @@
 <template>
-  <div class="flex items-center h-36 w-36 z-50">
+  <div class="z-50 flex h-36 w-36 items-center">
     <!-- Welcome Message -->
-    <div class="flex flex-col items-start cursor-pointer" @click="toggleVisibility">
-      <img v-if="store.avatarImage" :src="store.avatarImage" class="w-8 h-8 rounded-full mb-2" alt="Avatar" />
-      <span class="text-base-200 text-lg mb-1">{{ welcomeMessage }}</span>
-      <NuxtLink v-if="isLoggedIn" to="/dashboard" class="text-accent underline text-sm"> Dashboard </NuxtLink>
-      <NuxtLink v-if="isLoggedIn && store.role === 'admin'" to="/admin" class="text-accent underline text-sm mt-1">
+    <div class="flex cursor-pointer flex-col items-start" @click="toggleVisibility">
+      <img v-if="store.avatarImage" :src="store.avatarImage" class="mb-2 h-8 w-8 rounded-full" alt="Avatar" />
+      <span class="text-base-200 mb-1 text-lg">{{ welcomeMessage }}</span>
+      <NuxtLink v-if="isLoggedIn" to="/dashboard" class="text-accent text-sm underline"> Dashboard </NuxtLink>
+      <NuxtLink v-if="isLoggedIn && store.role === 'admin'" to="/admin" class="text-accent mt-1 text-sm underline">
         Admin
       </NuxtLink>
     </div>
 
     <!-- Icon to Toggle Login -->
     <div class="ml-4">
-      <icon name="tabler:user" class="text-base-200 text-2xl cursor-pointer" @click="toggleVisibility" />
+      <icon name="tabler:user" class="text-base-200 cursor-pointer text-2xl" @click="toggleVisibility" />
     </div>
 
     <!-- Login Dropdown -->
     <div
       v-if="isVisible"
-      class="flex flex-col items-center bg-base-200 p-4 rounded-2xl shadow-lg transition-all duration-300 absolute top-36 left-0"
+      class="bg-base-200 absolute left-0 top-36 flex flex-col items-center rounded-2xl p-4 shadow-lg transition-all duration-300"
     >
       <!-- Loading State -->
-      <div v-if="store.loading" class="text-center text-info">
-        <icon name="tabler:loader" class="animate-spin text-lg mb-2" />
+      <div v-if="store.loading" class="text-info text-center">
+        <icon name="tabler:loader" class="mb-2 animate-spin text-lg" />
         <div>Loading, please wait...</div>
       </div>
 
@@ -31,30 +31,30 @@
         <div class="mb-4">
           <span class="text-lg font-semibold">Hello, {{ store.username }} 🎉</span>
         </div>
-        <button class="bg-warning text-default py-1 px-3 rounded" @click="handleLogout">Logout</button>
+        <button class="bg-warning text-default rounded px-3 py-1" @click="handleLogout">Logout</button>
       </div>
 
       <!-- Login Form -->
-      <form v-else class="space-y-4 z-50" :autocomplete="stayLoggedIn ? 'on' : 'off'" @submit.prevent="handleLogin">
+      <form v-else class="z-50 space-y-4" :autocomplete="stayLoggedIn ? 'on' : 'off'" @submit.prevent="handleLogin">
         <div>
-          <label for="login" class="block text-sm mb-1">Login:</label>
+          <label for="login" class="mb-1 block text-sm">Login:</label>
           <input
             id="login"
             v-model="login"
             type="text"
             autocomplete="username"
-            class="w-full p-2 border rounded"
+            class="w-full rounded border p-2"
             required
           />
         </div>
         <div>
-          <label for="password" class="block text-sm mb-1">Password:</label>
+          <label for="password" class="mb-1 block text-sm">Password:</label>
           <input
             id="password"
             v-model="password"
             type="password"
             autocomplete="current-password"
-            class="w-full p-2 border rounded"
+            class="w-full rounded border p-2"
             required
           />
         </div>
@@ -64,9 +64,9 @@
             <input id="stayLoggedIn" v-model="stayLoggedIn" type="checkbox" class="mr-2" />
             <label for="stayLoggedIn" class="text-sm">Stay Logged in</label>
           </div>
-          <button type="submit" class="bg-info text-default py-1 px-3 rounded">Login</button>
+          <button type="submit" class="bg-info text-default rounded px-3 py-1">Login</button>
         </div>
-        <div class="text-center mt-2">
+        <div class="mt-2 text-center">
           <NuxtLink to="/register" class="text-accent underline">Register</NuxtLink>
         </div>
       </form>

@@ -1,9 +1,9 @@
 <template>
-  <div class="container rounded-2xl mx-auto p-2 bg-base-200">
+  <div class="bg-base-200 container mx-auto rounded-2xl p-2">
     <!-- Bot Avatar and Details -->
-    <div v-if="currentBot" class="avatar-container w-full m-2 rounded-lg">
+    <div v-if="currentBot" class="avatar-container m-2 w-full rounded-lg">
       <!-- Bot Avatar and Details -->
-      <div class="flex-grow rounded-2xl m-2 p-2 border bg-base-200">
+      <div class="bg-base-200 m-2 flex-grow rounded-2xl border p-2">
         <bot-carousel2 />
         <div class="flex-1 text-center">
           <h1 class="text-3xl font-bold">{{ currentBot.name ?? 'Unknown Bot' }}</h1>
@@ -14,11 +14,11 @@
     </div>
 
     <!-- Message Interaction Area -->
-    <div class="message-container bg-base-200 p-1 rounded-2xl">
+    <div class="message-container bg-base-200 rounded-2xl p-1">
       <!-- New Message Prompt -->
-      <div class="prompt-area p-2 rounded-2xl">
-        <label for="newMessage" class="block mb-2 font-bold">
-          <div v-if="currentBot" class="user-intro p-2 rounded-2xl m-2">
+      <div class="prompt-area rounded-2xl p-2">
+        <label for="newMessage" class="mb-2 block font-bold">
+          <div v-if="currentBot" class="user-intro m-2 rounded-2xl p-2">
             <p class="text-lg">{{ currentBot.userIntro ?? 'User Intro' }}</p>
           </div>
         </label>
@@ -26,7 +26,7 @@
           id="newMessage"
           v-model="message"
           rows="5"
-          class="message-input w-full p-2 rounded-md border-2 resize-none"
+          class="message-input w-full resize-none rounded-md border-2 p-2"
           placeholder="Type your message..."
           @keyup.enter="sendMessage"
         ></textarea>
@@ -37,7 +37,7 @@
       </div>
 
       <!-- Loading Indicator -->
-      <div v-if="isLoading" class="loader flex justify-center mt-2">
+      <div v-if="isLoading" class="loader mt-2 flex justify-center">
         <ami-butterfly />
       </div>
 
@@ -45,7 +45,7 @@
       <div
         v-for="(conversation, index) in conversations"
         :key="index"
-        class="response-container m-2 p-4 bg-white rounded-md shadow-md relative flex flex-col items-start"
+        class="response-container relative m-2 flex flex-col items-start rounded-md bg-white p-4 shadow-md"
         @click="activeConversationIndex = index"
       >
         <div
@@ -107,17 +107,17 @@
             type="text"
             rows="3"
             placeholder="Continue conversation..."
-            class="flex-grow p-2 rounded-md border-2 text-lg resize-y"
+            class="flex-grow resize-y rounded-md border-2 p-2 text-lg"
             @keyup.enter="continueConversation(index)"
           />
           <button class="btn btn-primary ml-2" :disabled="isReplyLoading" @click="continueConversation(index)">
             Reply
           </button>
-          <div v-if="isReplyLoading" class="loader flex justify-center mt-2 ml-2">
+          <div v-if="isReplyLoading" class="loader ml-2 mt-2 flex justify-center">
             <ami-butterfly />
           </div>
         </div>
-        <button class="absolute top-2 right-2 text-red-500 hover:text-red-700" @click.stop="deleteConversation(index)">
+        <button class="absolute right-2 top-2 text-red-500 hover:text-red-700" @click.stop="deleteConversation(index)">
           ×
         </button>
       </div>

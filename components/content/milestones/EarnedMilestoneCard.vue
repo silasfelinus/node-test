@@ -1,15 +1,15 @@
 <template>
   <!-- Achieved Milestone Card -->
   <div
-    class="card bg-base-200 border hover:bg-accent-dark hover:shadow-xl rounded-2xl p-4 m-2 transition duration-300 ease-in-out relative"
+    class="card bg-base-200 hover:bg-accent-dark relative m-2 rounded-2xl border p-4 transition duration-300 ease-in-out hover:shadow-xl"
   >
     <!-- Star Icon for Achieved Milestones -->
-    <div class="absolute top-2 right-2 z-6">
-      <icon name="ph:star-bold" class="text-yellow-400 text-4xl" />
+    <div class="z-6 absolute right-2 top-2">
+      <icon name="ph:star-bold" class="text-4xl text-yellow-400" />
     </div>
     <div class="text-center">
       <!-- Milestone Icon -->
-      <icon :name="milestone.icon" class="text-9xl mb-2 md:w-16 md:h-16" />
+      <icon :name="milestone.icon" class="mb-2 text-9xl md:h-16 md:w-16" />
       <!-- Milestone Label -->
       <div class="text-2xl font-bold">
         <a v-if="milestone.pageHint" :href="milestone.pageHint" class="hover:underline">

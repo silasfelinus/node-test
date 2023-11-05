@@ -1,6 +1,6 @@
 <template>
   <div class="bg-base-200 rounded-2xl p-8 text-lg">
-    <h1 class="text-2xl mb-4">Pitch Manager</h1>
+    <h1 class="mb-4 text-2xl">Pitch Manager</h1>
     <!-- Toggle Switch for Admin -->
     <div v-if="isAdmin" class="mt-4">
       <label class="flex items-center">
@@ -10,20 +10,20 @@
     </div>
 
     <!-- List all pitch titles -->
-    <ul class="list-decimal list-inside">
+    <ul class="list-inside list-decimal">
       <li v-for="pitch in pitchTitles" :key="pitch.id" class="mb-2">
         <span class="font-semibold">{{ pitch.title }}</span>
 
         <!-- Show edit and delete options if role is ADMIN -->
         <span v-if="isAdmin" class="ml-4">
           <button
-            class="bg-primary rounded-2xl p-2 text-white hover:bg-primary-dark"
+            class="bg-primary hover:bg-primary-dark rounded-2xl p-2 text-white"
             @click="editPitch(pitch.id, pitch.title)"
           >
             Edit
           </button>
           <button
-            class="bg-warning rounded-2xl p-2 text-white ml-2 hover:bg-warning-dark"
+            class="bg-warning hover:bg-warning-dark ml-2 rounded-2xl p-2 text-white"
             @click="deletePitch(pitch.id)"
           >
             Delete
@@ -34,15 +34,15 @@
 
     <!-- Add a new pitch -->
     <div class="mt-4">
-      <input v-model="newPitchTitle" placeholder="New Pitch Title" class="rounded-2xl p-2 w-full text-lg" />
-      <button class="bg-primary rounded-2xl p-2 text-white mt-2 w-full hover:bg-primary-dark" @click="addNewPitch">
+      <input v-model="newPitchTitle" placeholder="New Pitch Title" class="w-full rounded-2xl p-2 text-lg" />
+      <button class="bg-primary hover:bg-primary-dark mt-2 w-full rounded-2xl p-2 text-white" @click="addNewPitch">
         Add Pitch
       </button>
     </div>
 
     <!-- Save Edited Pitch -->
     <div v-if="editPitchId !== null" class="mt-4">
-      <button class="bg-accent rounded-2xl p-2 text-white w-full hover:bg-accent-dark" @click="saveEdit">
+      <button class="bg-accent hover:bg-accent-dark w-full rounded-2xl p-2 text-white" @click="saveEdit">
         Save Edit
       </button>
     </div>

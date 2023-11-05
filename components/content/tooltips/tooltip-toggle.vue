@@ -1,15 +1,15 @@
 <template>
   <div
-    class="relative flex flex-col items-center justify-center w-20 h-20"
+    class="relative flex h-20 w-20 flex-col items-center justify-center"
     @mouseover="showText = true"
     @mouseleave="showText = false"
   >
-    <button class="focus:outline-none transition-transform duration-200 transform hover:scale-110" @click="toggleInfo">
-      <icon :name="toggleIcon" class="w-16 h-16 text-6xl opacity-80" />
+    <button class="transform transition-transform duration-200 hover:scale-110 focus:outline-none" @click="toggleInfo">
+      <icon :name="toggleIcon" class="h-16 w-16 text-6xl opacity-80" />
     </button>
     <p
       v-if="showText"
-      class="text-sm absolute bottom-0 transition-opacity duration-300 opacity-100 pointer-events-none"
+      class="pointer-events-none absolute bottom-0 text-sm opacity-100 transition-opacity duration-300"
     >
       {{ tooltipText }}
     </p>

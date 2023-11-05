@@ -1,33 +1,33 @@
 <template>
-  <div class="flex flex-col h-screen text-gray-800">
+  <div class="flex h-screen flex-col text-gray-800">
     <!-- Sidebar -->
     <div
-      class="flex flex-col items-center bg-gradient-to-r from-bg-base-200 via-base-400 to-bg-base-600 rounded-r-xl space-y-4"
+      class="from-bg-base-200 via-base-400 to-bg-base-600 flex flex-col items-center space-y-4 rounded-r-xl bg-gradient-to-r"
     >
       <!-- Toggle Switch -->
-      <div class="flex justify-center items-center w-full px-4 bg-info rounded-2xl border">
-        <button class="relative w-36 h-10" @click="toggleFlip">
+      <div class="bg-info flex w-full items-center justify-center rounded-2xl border px-4">
+        <button class="relative h-10 w-36" @click="toggleFlip">
           <div
             :class="[
-              'absolute inset-0 bg-accent transition-all duration-300',
-              isChecked ? 'transform -skew-x-12' : 'transform skew-x-12',
+              'bg-accent absolute inset-0 transition-all duration-300',
+              isChecked ? '-skew-x-12 transform' : 'skew-x-12 transform',
             ]"
           ></div>
           <div
             v-if="isChecked"
-            class="absolute inset-0 flex items-center justify-center transition-all duration-300 transform skew-x-12"
+            class="absolute inset-0 flex skew-x-12 transform items-center justify-center transition-all duration-300"
           >
-            <span class="transform skew-x-12">App View</span>
+            <span class="skew-x-12 transform">App View</span>
           </div>
           <div
             v-if="!isChecked"
-            class="absolute inset-0 flex items-center justify-center transition-all duration-300 transform -skew-x-12"
+            class="absolute inset-0 flex -skew-x-12 transform items-center justify-center transition-all duration-300"
           >
-            <span class="transform -skew-x-12">Bot View</span>
+            <span class="-skew-x-12 transform">Bot View</span>
           </div>
         </button>
       </div>
-      <div ref="flipContainer" :class="{ flipped: !isChecked }" class="flex-grow flip-container w-full">
+      <div ref="flipContainer" :class="{ flipped: !isChecked }" class="flip-container w-full flex-grow">
         <!-- App View -->
         <div class="flip-front sidebar-content w-full">
           <img alt="Kind Robots Logo" src="/images/fulltitle.png" class="mx-auto rounded-l" />
@@ -35,7 +35,7 @@
         </div>
 
         <!-- Bot View -->
-        <div class="flip-back sidebar-content w-full text-center profile-center">
+        <div class="flip-back sidebar-content profile-center w-full text-center">
           <h1>Welcome to Kind Robots</h1>
           <bot-selector />
           <div class="carousel-container">

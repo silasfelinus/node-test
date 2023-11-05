@@ -1,23 +1,23 @@
 <template>
-  <div class="relative flex flex-wrap justify-center space-x-2 m-1">
+  <div class="relative m-1 flex flex-wrap justify-center space-x-2">
     <NuxtLink
       v-for="page in supportPages"
       :key="page._id"
       :to="page._path"
-      class="group hover:bg-accent transition-colors relative p-2 rounded-2xl border bg-primary flex flex-row items-center space-x-2 w-72 m-1"
+      class="hover:bg-accent bg-primary group relative m-1 flex w-72 flex-row items-center space-x-2 rounded-2xl border p-2 transition-colors"
       @mouseover="isHovered = page._id"
       @mouseleave="isHovered = null"
       @click="handleLinkClick"
     >
-      <div class="w-24 h-24 rounded-lg overflow-hidden border bg-secondary">
-        <img :src="`/images/${page.image}`" alt="Page Image" class="object-cover w-full h-full" />
+      <div class="bg-secondary h-24 w-24 overflow-hidden rounded-lg border">
+        <img :src="`/images/${page.image}`" alt="Page Image" class="h-full w-full object-cover" />
       </div>
       <!-- You are here indicator -->
-      <div v-if="page._path === $route.path" class="flex items-center m-2 p-1 text-xl rounded-2xl border bg-secondary">
-        You are here <icon name="line-md:download-outline-loop" class="text-lg m-2" />
+      <div v-if="page._path === $route.path" class="bg-secondary m-2 flex items-center rounded-2xl border p-1 text-xl">
+        You are here <icon name="line-md:download-outline-loop" class="m-2 text-lg" />
       </div>
       <div class="flex flex-col items-start">
-        <div class="text-lg font-bold bg-base-200 p-2 rounded-2xl border">
+        <div class="bg-base-200 rounded-2xl border p-2 text-lg font-bold">
           {{ page.title }}
         </div>
         <popup-description

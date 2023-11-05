@@ -2,7 +2,7 @@
   <transition name="slide-fade" mode="out-in">
     <div :key="currentMessage">
       <div
-        class="loader-message text-default text-lg font-semibold text-center bg-purple-600 p-4 rounded-md shadow-xl transition-transform duration-300 hover:scale-105 cursor-pointer"
+        class="loader-message text-default cursor-pointer rounded-md bg-purple-600 p-4 text-center text-lg font-semibold shadow-xl transition-transform duration-300 hover:scale-105"
         @click="updateMessage"
       >
         {{ currentMessage }}
@@ -41,9 +41,7 @@ watchEffect(() => {
 <style scoped>
 .slide-fade-enter-active,
 .slide-fade-leave-active {
-  transition:
-    transform 1s,
-    opacity 1s;
+  transition: transform 1s, opacity 1s;
 }
 
 .slide-fade-enter,

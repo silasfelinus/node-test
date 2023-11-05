@@ -43,18 +43,18 @@ onMounted(() => {
 });
 </script>
 <template>
-  <div class="flex flex-col md:flex-row h-screen text-gray-800 p-4 space-y-4 md:space-y-0 md:space-x-4">
+  <div class="flex h-screen flex-col space-y-4 p-4 text-gray-800 md:flex-row md:space-x-4 md:space-y-0">
     <!-- Sidebar -->
     <div
-      class="md:w-1/5 flex flex-col items-center bg-gradient-to-r from-bg-base-200 via-base-400 to-bg-base-600 rounded-r-xl space-y-4"
+      class="from-bg-base-200 via-base-400 to-bg-base-600 flex flex-col items-center space-y-4 rounded-r-xl bg-gradient-to-r md:w-1/5"
     >
-      <div ref="flipContainer" :class="{ flipped: !isChecked }" class="flex-grow flip-container w-full">
+      <div ref="flipContainer" :class="{ flipped: !isChecked }" class="flip-container w-full flex-grow">
         <div class="flip-front sidebar-content w-full">
           <img alt="Kind Robots Logo" src="/images/fulltitle.png" class="mx-auto rounded-l" />
           <sort-nav />
           <theme-toggle />
         </div>
-        <div class="flip-back sidebar-content w-full text-center profile-center">
+        <div class="flip-back sidebar-content profile-center w-full text-center">
           <h1>Welcome to Kind Robots</h1>
           <bot-selector />
           <div class="carousel-container">
@@ -63,7 +63,7 @@ onMounted(() => {
         </div>
       </div>
       <!-- Toggle Switch -->
-      <div class="toggle-container flex justify-between items-center w-full">
+      <div class="toggle-container flex w-full items-center justify-between">
         <span>Bot View</span>
         <label class="switch">
           <input type="checkbox" role="switch" aria-label="Toggle view" :checked="isChecked" @change="toggleFlip" />

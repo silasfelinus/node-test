@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex items-center space-x-2 border border-solid rounded-2xl group"
+    class="group flex items-center space-x-2 rounded-2xl border border-solid"
     :class="{ 'hover:bg-accent transition-colors': isExtended }"
   >
     <div class="flex items-center space-x-2 rounded-2xl p-2" :class="underConstruction ? 'bg-warning' : 'bg-secondary'">
@@ -11,7 +11,7 @@
         {{ title }}
       </div>
     </div>
-    <div v-if="isCurrentPage" class="ml-2 text-md text-info">
+    <div v-if="isCurrentPage" class="text-md text-info ml-2">
       <icon name="line-md:download-outline-loop" class="text-lg" />
       You are here
     </div>

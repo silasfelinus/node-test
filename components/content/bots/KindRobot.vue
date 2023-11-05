@@ -1,11 +1,11 @@
 <template>
   <!-- Main container -->
-  <div class="flex flex-col items-center bg-base-200 p-1 m-1">
+  <div class="bg-base-200 m-1 flex flex-col items-center p-1">
     <bot-selector />
     <!-- Display bot details if a bot is selected -->
-    <div v-if="currentBot" :data-theme="currentBot.theme" class="w-full bg-base-200 rounded-2xl">
+    <div v-if="currentBot" :data-theme="currentBot.theme" class="bg-base-200 w-full rounded-2xl">
       <!-- Bot name and ID -->
-      <div class="flex justify-between items-center m-4">
+      <div class="m-4 flex items-center justify-between">
         <h1 class="text-3xl font-bold">{{ currentBot.name }}</h1>
         <span class="text-sm text-gray-600">Bot ID#{{ currentBot.id - 1 }} / Meet Them All!</span>
       </div>
@@ -28,9 +28,7 @@ const currentBot = computed(() => botStore.currentBot);
   overflow: hidden;
   white-space: nowrap;
   border-right: 0.15em solid transparent;
-  animation:
-    typing 2s steps(30, end),
-    blink-caret 0.75s step-end infinite;
+  animation: typing 2s steps(30, end), blink-caret 0.75s step-end infinite;
 }
 
 @keyframes typing {

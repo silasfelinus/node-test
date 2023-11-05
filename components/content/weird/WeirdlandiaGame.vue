@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center items-center bg-gray-800 pattern-grid-lg">
+  <div class="pattern-grid-lg flex items-center justify-center bg-gray-800">
     <div class="hero-image-container relative overflow-hidden">
       <img :src="bgImage" class="hero-image w-full object-cover" />
 
@@ -8,13 +8,13 @@
         <!-- Introduction and About Content -->
         <p
           v-if="!gameStore.isGameStarted && !gameStore.showAbout"
-          class="text-lg leading-relaxed text-white font-medium"
+          class="text-lg font-medium leading-relaxed text-white"
         >
           Welcome to "Weirdlandia", a realm where every choice brings a new, unexpected twist. Challenges await at every
           corner. Carve your own journey in this unpredictable realm.
         </p>
 
-        <p v-if="gameStore.showAbout" class="text-sm text-white font-semibold">
+        <p v-if="gameStore.showAbout" class="text-sm font-semibold text-white">
           Weirdlandia is under active development. For more information or to request a press packet, message
           weird@kindrobots.org
         </p>
@@ -25,9 +25,9 @@
         </div>
 
         <!-- Action Buttons -->
-        <div class="flex justify-center space-x-6 mt-6">
+        <div class="mt-6 flex justify-center space-x-6">
           <button
-            class="py-2 px-6 text-xl bg-primary hover:bg-primary-darkened focus:ring focus:ring-primary focus:ring-opacity-50 rounded-full shadow-lg transition-transform transform hover:scale-105"
+            class="bg-primary hover:bg-primary-darkened focus:ring-primary transform rounded-full px-6 py-2 text-xl shadow-lg transition-transform hover:scale-105 focus:ring focus:ring-opacity-50"
             @click="toggleGameAbout"
           >
             About Weirdlandia

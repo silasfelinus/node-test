@@ -1,11 +1,11 @@
 <template>
-  <div class="flex flex-col h-screen bg-base-200 text-base-content">
+  <div class="bg-base-200 text-base-content flex h-screen flex-col">
     <div class="m-4">
-      <label for="prompt" class="font-bold text-lg">Prompt:</label>
-      <textarea id="prompt" v-model="prompt" class="textarea textarea-bordered w-full h-20"></textarea>
+      <label for="prompt" class="text-lg font-bold">Prompt:</label>
+      <textarea id="prompt" v-model="prompt" class="textarea textarea-bordered h-20 w-full"></textarea>
     </div>
 
-    <div class="flex justify-around m-4">
+    <div class="m-4 flex justify-around">
       <select v-model="color" class="select select-bordered w-40">
         <option disabled="disabled" selected="selected">Color</option>
         <option v-for="(option, index) in colors" :key="index" :value="option">
@@ -32,11 +32,11 @@
       </select>
     </div>
 
-    <div class="flex justify-center m-4">
+    <div class="m-4 flex justify-center">
       <button class="btn btn-primary btn-lg" @click="makeArt">Make Art</button>
     </div>
 
-    <div class="flex flex-row justify-around m-4">
+    <div class="m-4 flex flex-row justify-around">
       <div class="card bordered w-1/2 p-4">
         <!-- Chat history/response -->
         <p v-for="(message, index) in chatHistory" :key="index">

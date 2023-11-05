@@ -2,7 +2,7 @@
   <transition name="fade" mode="out-in">
     <div
       :key="dream"
-      class="dream-status text-default text-lg font-semibold text-center bg-primary p-4 border-accent shadow-lg transition-all duration-500 hover:scale-105"
+      class="dream-status text-default bg-primary border-accent p-4 text-center text-lg font-semibold shadow-lg transition-all duration-500 hover:scale-105"
       @click="updateDream"
     >
       {{ statusMessage }}
@@ -15,7 +15,7 @@ import { useDreamStore } from '../../../stores/dreamStore';
 
 const dreamStore = useDreamStore();
 const dream = ref(dreamStore.randomDream());
-let statusMessage = ref(`One Moment...${dream.value}`);
+const statusMessage = ref(`One Moment...${dream.value}`);
 
 const updateDream = () => {
   dream.value = dreamStore.randomDream();

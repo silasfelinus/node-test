@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-base-200 min-h-screen flex flex-col items-center py-8">
+  <div class="bg-base-200 flex min-h-screen flex-col items-center py-8">
     <!-- Spotify Login -->
     <div v-if="!token" class="mb-8">
       <button class="btn btn-primary" @click="fetchSpotifyToken">
@@ -8,12 +8,12 @@
     </div>
 
     <!-- Player Interface -->
-    <div v-if="token" class="bg-secondary p-8 rounded shadow-lg w-1/3">
+    <div v-if="token" class="bg-secondary w-1/3 rounded p-8 shadow-lg">
       <!-- Current Track Information -->
-      <div v-if="currentTrack" class="flex items-center mb-4">
-        <img :src="currentTrack.imageUrl" class="w-16 h-16 rounded mr-4" alt="Album Art" />
+      <div v-if="currentTrack" class="mb-4 flex items-center">
+        <img :src="currentTrack.imageUrl" class="mr-4 h-16 w-16 rounded" alt="Album Art" />
         <div>
-          <div class="text-accent font-semibold text-xl mb-1">{{ currentTrack.name }}</div>
+          <div class="text-accent mb-1 text-xl font-semibold">{{ currentTrack.name }}</div>
           <div class="text-base-100">
             {{ currentTrack.artist }} - {{ currentTrack.album }} ( {{ formatDate(currentTrack.release_date) }})
           </div>
@@ -35,7 +35,7 @@
 
       <!-- Volume Control -->
       <div class="mt-4 flex items-center">
-        <icon name="mdi:volume-high" class="text-lg mr-2" />
+        <icon name="mdi:volume-high" class="mr-2 text-lg" />
         <input v-model="volume" type="range" class="w-full" min="0" max="100" />
       </div>
 

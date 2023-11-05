@@ -1,7 +1,7 @@
 <template>
-  <div class="live-chat-window bg-base-200 rounded-2xl p-4 max-h-400">
+  <div class="live-chat-window bg-base-200 max-h-400 rounded-2xl p-4">
     <!-- Chat Messages -->
-    <div class="chat-messages overflow-y-auto max-h-300">
+    <div class="chat-messages max-h-300 overflow-y-auto">
       <div v-for="message in currentChannelMessages" :key="message.id" class="chat-message">
         <strong>{{ message.sender }}:</strong> {{ message.content }}
       </div>

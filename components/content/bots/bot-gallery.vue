@@ -1,15 +1,15 @@
 <template>
-  <div class="min-h-screen flex flex-col justify-center sm:py-12 bg-base-200">
-    <div class="relative py-3 sm:max-w-xl sm:mx-auto">
-      <div class="absolute inset-0 bg-gradient-to-r from-blue-400 to-indigo-500 shadow-lg transform rounded-3xl"></div>
-      <div class="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">
-        <div class="max-w-md mx-auto">
-          <div class="flex flex-col w-full">
-            <label class="font-bold mb-2 text-gray-700" for="bot-selector">Select a Bot:</label>
+  <div class="bg-base-200 flex min-h-screen flex-col justify-center sm:py-12">
+    <div class="relative py-3 sm:mx-auto sm:max-w-xl">
+      <div class="absolute inset-0 transform rounded-3xl bg-gradient-to-r from-blue-400 to-indigo-500 shadow-lg"></div>
+      <div class="relative bg-white px-4 py-10 shadow-lg sm:rounded-3xl sm:p-20">
+        <div class="mx-auto max-w-md">
+          <div class="flex w-full flex-col">
+            <label class="mb-2 font-bold text-gray-700" for="bot-selector">Select a Bot:</label>
             <select
               id="bot-selector"
               v-model="selectedBot"
-              class="form-select block w-full mt-1 rounded-2xl"
+              class="form-select mt-1 block w-full rounded-2xl"
               @change="handleChange"
             >
               <option disabled value="">Please select a bot</option>
@@ -21,9 +21,9 @@
               <p>Active bot: {{ currentBot.name }}</p>
             </div>
             <!-- Card display -->
-            <div v-if="currentBot" class="mt-4 p-4 bg-gray-100 rounded-lg shadow-md">
-              <img :src="currentBot.avatarImage" alt="Bot Avatar" class="w-24 h-24 rounded-full mx-auto" />
-              <h3 class="text-2xl mt-4 text-center">{{ currentBot.name }}</h3>
+            <div v-if="currentBot" class="mt-4 rounded-lg bg-gray-100 p-4 shadow-md">
+              <img :src="currentBot.avatarImage" alt="Bot Avatar" class="mx-auto h-24 w-24 rounded-full" />
+              <h3 class="mt-4 text-center text-2xl">{{ currentBot.name }}</h3>
               <p class="mt-2 text-center">{{ currentBot.description }}</p>
             </div>
             <div v-else>

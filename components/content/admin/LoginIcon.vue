@@ -1,7 +1,7 @@
 <template>
-  <div class="flex items-center h-36 w-36">
+  <div class="flex h-36 w-36 items-center">
     <WelcomeMessage />
-    <icon name="tabler:user" class="text-base-200 text-2xl ml-2 cursor-pointer" @click="toggleVisibility" />
+    <icon name="tabler:user" class="text-base-200 ml-2 cursor-pointer text-2xl" @click="toggleVisibility" />
     <LoginWindow v-if="isVisible" />
   </div>
 </template>

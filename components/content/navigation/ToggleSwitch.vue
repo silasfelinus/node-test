@@ -1,5 +1,5 @@
 <template>
-  <div class="toggle-container flex justify-between items-center w-full">
+  <div class="toggle-container flex w-full items-center justify-between">
     <span>Bot View</span>
     <label class="switch">
       <input type="checkbox" role="switch" aria-label="Toggle view" :checked="isChecked" @change="toggleView" />

@@ -1,15 +1,15 @@
 <template>
   <div
-    class="card max-w-sm rounded overflow-hidden shadow-lg relative cursor-pointer transition-shadow duration-300 ease-in-out hover:shadow-2xl"
+    class="card relative max-w-sm cursor-pointer overflow-hidden rounded shadow-lg transition-shadow duration-300 ease-in-out hover:shadow-2xl"
   >
     <img
-      class="avatar w-16 h-16 rounded-full border-2 border-white absolute top-0 right-0 mt-4 mr-4"
+      class="avatar absolute right-0 top-0 mr-4 mt-4 h-16 w-16 rounded-full border-2 border-white"
       :src="avatar"
       alt="Avatar"
     />
     <img class="w-full" :src="image" alt="AMIbot" />
     <div class="content px-6 py-4">
-      <div class="title font-bold text-2xl mb-2">{{ title }}</div>
+      <div class="title mb-2 text-2xl font-bold">{{ title }}</div>
       <slot></slot>
     </div>
   </div>
@@ -36,9 +36,7 @@ const props = defineProps({
 .card {
   background: #ffffff;
   border-radius: 10px;
-  box-shadow:
-    0 1px 3px rgba(0, 0, 0, 0.12),
-    0 1px 2px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   padding: 20px;
 }
 

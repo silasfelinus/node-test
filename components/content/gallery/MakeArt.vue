@@ -1,6 +1,6 @@
 <template>
   <div class="bg-base p-8">
-    <input v-model="userText" class="input input-bordered w-full mb-4" placeholder="Enter your text here" />
+    <input v-model="userText" class="input input-bordered mb-4 w-full" placeholder="Enter your text here" />
     <div class="space-y-4">
       <!-- Repeating labels with Tailwind and DaisyUI styling -->
       <div v-for="(value, key) in settings" :key="key" class="label">
@@ -22,7 +22,7 @@
       <!-- Loading animation -->
     </div>
     <div v-if="imageData" class="mt-4">
-      <img :src="imageData" alt="Generated Image" class="max-w-full h-auto" />
+      <img :src="imageData" alt="Generated Image" class="h-auto max-w-full" />
     </div>
   </div>
 </template>

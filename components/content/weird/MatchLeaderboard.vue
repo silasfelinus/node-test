@@ -1,5 +1,5 @@
 <template>
-  <div class="rounded-2xl border p-3 m-3 bg-base-200">
+  <div class="bg-base-200 m-3 rounded-2xl border p-3">
     <h1>Global Match Leaderboard</h1>
     <table>
       <thead>

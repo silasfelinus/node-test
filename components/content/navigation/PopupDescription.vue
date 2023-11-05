@@ -1,17 +1,17 @@
 <template>
   <div
     v-show="isHovered"
-    class="absolute left-1/2 top-0 transform -translate-x-1/2 -translate-y-full mt-[-20px] bg-base-200 p-2 rounded-2xl border z-50 flex items-center space-x-2"
+    class="bg-base-200 absolute left-1/2 top-0 z-50 mt-[-20px] flex -translate-x-1/2 -translate-y-full transform items-center space-x-2 rounded-2xl border p-2"
     :class="{ 'flex-row': !streaming, 'flex-col': streaming }"
     style="z-index: 1000"
   >
-    <div v-if="image" class="w-24 h-24 rounded-2xl overflow-hidden border">
-      <img :src="`/images/${image}`" alt="Image" class="object-cover w-full h-full" />
+    <div v-if="image" class="h-24 w-24 overflow-hidden rounded-2xl border">
+      <img :src="`/images/${image}`" alt="Image" class="h-full w-full object-cover" />
     </div>
     <div class="text-3xl">
       <icon :name="icon" />
     </div>
-    <div class="text-sm rounded-2xl border p-2">
+    <div class="rounded-2xl border p-2 text-sm">
       {{ description }}
     </div>
   </div>

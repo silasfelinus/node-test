@@ -1,10 +1,10 @@
 <template>
   <!-- Chat Toggle Container -->
-  <div class="flex justify-center items-center">
+  <div class="flex items-center justify-center">
     <!-- Chat Toggle Button -->
     <button
       :class="[
-        'flex justify-center items-center m-2 w-6 h-6 md:w-16 md:h-16 cursor-pointer transition-all ease-in-out hover:scale-110 hover:shadow-lg rounded-full',
+        'm-2 flex h-6 w-6 cursor-pointer items-center justify-center rounded-full transition-all ease-in-out hover:scale-110 hover:shadow-lg md:h-16 md:w-16',
         { 'bg-accent': isChatVisible },
       ]"
       @click="toggleChat"
@@ -13,7 +13,7 @@
       <icon
         :name="isChatVisible ? 'mdi:chat' : 'mdi:chat-off'"
         :title="isChatVisible ? 'Hide Chat' : 'Show Chat'"
-        class="w-full h-full"
+        class="h-full w-full"
       />
     </button>
   </div>

@@ -2,7 +2,7 @@
   <div
     class="tutorial-cards-container fixed bottom-0 right-0 z-40 flex flex-col-reverse items-end space-y-2 space-y-reverse p-2"
   >
-    <div v-if="showInfo" class="flex w-full justify-between items-center">
+    <div v-if="showInfo" class="flex w-full items-center justify-between">
       <div class="flex flex-col-reverse items-end space-y-2 space-y-reverse">
         <MessageCard
           v-if="showAmiCard"
@@ -77,9 +77,7 @@ onMounted(() => {
 <style>
 .fade-slide-enter-active,
 .fade-slide-leave-active {
-  transition:
-    opacity 0.5s,
-    bottom 0.5s ease-in-out;
+  transition: opacity 0.5s, bottom 0.5s ease-in-out;
 }
 .fade-slide-enter, .fade-slide-leave-to /* .fade-slide-leave-active in <2.1.8 */ {
   opacity: 0;

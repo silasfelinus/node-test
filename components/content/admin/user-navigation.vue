@@ -1,14 +1,14 @@
 <template>
-  <div class="relative bg-base-200 rounded-2xl m-4 p-4">
-    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full p-1 shadow-lg">
-      <div class="flex space-x-2 z-50">
+  <div class="bg-base-200 relative m-4 rounded-2xl p-4">
+    <div class="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 transform rounded-full p-1 shadow-lg">
+      <div class="z-50 flex space-x-2">
         <!-- New Icon for showing the Site Map -->
-        <icon name="bi:map" class="text-2xl cursor-pointer" @click="toggleSiteMap" />
+        <icon name="bi:map" class="cursor-pointer text-2xl" @click="toggleSiteMap" />
         <!-- Existing icons -->
-        <icon name="grommet-icons:grid" class="text-2xl cursor-pointer" @click="setView('fourRow')" />
-        <icon name="mdi:view-dashboard-outline" class="text-2xl cursor-pointer" @click="setView('threeRow')" />
-        <icon name="ion:grid-outline" class="text-2xl cursor-pointer" @click="setView('twoRow')" />
-        <icon name="bi:fullscreen" class="text-2xl cursor-pointer" @click="setView('single')" />
+        <icon name="grommet-icons:grid" class="cursor-pointer text-2xl" @click="setView('fourRow')" />
+        <icon name="mdi:view-dashboard-outline" class="cursor-pointer text-2xl" @click="setView('threeRow')" />
+        <icon name="ion:grid-outline" class="cursor-pointer text-2xl" @click="setView('twoRow')" />
+        <icon name="bi:fullscreen" class="cursor-pointer text-2xl" @click="setView('single')" />
       </div>
     </div>
 
@@ -20,11 +20,11 @@
     <!-- Original User Navigation View -->
     <div v-else class="flex flex-wrap">
       <nuxt-link v-for="item in userNavigation" :key="item.path" :to="item.path" :class="itemClass">
-        <div class="bg-base-200 rounded-2xl p-4 flex flex-col items-center cursor-pointer hover:bg-accent transition">
+        <div class="bg-base-200 hover:bg-accent flex cursor-pointer flex-col items-center rounded-2xl p-4 transition">
           <img :src="item.image" alt="" class="mb-2 rounded-2xl border" />
-          <div class="text-lg font-bold mb-2">{{ item.title }}</div>
-          <div class="text-sm mb-2">{{ item.description }}</div>
-          <button class="bg-primary py-1 px-4 rounded hover:bg-secondary transition">Go</button>
+          <div class="mb-2 text-lg font-bold">{{ item.title }}</div>
+          <div class="mb-2 text-sm">{{ item.description }}</div>
+          <button class="bg-primary hover:bg-secondary rounded px-4 py-1 transition">Go</button>
         </div>
       </nuxt-link>
     </div>

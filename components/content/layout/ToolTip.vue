@@ -1,6 +1,6 @@
 <template>
   <!-- Main Container -->
-  <div class="flex flex-col items-center p-8 bg-base-200 rounded-lg shadow-lg relative w-64 h-64">
+  <div class="bg-base-200 relative flex h-64 w-64 flex-col items-center rounded-lg p-8 shadow-lg">
     <!-- Tip Toggles -->
     <div class="absolute bottom-0 right-0 mb-2 mr-2 flex flex-col items-end">
       <button v-if="page.tooltip && !tipStatus.Silas.seen" @click="toggleTip('Silas')">
@@ -19,7 +19,7 @@
       </button>
     </div>
     <!-- Display Tip -->
-    <div v-if="currentTip" class="flex flex-col items-start w-full h-full">
+    <div v-if="currentTip" class="flex h-full w-full flex-col items-start">
       <h3 class="text-lg font-semibold">{{ currentTipType }} says:</h3>
       <p class="flex-1">{{ currentTip }}</p>
       <button @click="clearTip">Clear</button>

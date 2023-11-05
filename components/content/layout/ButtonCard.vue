@@ -1,12 +1,12 @@
 <template>
   <div
-    class="flex flex-col items-center justify-center p-4 rounded-lg cursor-pointer"
+    class="flex cursor-pointer flex-col items-center justify-center rounded-lg p-4"
     :class="cardColor"
     @click="handleClick"
   >
-    <div v-if="label" class="text-lg font-semibold mb-2">{{ label }}</div>
+    <div v-if="label" class="mb-2 text-lg font-semibold">{{ label }}</div>
     <div class="flex items-center justify-center">
-      <img v-if="image" :src="image" class="h-16 w-16 mr-2" />
+      <img v-if="image" :src="image" class="mr-2 h-16 w-16" />
       <div>{{ description }}</div>
       <slot />
     </div>

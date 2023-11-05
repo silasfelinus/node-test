@@ -1,24 +1,24 @@
 <template>
-  <div class="flex justify-center items-center bg-base-400">
+  <div class="bg-base-400 flex items-center justify-center">
     <!-- Button to Toggle Popup -->
-    <button v-if="!showPopup" class="bg-primary text-white rounded-2xl p-4 m-4 border" @click="togglePopup">
+    <button v-if="!showPopup" class="bg-primary m-4 rounded-2xl border p-4 text-white" @click="togglePopup">
       <icon :name="milestone?.icon || 'default-icon'" class="h-16 w-16" />
     </button>
 
     <!-- Popup Content -->
-    <div v-if="showPopup" class="flex justify-center rounded-2xl items-center z-50 bg-base-200 p-2 m-2 border">
-      <div class="bg-base-400 rounded-2xl p-6 m-6 text-center relative">
-        <h2 class="text-2xl font-semibold mb-4">Congratulations, {{ userStore.username }}!</h2>
+    <div v-if="showPopup" class="bg-base-200 z-50 m-2 flex items-center justify-center rounded-2xl border p-2">
+      <div class="bg-base-400 relative m-6 rounded-2xl p-6 text-center">
+        <h2 class="mb-4 text-2xl font-semibold">Congratulations, {{ userStore.username }}!</h2>
         <div v-if="milestone?.icon">
-          <icon :name="milestone.icon" class="h-16 w-16 mx-auto mb-4" />
+          <icon :name="milestone.icon" class="mx-auto mb-4 h-16 w-16" />
           <p class="text-xl font-medium">🌟 You earned the {{ milestone.label }} milestone! 🌟</p>
           <p class="my-4">{{ milestone.message }}</p>
           <div class="karma-award flex flex-col items-center">
             <p class="text-lg font-semibold">Bonus: +{{ milestone.karma }}</p>
             <p class="text-lg">You Found 1 Jellybean!</p>
-            <icon name="tdesign:bean" class="p-2 m-2 h-16 w-16 text-accent" />
+            <icon name="tdesign:bean" class="text-accent m-2 h-16 w-16 p-2" />
           </div>
-          <button class="bg-primary text-white rounded-2xl border px-4 py-2 mt-4" @click="closePopup">
+          <button class="bg-primary mt-4 rounded-2xl border px-4 py-2 text-white" @click="closePopup">
             Yay! (Close)
           </button>
         </div>

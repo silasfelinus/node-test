@@ -8,9 +8,7 @@ module.exports = {
   plugins: ['@tailwindcss/typography', 'daisyui'],
   daisyui: {
     styled: true,
-    themes: [
-      true, // this will include the default light and dark themes
-    ],
+    themes: [true],
     rtl: false,
     logs: true,
   },

@@ -1,8 +1,8 @@
 <template>
-  <div class="bg-gray-50 min-h-screen flex justify-center items-center">
-    <div class="bg-white max-w-md mx-auto rounded-xl shadow-lg p-10 space-y-5">
-      <h1 class="text-4xl font-bold text-center text-indigo-600 mb-10">Hair by Superkate!</h1>
-      <div class="flex justify-center mb-5">
+  <div class="flex min-h-screen items-center justify-center bg-gray-50">
+    <div class="mx-auto max-w-md space-y-5 rounded-xl bg-white p-10 shadow-lg">
+      <h1 class="mb-10 text-center text-4xl font-bold text-indigo-600">Hair by Superkate!</h1>
+      <div class="mb-5 flex justify-center">
         <site-logo />
       </div>
       <form class="space-y-5">
@@ -55,9 +55,9 @@
               </label>
             </div>
             <hr />
-            <div class="bg-gray-100 p-2 rounded-md">Total cost: ${{ totalCost }}</div>
+            <div class="rounded-md bg-gray-100 p-2">Total cost: ${{ totalCost }}</div>
             <hr />
-            <div class="bg-gray-100 p-2 rounded-md">
+            <div class="rounded-md bg-gray-100 p-2">
               Calculation: (${{ rate }} Rate per hour x {{ hours }} hours) + ${{ productCost }} Product Cost = ${{
                 totalCost
               }}
@@ -73,7 +73,7 @@
               class="input input-bordered w-full pr-20"
               placeholder="Client's Email"
             />
-            <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
               + superkate@gmail.com
             </div>
           </div>
@@ -85,15 +85,15 @@
 </template>
 
 <script setup>
-let date = ref(new Date().toISOString().substr(0, 10));
-let clientName = ref('');
-let servicesProvided = ref('');
-let hours = ref('');
-let rate = ref('');
-let productCost = ref('');
-let clientEmail = ref('');
+const date = ref(new Date().toISOString().substr(0, 10));
+const clientName = ref('');
+const servicesProvided = ref('');
+const hours = ref('');
+const rate = ref('');
+const productCost = ref('');
+const clientEmail = ref('');
 
-let totalCost = computed(() => {
+const totalCost = computed(() => {
   return hours.value * rate.value + Number(productCost.value);
 });
 

@@ -1,24 +1,24 @@
 <template>
-  <div class="flex items-center justify-center h-screen">
+  <div class="flex h-screen items-center justify-center">
     <div
-      class="bg-white rounded-full overflow-hidden shadow relative aspect-w-1 aspect-h-1"
+      class="aspect-w-1 aspect-h-1 relative overflow-hidden rounded-full bg-white shadow"
       :style="eyeballStyle"
       @mousemove="handleMouseMove"
       @click="blink"
     >
       <div
-        class="rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-transform duration-500"
+        class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform rounded-full transition-transform duration-500"
         :style="irisStyle"
       >
         <div
-          class="bg-black rounded-full w-2/5 h-2/5 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+          class="absolute left-1/2 top-1/2 h-2/5 w-2/5 -translate-x-1/2 -translate-y-1/2 transform rounded-full bg-black"
         ></div>
       </div>
 
       <!-- Upper eyelid -->
-      <div class="bg-white absolute w-full" :style="upperEyelidStyle"></div>
+      <div class="absolute w-full bg-white" :style="upperEyelidStyle"></div>
       <!-- Lower eyelid -->
-      <div class="bg-white absolute w-full bottom-0" :style="lowerEyelidStyle"></div>
+      <div class="absolute bottom-0 w-full bg-white" :style="lowerEyelidStyle"></div>
     </div>
   </div>
 </template>

@@ -9,7 +9,7 @@
       @mouseup="endDrag(index)"
     >
       <!-- Jellybean SVG path here -->
-      <icon :name="jellybeanIcon" class="w-6 h-6 text-white" />
+      <icon :name="jellybeanIcon" class="h-6 w-6 text-white" />
     </div>
   </div>
 </template>

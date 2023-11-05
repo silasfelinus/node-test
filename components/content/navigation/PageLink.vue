@@ -1,21 +1,21 @@
 <template>
   <NuxtLink
     :to="page._path"
-    class="text-center rounded-2xl flex flex-col items-center group hover:bg-accent transition-colors relative"
-    :class="{ 'items-start flex-row': isExtended && isHighlight }"
+    class="hover:bg-accent group relative flex flex-col items-center rounded-2xl text-center transition-colors"
+    :class="{ 'flex-row items-start': isExtended && isHighlight }"
   >
     <div
       v-if="isHighlight && page.image"
       :class="[
-        'relative rounded-2xl overflow-hidden m-2',
-        { 'w-24 h-24': !isExtended, 'w-40 h-40 shadow-lg': isExtended },
+        'relative m-2 overflow-hidden rounded-2xl',
+        { 'h-24 w-24': !isExtended, 'h-40 w-40 shadow-lg': isExtended },
       ]"
     >
-      <img :src="`/images/${page.image}`" alt="Page Image" class="w-full h-full object-cover" />
+      <img :src="`/images/${page.image}`" alt="Page Image" class="h-full w-full object-cover" />
     </div>
-    <div class="flex flex-col items-center relative">
+    <div class="relative flex flex-col items-center">
       <div
-        class="flex items-center space-x-2 border border-solid rounded-2xl p-2 bg-secondary group-hover:bg-accent transition-colors"
+        class="bg-secondary group-hover:bg-accent flex items-center space-x-2 rounded-2xl border border-solid p-2 transition-colors"
       >
         <div v-if="page.icon" class="text-3xl group-hover:text-4xl">
           <icon :name="page.icon" />
@@ -24,18 +24,18 @@
           {{ page.title }}
         </div>
       </div>
-      <div v-if="page._path === currentPath" class="mt-1 text-xl rounded-2xl border bg-accent p-1">
+      <div v-if="page._path === currentPath" class="bg-accent mt-1 rounded-2xl border p-1 text-xl">
         <icon name="line-md:download-outline-loop" class="text-lg" />
         You are here
       </div>
     </div>
     <div
       v-if="isExtended"
-      class="absolute left-1/2 transform -translate-x-1/2 bg-base-200 p-2 rounded-lg hidden group-hover:block z-10"
+      class="bg-base-200 absolute left-1/2 z-10 hidden -translate-x-1/2 transform rounded-lg p-2 group-hover:block"
       :class="{ 'top-0 -translate-y-full': !isHighlight, 'top-1/4 -translate-y-1/2': isHighlight }"
     >
       <div v-if="!isHighlight && page.image" class="mb-2">
-        <img :src="`/images/${page.image}`" alt="Page Image" class="w-24 h-24 object-cover rounded-lg" />
+        <img :src="`/images/${page.image}`" alt="Page Image" class="h-24 w-24 rounded-lg object-cover" />
       </div>
       {{ page.description }}
     </div>

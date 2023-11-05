@@ -1,22 +1,22 @@
 <template>
-  <div class="product-card bg-base-200 rounded-2xl p-4 flex flex-col">
-    <div class="product-header flex items-center justify-between mb-2">
+  <div class="product-card bg-base-200 flex flex-col rounded-2xl p-4">
+    <div class="product-header mb-2 flex items-center justify-between">
       <div class="product-title text-lg font-bold">
         {{ product.title }}
       </div>
       <div class="product-price text-info">{{ product.costInPennies }} Pennies</div>
     </div>
     <div class="product-info">
-      <div class="product-category text-sm text-accent">Category: {{ product.category }}</div>
-      <div class="product-flavor text-sm text-warning">
+      <div class="product-category text-accent text-sm">Category: {{ product.category }}</div>
+      <div class="product-flavor text-warning text-sm">
         {{ product.flavorText }}
       </div>
-      <div class="product-description text-sm text-info">
+      <div class="product-description text-info text-sm">
         {{ product.description }}
       </div>
     </div>
-    <div class="product-actions flex items-center mt-2">
-      <button class="bg-primary text-lg px-2 py-1 rounded" @click="addToCart(product.id)">Add to Cart</button>
+    <div class="product-actions mt-2 flex items-center">
+      <button class="bg-primary rounded px-2 py-1 text-lg" @click="addToCart(product.id)">Add to Cart</button>
     </div>
   </div>
 </template>
