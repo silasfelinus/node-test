@@ -1,10 +1,10 @@
 <template>
-  <div class="bg-base-200 flex w-full flex-col rounded-2xl p-2">
-    <label class="m-2 text-lg font-bold" for="bot-selector">🤖 Please Select your Bot:</label>
+  <div class="flex flex-col w-full bg-base-200 rounded-2xl p-2">
+    <label class="font-bold text-lg m-2" for="bot-selector">🤖 Please Select your Bot:</label>
     <select
       id="bot-selector"
       v-model="selectedBot"
-      class="form-select bg-primary rounded text-black"
+      class="form-select text-black bg-primary rounded"
       @change="handleChange"
     >
       <option disabled value="">Please select a bot</option>

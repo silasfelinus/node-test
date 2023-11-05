@@ -2,15 +2,15 @@
   <div v-if="props.pitch" class="flex space-x-4">
     <!-- Mature Toggle -->
     <button :class="matureButtonClass" aria-label="Toggle Mature Content" @click="toggleMature">
-      <icon :name="matureIcon" class="h-6 w-6" />
+      <icon :name="matureIcon" class="w-6 h-6" />
     </button>
     <!-- Public Toggle -->
     <button :class="publicButtonClass" aria-label="Toggle Public Visibility" @click="togglePublic">
-      <icon :name="publicIcon" class="h-6 w-6" />
+      <icon :name="publicIcon" class="w-6 h-6" />
     </button>
     <!-- Clap Button -->
     <button class="bg-info hover:bg-info-dark rounded-full p-2" aria-label="Add Clap" @click="addClap">
-      <icon name="mdi:hand" class="h-6 w-6" />
+      <icon name="mdi:hand" class="w-6 h-6" />
     </button>
   </div>
   <div v-else>
@@ -21,7 +21,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
-import { usePitchStore, Pitch } from '@/stores/pitchStore';
+import { usePitchStore, type Pitch } from '@/stores/pitchStore';
 import { errorHandler } from '@/server/api/utils/error'; // Import your error handler
 
 const props = defineProps<{

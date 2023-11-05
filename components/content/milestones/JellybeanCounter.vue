@@ -1,17 +1,17 @@
 <template>
-  <div class="bg-base-200 m-2 mx-auto max-w-screen-xl rounded-2xl border p-2">
+  <div class="bg-base-200 rounded-2xl border m-2 p-2 mx-auto max-w-screen-xl">
     <!-- Header -->
-    <div class="bg-primary m-2 rounded-2xl border p-2 text-center text-white">
+    <div class="text-center bg-primary text-white border p-2 m-2 rounded-2xl">
       <h1 class="text-2xl">{{ userStore.username }}'s Milestones</h1>
     </div>
     <milestone-reward :id="10" />
 
     <!-- Milestones Data -->
-    <div class="grid grid-cols-1 gap-6 p-4 md:grid-cols-2 lg:grid-cols-3">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
       <!-- Earned Milestones -->
-      <div class="bg-primary m-2 flex flex-col items-center rounded-2xl border p-4">
+      <div class="flex flex-col items-center p-4 border bg-primary rounded-2xl m-2">
         <h2 class="text-lg font-bold">Earned Milestones</h2>
-        <div class="grid w-full grid-cols-1 gap-4">
+        <div class="grid grid-cols-1 gap-4 w-full">
           <EarnedMilestoneCard
             v-for="earnedMilestone in earnedMilestones"
             :key="earnedMilestone.id"
@@ -22,14 +22,14 @@
       </div>
 
       <!-- Leaderboard -->
-      <div class="bg-primary m-2 flex flex-col items-center rounded-2xl border p-4">
+      <div class="flex flex-col items-center p-4 border bg-primary rounded-2xl m-2">
         <milestone-leaderboard />
       </div>
 
       <!-- Unearned Milestones -->
-      <div class="bg-primary m-2 flex flex-col items-center rounded-2xl border p-4">
+      <div class="flex flex-col items-center p-4 border bg-primary rounded-2xl m-2">
         <h2 class="text-lg font-bold">Undiscovered Milestones</h2>
-        <div class="grid w-full grid-cols-1 gap-4 md:grid-cols-2">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
           <UnearnedMilestoneCard v-for="milestone in unearnedMilestones" :key="milestone.id" :milestone="milestone" />
         </div>
       </div>

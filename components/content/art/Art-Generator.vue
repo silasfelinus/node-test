@@ -1,17 +1,17 @@
 <template>
   <div class="bg-base-200 rounded-2xl p-8 text-lg">
-    <h1 class="mb-4 text-2xl">Art-Generator</h1>
+    <h1 class="text-2xl mb-4">Art-Generator</h1>
     Enter your Art Prompt. We will automatically begin with the pitch:
     <div class="font-bold">{{ pitch }}</div>
     <!-- Prompt Input -->
     <div class="mt-4">
-      <input v-model="prompt" placeholder="Enter your art prompt" class="w-full rounded-2xl p-2 text-lg" />
+      <input v-model="prompt" placeholder="Enter your art prompt" class="rounded-2xl p-2 w-full text-lg" />
     </div>
 
     <!-- Generate Art Button -->
     <button
       :disabled="isLoading"
-      class="bg-primary hover:bg-primary-dark mt-4 w-full rounded-2xl p-2 text-white"
+      class="bg-primary rounded-2xl p-2 text-white mt-4 w-full hover:bg-primary-dark"
       @click="generateArt"
     >
       Generate Art for Pitch
@@ -20,7 +20,7 @@
     <!-- Loading State -->
     <div v-if="isLoading" class="mt-4 flex flex-col items-center">
       <p>{{ loadingMessage }}</p>
-      <div class="loader mt-2 flex justify-center">
+      <div class="loader flex justify-center mt-2">
         <ami-butterfly />
       </div>
     </div>
@@ -40,8 +40,8 @@ import { useDreamStore } from '@/stores/dreamStore';
 import { errorHandler } from '@/server/api/utils/error';
 import { useUserStore } from '@/stores/userStore';
 import { useLoadStore } from '@/stores/loadStore';
-import { useArtStore, Art } from '@/stores/artStore';
-import { Pitch, usePitchStore } from '@/stores/pitchStore';
+import { useArtStore, type Art } from '@/stores/artStore';
+import { type Pitch, usePitchStore } from '@/stores/pitchStore';
 
 // Load stores
 const dreamStore = useDreamStore();

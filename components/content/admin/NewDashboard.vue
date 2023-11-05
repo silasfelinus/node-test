@@ -1,5 +1,5 @@
 <template>
-  <header :class="isCompact ? 'bg-base-200 m-1 flex flex-row items-center' : 'bg-base-200 m-1 flex flex-col'">
+  <header :class="isCompact ? 'flex flex-row items-center bg-base-200 m-1' : 'flex flex-col bg-base-200 m-1'">
     <!-- User Info -->
     <user-avatar
       :size="isCompact ? 'small' : 'large'"
@@ -7,14 +7,14 @@
       @click="toggleMinimize"
     />
 
-    <div v-if="!isCompact" class="flex w-full flex-col">
+    <div v-if="!isCompact" class="flex flex-col w-full">
       <!-- Username, Jellybeans, Logout -->
       <div class="flex items-center space-x-4">
         <span class="text-lg md:text-xl">
           {{ user?.username || 'Kind Guest' }}
         </span>
         <span class="hidden md:inline-block">{{ jellybeans }}/ 9 Jellybeans Discovered</span>
-        <button v-if="isLoggedIn" class="md:text-md text-sm text-gray-500" @click.stop="handleButtonClick">
+        <button v-if="isLoggedIn" class="text-sm md:text-md text-gray-500" @click.stop="handleButtonClick">
           Logout
         </button>
       </div>
@@ -28,7 +28,7 @@
       <span class="text-lg md:text-xl">
         {{ user?.username || 'Kind Guest' }}
       </span>
-      <button v-if="isLoggedIn" class="md:text-md text-sm text-gray-500" @click.stop="handleButtonClick">Logout</button>
+      <button v-if="isLoggedIn" class="text-sm md:text-md text-gray-500" @click.stop="handleButtonClick">Logout</button>
       <theme-toggle />
       <butterfly-toggle />
     </div>

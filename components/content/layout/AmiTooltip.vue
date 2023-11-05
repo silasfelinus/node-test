@@ -1,12 +1,12 @@
 <template>
-  <div class="bg-base-400 text-default m-6 flex items-center rounded-2xl border p-4 shadow-md">
+  <div class="flex items-center bg-base-400 text-default p-4 m-6 rounded-2xl border shadow-md">
     <!-- Butterfly Container -->
-    <div class="h-10 w-10 flex-none">
-      <icon name="icon-park-twotone:butterfly" class="h-full w-full text-2xl" />
+    <div class="flex-none w-10 h-10">
+      <icon name="icon-park-twotone:butterfly" class="text-2xl w-full h-full" />
     </div>
     <!-- Text Container -->
-    <div class="ml-4 flex-grow">
-      <span class="flex items-center font-semibold">
+    <div class="flex-grow ml-4">
+      <span class="font-semibold flex items-center">
         <icon name="mdi:chat" class="text-default mr-2 text-2xl" />
         <span class="text-default text-xl">{{ streamedText }}</span>
       </span>
@@ -57,6 +57,8 @@ watch(
   color: var(--bg-primary);
   padding: 1rem;
   border-radius: 0.5rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 </style>

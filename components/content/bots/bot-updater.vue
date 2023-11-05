@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { useBotStore } from '../../../stores/botStore';
-import { type BotData } from '../../../stores/seeds/seedBots'; // Importing the seed data
+import { botData } from '../../../stores/seeds/seedBots'; // Importing the seed data
 
 const botStore = useBotStore();
 const bots = computed(() => botStore.bots);
@@ -22,7 +22,7 @@ const updateStoreWithLocalData = async () => {
 <template>
   <div class="container mx-auto p-4">
     <button
-      class="text-default rounded bg-blue-500 px-4 py-2 font-bold hover:bg-blue-700"
+      class="bg-blue-500 hover:bg-blue-700 text-default font-bold py-2 px-4 rounded"
       @click="updateStoreWithLocalData"
     >
       Update Store with Local Data

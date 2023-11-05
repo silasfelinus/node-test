@@ -49,7 +49,9 @@ onMounted(() => {
 <style>
 .fade-slide-enter-active,
 .fade-slide-leave-active {
-  transition: opacity 0.5s, bottom 0.5s ease-in-out;
+  transition:
+    opacity 0.5s,
+    bottom 0.5s ease-in-out;
 }
 .fade-slide-enter, .fade-slide-leave-to /* .fade-slide-leave-active in <2.1.8 */ {
   opacity: 0;

@@ -11,31 +11,31 @@
         <option value="badge">Badge</option>
       </select>
     </div>
-    <div class="bg-base relative flex h-screen flex-col items-center overflow-auto p-8">
+    <div class="relative flex flex-col items-center p-8 bg-base overflow-auto h-screen">
       <div
-        class="from-base to-base pointer-events-none absolute inset-0 z-10 bg-gradient-to-t via-transparent opacity-30"
+        class="absolute inset-0 bg-gradient-to-t from-base via-transparent to-base opacity-30 pointer-events-none z-10"
       ></div>
-      <div class="mx-auto mt-24 max-w-4xl">
-        <div class="carousel carousel-vertical rounded-box h-96">
-          <div v-for="page in filteredPages" :key="page._id" class="group relative mt-4">
+      <div class="mt-24 mx-auto max-w-4xl">
+        <div class="h-96 carousel carousel-vertical rounded-box">
+          <div v-for="page in filteredPages" :key="page._id" class="mt-4 relative group">
             <NuxtLink :to="page._path">
               <div @mouseover="handleMouseover(page)" @mouseout="handleMouseout">
                 <img
                   v-if="page.image && layout === 'full'"
                   :src="`/images/${page.image}`"
                   alt="Page Image"
-                  class="image-carousel mx-auto h-auto w-full rounded-md object-cover"
+                  class="w-full h-auto object-cover rounded-md mx-auto image-carousel"
                 />
                 <img
                   v-else-if="page.image && layout === 'badge'"
                   :src="`/images/${page.image}`"
                   alt="Page Image"
-                  class="mx-auto h-24 w-24 rounded-full object-cover"
+                  class="w-24 h-24 object-cover rounded-full mx-auto"
                 />
               </div>
               <div
                 v-if="tooltipContent"
-                class="text-default absolute top-0 mt-2 hidden translate-y-full transform rounded-lg bg-black px-3 py-2 text-center text-sm opacity-75 group-hover:block md:text-base"
+                class="mt-2 text-center text-sm md:text-base bg-black text-default px-3 py-2 rounded-lg opacity-75 absolute top-0 transform translate-y-full group-hover:block hidden"
               >
                 {{ tooltipContent }}
               </div>

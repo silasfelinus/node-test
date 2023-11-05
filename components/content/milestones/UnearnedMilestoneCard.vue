@@ -1,9 +1,9 @@
 <template>
   <!-- Unachieved Milestone Card -->
   <div
-    class="card bg-base-200 hover:bg-accent-dark relative m-2 rounded-2xl border p-4 transition duration-300 ease-in-out hover:shadow-xl"
+    class="card bg-base-200 hover:bg-accent-dark hover:shadow-xl rounded-2xl p-4 m-2 border transition duration-300 ease-in-out relative"
   >
-    <div class="flex flex-col items-center text-center">
+    <div class="text-center flex flex-col items-center">
       <!-- Milestone Icon -->
       <icon :name="milestone.icon" class="icon-extra-large mb-2" />
       <!-- Milestone Label -->
@@ -27,7 +27,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import { Milestone } from '@/stores/milestoneStore';
+import { type Milestone } from '@/stores/milestoneStore';
 
 // Define props and destructure them
 const props = defineProps<{

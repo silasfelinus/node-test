@@ -16,18 +16,18 @@ const analogousColor = (hsl: string): string => {
     throw new Error('Invalid color format');
   }
   const [h, s, l] = hslMatch.map(Number);
-  const newH = (h + 30) % 360;
+  let newH = (h + 30) % 360;
   return `hsl(${newH},${s}%,${l}%)`;
 };
 
 // Complementary color generator
 const complementaryColor = (color: string): string => {
   const [h, s, l] = color.replace('hsl(', '').replace(')', '').split(',');
-  const newH = (parseInt(h) + 180) % 360;
+  let newH = (parseInt(h) + 180) % 360;
   return `hsl(${newH},${s},${l})`;
 };
 
-export interface Butterfly {
+interface Butterfly {
   wingTopColor: string;
   wingBottomColor: string;
   rotation: number;

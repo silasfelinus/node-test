@@ -27,7 +27,7 @@ const goBack = () => {
 
 <style scoped>
 .icon-effect {
-  @apply h-6 w-6 cursor-pointer transition-shadow md:h-16 md:w-16;
+  @apply w-6 h-6 md:w-16 md:h-16 cursor-pointer transition-shadow;
 }
 
 /* Glow animation */
@@ -36,7 +36,9 @@ const goBack = () => {
     box-shadow: 0 0 5px #fff;
   }
   50% {
-    box-shadow: 0 0 20px #fff, 0 0 30px #ff73fd;
+    box-shadow:
+      0 0 20px #fff,
+      0 0 30px #ff73fd;
   }
   100% {
     box-shadow: 0 0 5px #fff;

@@ -1,11 +1,11 @@
 <template>
-  <div class="bg-base-200 rounded p-4">
-    <h2 class="mb-2 text-xl">Add New Reward</h2>
+  <div class="bg-base-200 p-4 rounded">
+    <h2 class="text-xl mb-2">Add New Reward</h2>
     <form @submit.prevent="addReward">
       <!-- Icon Selection -->
       <div class="mb-2">
         <label for="icon" class="block text-sm font-medium text-gray-600">Icon</label>
-        <select v-model="newReward.icon" required class="bg-base-200 rounded p-2">
+        <select v-model="newReward.icon" required class="p-2 rounded bg-base-200">
           <option v-for="(name, label) in iconMap" :key="label" :value="name">{{ label }} - {{ name }}</option>
         </select>
       </div>
@@ -15,11 +15,11 @@
       </a>
       <div class="mb-2">
         <label for="icon" class="block text-sm font-medium text-gray-600">Icon</label>
-        <input id="icon" v-model="newReward.icon" placeholder="🌟" required class="bg-base-200 rounded p-2" />
+        <input id="icon" v-model="newReward.icon" placeholder="🌟" required class="p-2 rounded bg-base-200" />
       </div>
       <div class="mb-2">
         <label for="text" class="block text-sm font-medium text-gray-600">Text</label>
-        <input id="text" v-model="newReward.text" placeholder="Reward Text" required class="bg-base-200 rounded p-2" />
+        <input id="text" v-model="newReward.text" placeholder="Reward Text" required class="p-2 rounded bg-base-200" />
       </div>
       <div class="mb-2">
         <label for="power" class="block text-sm font-medium text-gray-600">Power</label>
@@ -28,14 +28,14 @@
           v-model="newReward.power"
           placeholder="Reward Power"
           required
-          class="bg-base-200 rounded p-2"
+          class="p-2 rounded bg-base-200"
         />
       </div>
       <div class="mb-2">
         <label for="rarity" class="block text-sm font-medium text-gray-600">Rarity</label>
-        <input id="rarity" v-model="newReward.rarity" type="number" placeholder="50" class="bg-base-200 rounded p-2" />
+        <input id="rarity" v-model="newReward.rarity" type="number" placeholder="50" class="p-2 rounded bg-base-200" />
       </div>
-      <button type="submit" class="bg-primary text-default rounded p-2">Add Reward</button>
+      <button type="submit" class="bg-primary text-default p-2 rounded">Add Reward</button>
     </form>
   </div>
 </template>

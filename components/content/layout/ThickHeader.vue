@@ -1,25 +1,25 @@
 <template>
-  <header class="bg-primary relative flex items-center justify-between rounded-2xl border p-2">
+  <header class="flex justify-between items-center bg-primary rounded-2xl border p-2 relative">
     <home-link />
     <layout-selector class="relative" />
     <!-- Butterfly Toggle -->
-    <div class="m-2 flex items-center justify-center">
+    <div class="flex items-center justify-center m-2">
       <butterfly-toggle />
     </div>
     <!-- Title and Subtitle -->
-    <h1 class="text-default text-4xl font-bold">Kind Robots</h1>
-    <div class="relative m-2 flex flex-col items-center justify-center p-2">
+    <h1 class="text-4xl text-default font-bold">Kind Robots</h1>
+    <div class="flex flex-col items-center justify-center p-2 m-2 relative">
       <!-- Conditional rendering for title -->
-      <h1 v-if="page.subtitle" class="text-default text-4xl font-bold">{{ page.subtitle }}</h1>
-      <h1 v-else class="text-default text-4xl font-bold">Location: 🌀 Loading...</h1>
+      <h1 v-if="page.subtitle" class="text-4xl text-default font-bold">{{ page.subtitle }}</h1>
+      <h1 v-else class="text-4xl text-default font-bold">Location: 🌀 Loading...</h1>
     </div>
     <!-- Theme Selector -->
-    <div class="relative flex items-center justify-center">
+    <div class="flex items-center justify-center relative">
       <theme-toggle />
     </div>
 
     <!-- Screen FX -->
-    <div class="relative flex items-center justify-center">
+    <div class="flex items-center justify-center relative">
       <screen-fx />
     </div>
   </header>

@@ -1,24 +1,24 @@
 <template>
-  <div class="bg-base relative flex h-screen flex-col items-center overflow-auto p-8">
+  <div class="relative flex flex-col items-center p-8 bg-base overflow-auto h-screen">
     <div
-      class="from-base to-base pointer-events-none absolute inset-0 z-10 bg-gradient-to-t via-transparent opacity-30"
+      class="absolute inset-0 bg-gradient-to-t from-base via-transparent to-base opacity-30 pointer-events-none z-10"
     ></div>
-    <div class="mx-auto mt-24 max-w-4xl">
-      <div class="carousel carousel-vertical rounded-box h-96">
+    <div class="mt-24 mx-auto max-w-4xl">
+      <div class="h-96 carousel carousel-vertical rounded-box">
         <div
           v-for="bot in bots"
           :key="bot.id"
-          class="carousel-item h-full cursor-pointer transition-colors duration-200 ease-in-out"
+          class="carousel-item h-full cursor-pointer transition-colors ease-in-out duration-200"
           :class="{
             'bg-accent text-default animate-pulse': currentBot && currentBot.id === bot.id,
             'bg-primary': !currentBot || currentBot.id !== bot.id,
           }"
           @click="setCurrentBot(bot)"
         >
-          <img :src="bot.avatarImage ?? undefined" alt="Bot Avatar" class="h-full w-full rounded-lg object-cover" />
-          <div :data-theme="bot.theme" class="bg-primary text-default bg-opacity-70 p-2">
-            <h2 class="text-dark mt-4 text-center text-2xl font-semibold">{{ bot.name }}</h2>
-            <p class="text-dark mt-2 text-center text-xl">{{ bot.description }}</p>
+          <img :src="bot.avatarImage ?? undefined" alt="Bot Avatar" class="w-full h-full object-cover rounded-lg" />
+          <div :data-theme="bot.theme" class="bg-opacity-70 bg-primary text-default p-2">
+            <h2 class="mt-4 text-2xl text-dark font-semibold text-center">{{ bot.name }}</h2>
+            <p class="mt-2 text-xl text-dark text-center">{{ bot.description }}</p>
           </div>
         </div>
       </div>

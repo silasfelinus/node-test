@@ -1,7 +1,7 @@
 <template>
-  <div class="bg-base-200 m-2 rounded-2xl border p-4">
-    <h2 class="text-center text-lg font-bold">Jellybean Collectors</h2>
-    <ul class="list-inside list-decimal">
+  <div class="bg-base-200 rounded-2xl border p-4 m-2">
+    <h2 class="text-lg font-bold text-center">Jellybean Collectors</h2>
+    <ul class="list-decimal list-inside">
       <li v-for="(entry, index) in leaderboardData" :key="index">{{ entry.username }}: {{ entry.count }} jellybeans</li>
     </ul>
   </div>
@@ -9,7 +9,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
-import { useMilestoneStore, MilestoneRecord } from '@/stores/milestoneStore';
+import { useMilestoneStore, type MilestoneRecord } from '@/stores/milestoneStore';
 
 const milestoneStore = useMilestoneStore();
 

@@ -11,7 +11,7 @@ import { ref, onMounted } from 'vue';
 import { useUserStore } from '../stores/userStore';
 
 const userStore = useUserStore();
-const karma = ref(userStore.karma);
+let karma = ref(userStore.karma);
 
 onMounted(() => {
   karma.value = userStore.karma;

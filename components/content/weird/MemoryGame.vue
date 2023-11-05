@@ -165,8 +165,8 @@ watch(selectedDifficulty, resetGame);
 </script>
 
 <template>
-  <div class="container mx-auto flex min-h-screen flex-col items-center space-y-6 px-4 py-8">
-    <header class="space-y-2 text-center">
+  <div class="container mx-auto px-4 py-8 min-h-screen flex flex-col items-center space-y-6">
+    <header class="text-center space-y-2">
       <h1 class="text-4xl font-bold">Kind Robots Memory Game</h1>
       <p class="text-gray-600">Match the images and test your memory!</p>
       <match-leaderboard />
@@ -177,12 +177,12 @@ watch(selectedDifficulty, resetGame);
             {{ difficulty.label }}
           </option>
         </select>
-        <button class="bg-primary m-1 rounded-2xl border p-2 text-white" @click="resetGame">Start New Game</button>
+        <button class="rounded-2xl text-white bg-primary p-2 m-1 border" @click="resetGame">Start New Game</button>
         <milestone-reward v-if="shouldShowMilestoneCheck" :id="5"></milestone-reward>
       </div>
     </header>
 
-    <div class="game-board flex w-full max-w-4xl flex-wrap items-center justify-center">
+    <div class="game-board w-full max-w-4xl flex flex-wrap justify-center items-center">
       <!-- Loader -->
       <div v-if="isLoading" class="loader mt-4"></div>
 
@@ -190,19 +190,19 @@ watch(selectedDifficulty, resetGame);
       <div
         v-for="galleryImage in galleryImages"
         :key="galleryImage.id"
-        class="gallery-display relative m-4 w-screen transform cursor-pointer overflow-hidden rounded-xl transition-transform duration-300 hover:scale-105"
+        class="gallery-display m-4 hover:scale-105 transform transition-transform duration-300 relative rounded-xl overflow-hidden w-screen cursor-pointer"
         @click="handleGalleryClick(galleryImage)"
       >
         <div :class="{ flipped: galleryImage.flipped || galleryImage.matched }">
           <!-- This is the back of the card -->
           <img
-            class="card-back absolute inset-0 h-full w-full object-cover"
+            class="card-back absolute inset-0 w-full h-full object-cover"
             src="/images/kindtitle.webp"
             alt="Memory Card"
           />
           <!-- This is the front of the card -->
           <img
-            class="card-front absolute inset-0 h-full w-full object-cover"
+            class="card-front absolute inset-0 w-full h-full object-cover"
             :src="galleryImage.imagePath"
             :alt="galleryImage.galleryName"
           />
@@ -220,7 +220,7 @@ watch(selectedDifficulty, resetGame);
       <div v-if="gameWon" class="mt-2 space-y-2 text-center">
         Congratulations! You've won!
         <button
-          class="btn btn-info text-default mt-2 rounded bg-blue-500 px-4 py-2 transition-colors hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-200"
+          class="btn btn-info mt-2 px-4 py-2 bg-blue-500 text-default rounded hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-200 transition-colors"
           @click="resetGame"
         >
           Play Again?

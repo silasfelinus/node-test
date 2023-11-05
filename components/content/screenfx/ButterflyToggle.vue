@@ -1,7 +1,7 @@
 <template>
-  <div class="icon-container bg-accent-100 flex flex-col items-center justify-center space-x-3 rounded-lg p-4">
+  <div class="icon-container flex items-center justify-center space-x-3 p-4 rounded-lg bg-accent-100 flex-col">
     <div
-      class="icon-box hover:bg-accent-200 transform cursor-pointer rounded-full p-3 transition-transform hover:scale-125"
+      class="icon-box transition-transform transform hover:scale-125 cursor-pointer p-3 rounded-full hover:bg-accent-200"
       @click="toggleAmiSwarm"
     >
       <icon
@@ -9,7 +9,7 @@
         title="Kind Butterflies"
         :active="fxStore.showAmiSwarm"
         :class="{ glow: fxStore.showAmiSwarm }"
-        class="h-12 w-12 md:h-8 md:w-8"
+        class="w-12 h-12 md:w-8 md:h-8"
       />
     </div>
     <div v-if="fxStore.showAmiSwarm">
@@ -17,8 +17,8 @@
     </div>
 
     <!-- Moved the label below the icon -->
-    <div v-if="!fxStore.showAmiSwarm" class="label-container text-default mt-2 text-xl font-bold"></div>
-    <div v-else class="label-container text-default mt-2 text-xl font-bold">We're free!</div>
+    <div v-if="!fxStore.showAmiSwarm" class="label-container mt-2 text-xl text-default font-bold"></div>
+    <div v-else class="label-container mt-2 text-xl text-default font-bold">We're free!</div>
   </div>
 </template>
 
@@ -45,10 +45,18 @@ const butterflyCount = 20;
 
 @keyframes glow {
   from {
-    box-shadow: 0 0 5px #ffcc00, 0 0 10px #ffcc00, 0 0 15px #ffcc00, 0 0 20px #ffcc00;
+    box-shadow:
+      0 0 5px #ffcc00,
+      0 0 10px #ffcc00,
+      0 0 15px #ffcc00,
+      0 0 20px #ffcc00;
   }
   to {
-    box-shadow: 0 0 10px #ffaa00, 0 0 20px #ffaa00, 0 0 30px #ffaa00, 0 0 40px #ffaa00;
+    box-shadow:
+      0 0 10px #ffaa00,
+      0 0 20px #ffaa00,
+      0 0 30px #ffaa00,
+      0 0 40px #ffaa00;
   }
 }
 

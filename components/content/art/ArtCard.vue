@@ -1,9 +1,9 @@
 <template>
   <div
-    class="art-viewer bg-primary cursor-pointer rounded-2xl p-4 transition-shadow hover:shadow-lg"
+    class="art-viewer bg-primary rounded-2xl p-4 transition-shadow hover:shadow-lg cursor-pointer"
     @click="selectArt"
   >
-    <h3 class="mb-2 text-lg font-semibold">{{ art.prompt }}</h3>
+    <h3 class="text-lg font-semibold mb-2">{{ art.prompt }}</h3>
     <div class="image-wrapper">
       <img :src="art.path" alt="Artwork" class="rounded-2xl transition-transform ease-in-out hover:scale-105" />
     </div>
@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-import { useArtStore, Art } from '@/stores/artStore';
+import { useArtStore, type Art } from '@/stores/artStore';
 import { useMatureStore } from '@/stores/matureStore';
 
 const filterStore = useMatureStore();
@@ -31,7 +31,7 @@ const selectArt = () => {
 
 <style scoped>
 .art-viewer {
-  @apply transition-all duration-300 ease-in-out;
+  @apply transition-all ease-in-out duration-300;
 }
 
 .image-wrapper {

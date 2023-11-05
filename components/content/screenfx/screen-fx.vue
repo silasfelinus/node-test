@@ -6,23 +6,23 @@
     <!-- Global Tooltip -->
     <div
       v-if="!hoveredEffect"
-      class="text-default pointer-events-none absolute left-1/2 top-0 z-10 -translate-x-1/2 -translate-y-full transform whitespace-nowrap rounded-sm bg-opacity-75 p-1 text-4xl font-bold"
+      class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-full bg-opacity-75 text-4xl text-default font-bold p-1 rounded-sm whitespace-nowrap pointer-events-none z-10"
     ></div>
     <div class="flex flex-wrap items-center justify-center space-x-4 space-y-4">
       <!-- Invisible First Icon -->
-      <div class="relative flex flex-col items-center space-y-2 opacity-0 md:flex-row md:space-x-4 md:space-y-0">
+      <div class="relative flex flex-col items-center space-y-2 md:space-y-0 md:flex-row md:space-x-4 opacity-0">
         <div class="flex flex-col items-center space-y-2"></div>
       </div>
       <!-- Visible Icons -->
       <div
         v-for="effect in effects"
         :key="effect.id"
-        class="relative flex flex-col items-center space-y-2 md:flex-row md:space-x-4 md:space-y-0"
+        class="relative flex flex-col items-center space-y-2 md:space-y-0 md:flex-row md:space-x-4"
       >
         <!-- Individual Tooltip -->
         <div
           v-if="hoveredEffect === effect.id"
-          class="text-default pointer-events-none absolute left-1/2 top-0 z-10 mt-[-60px] -translate-x-1/2 transform whitespace-nowrap rounded-xl bg-opacity-75 p-1 text-xl font-bold"
+          class="absolute top-0 mt-[-60px] left-1/2 transform -translate-x-1/2 bg-opacity-75 text-xl text-default font-bold p-1 rounded-xl whitespace-nowrap pointer-events-none z-10"
         >
           {{ effect.tooltip }}
         </div>
@@ -30,7 +30,7 @@
         <!-- Icon and Label Container -->
         <div class="flex flex-col items-center space-y-2">
           <div
-            class="hover:bg-accent flex transform cursor-pointer items-center justify-center rounded-full p-3 transition-transform hover:scale-125"
+            class="flex items-center justify-center transition-transform transform hover:scale-125 cursor-pointer p-3 rounded-full hover:bg-accent"
             :class="{ 'bg-accent': effect.isActive, 'bg-transluscent': !effect.isActive }"
             @click="toggleEffect(effect.id)"
             @mouseover="hoveredEffect = effect.id"
@@ -41,12 +41,12 @@
               :title="effect.label"
               :active="effect.isActive"
               :class="{ glow: effect.isActive }"
-              class="text-default h-8 w-8 fill-current md:h-12 md:w-12"
+              class="w-8 h-8 md:w-12 md:h-12 fill-current text-default"
             />
           </div>
 
           <!-- Label or Reveal -->
-          <div class="text-default text-center text-xl">
+          <div class="text-center text-xl text-default">
             {{ effect.isActive ? effect.reveal : effect.label }}
           </div>
         </div>

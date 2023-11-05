@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-base-200 rounded p-4">
-    <h2 class="mb-2 text-xl">Edit Reward</h2>
+  <div class="bg-base-200 p-4 rounded">
+    <h2 class="text-xl mb-2">Edit Reward</h2>
     <form @submit.prevent="editReward">
       <!-- Form Fields -->
       <div v-for="field in formFields" :key="field.id" class="mb-2">
@@ -10,10 +10,10 @@
           v-model="editedReward[field.id as keyof typeof editedReward]"
           :required="field.required"
           :type="field.type || 'text'"
-          class="bg-base-200 rounded p-2"
+          class="p-2 rounded bg-base-200"
         />
       </div>
-      <button type="submit" class="bg-primary text-default rounded p-2">Update Reward</button>
+      <button type="submit" class="bg-primary text-default p-2 rounded">Update Reward</button>
     </form>
   </div>
 </template>

@@ -1,7 +1,7 @@
 <template>
-  <div class="giftshop-container bg-base-200 flex flex-col rounded-2xl p-4">
+  <div class="giftshop-container bg-base-200 rounded-2xl p-4 flex flex-col">
     <!-- Header Section -->
-    <div class="giftshop-header mb-4 text-lg font-bold">Welcome to the Gift Shop!</div>
+    <div class="giftshop-header text-lg font-bold mb-4">Welcome to the Gift Shop!</div>
 
     <!-- Product Gallery -->
     <div class="product-gallery mb-4">
@@ -9,7 +9,7 @@
     </div>
 
     <!-- Toggle Shopping Cart Button -->
-    <button class="toggle-cart bg-primary rounded px-2 py-1 text-lg" @click="toggleCart">
+    <button class="toggle-cart bg-primary text-lg px-2 py-1 rounded" @click="toggleCart">
       {{ showCart ? 'Hide Cart' : 'Show Cart' }}
     </button>
 

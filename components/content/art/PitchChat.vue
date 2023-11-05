@@ -1,7 +1,7 @@
 <template>
-  <div class="live-chat-window bg-base-200 max-h-400 rounded-2xl p-4">
+  <div class="live-chat-window bg-base-200 rounded-2xl p-4 max-h-400">
     <!-- Chat Messages -->
-    <div class="chat-messages max-h-300 overflow-y-auto">
+    <div class="chat-messages overflow-y-auto max-h-300">
       <div v-for="message in currentChannelMessages" :key="message.id" class="chat-message">
         <strong>{{ message.sender }}:</strong> {{ message.content }}
       </div>
@@ -26,7 +26,7 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, watch } from 'vue';
 import { usePitchStore } from '@/stores/pitchStore';
-import { useChannelStore, Channel as BaseChannel, Message } from '@/stores/channelStore';
+import { useChannelStore, type Channel as BaseChannel, type Message } from '@/stores/channelStore';
 
 interface Channel extends BaseChannel {
   messages?: Message[];

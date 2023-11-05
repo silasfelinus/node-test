@@ -1,5 +1,5 @@
 <template>
-  <div class="art-prompts bg-base-200 m-4 flex flex-col rounded-2xl border p-4 text-lg">
+  <div class="art-prompts rounded-2xl border bg-base-200 flex flex-col m-4 p-4 text-lg">
     <h1>Art Prompts</h1>
 
     <!-- Fetch Button -->
@@ -19,8 +19,8 @@
 
         <!-- Edit and Delete (Visible to Admins) -->
         <span v-if="userRole === 'ADMIN' && userStore.isLoggedIn">
-          <button class="bg-base-200 m-2 flex rounded-2xl border p-2" @click="startEditingPrompt(prompt)">Edit</button>
-          <button class="bg-base-200 m-2 flex rounded-2xl border p-2" @click="deletePrompt(prompt.id)">Delete</button>
+          <button class="rounded-2xl border bg-base-200 flex p-2 m-2" @click="startEditingPrompt(prompt)">Edit</button>
+          <button class="rounded-2xl border bg-base-200 flex p-2 m-2" @click="deletePrompt(prompt.id)">Delete</button>
         </span>
       </li>
     </ul>
@@ -34,7 +34,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
-import { usePromptStore, ArtPrompt } from '@/stores/promptStore';
+import { usePromptStore, type ArtPrompt } from '@/stores/promptStore';
 import { useUserStore } from '@/stores/userStore';
 
 const promptStore = usePromptStore();

@@ -1,26 +1,26 @@
 <template>
-  <div class="flex h-2/3 w-full flex-col items-center justify-start p-2">
+  <div class="flex flex-col items-center justify-start w-full p-2 h-2/3">
     <!-- Chat window -->
-    <div class="chat-window bg-base-200 w-full max-w-md overflow-y-auto rounded-2xl border">
+    <div class="chat-window w-full max-w-md rounded-2xl border overflow-y-auto bg-base-200">
       <!-- Silas' Message -->
       <div class="flex flex-row justify-start p-4">
-        <div class="silas-chat bubble bg-primary mb-2 rounded-2xl p-4 text-white shadow-lg">
-          <icon name="mdi:chat" class="mr-2 text-2xl text-white" />Silas Says:
-          <span class="block text-xl">{{ streamedText }}</span>
+        <div class="silas-chat bubble bg-primary text-white p-4 rounded-2xl shadow-lg mb-2">
+          <icon name="mdi:chat" class="text-white mr-2 text-2xl" />Silas Says:
+          <span class="text-xl block">{{ streamedText }}</span>
         </div>
       </div>
       <!-- AMI's Typing Indicator -->
       <div v-if="streamStatus === 'pause'" class="flex flex-row justify-end p-4">
-        <div class="ami-chat bubble bg-secondary flash-animation mb-2 rounded-2xl p-4 text-white shadow-lg">
-          <icon name="ph:butterfly" class="mr-2 text-2xl text-white" />
+        <div class="ami-chat bubble bg-secondary text-white p-4 rounded-2xl shadow-lg mb-2 flash-animation">
+          <icon name="ph:butterfly" class="text-white mr-2 text-2xl" />
           <div :class="{ 'opacity-50': isGreyedOut }">Ami is {{ randomAction }}</div>
         </div>
       </div>
       <!-- AMI's Message -->
       <div v-if="streamStatus === 'ami'" class="flex flex-row justify-end p-4">
-        <div class="ami-chat bubble bg-secondary mb-2 rounded-2xl p-4 text-white shadow-lg">
-          <icon name="ph:butterfly" class="mr-2 text-2xl text-white" />Ami Says:
-          <span class="block text-xl">{{ amiStream }}</span>
+        <div class="ami-chat bubble bg-secondary text-white p-4 rounded-2xl shadow-lg mb-2">
+          <icon name="ph:butterfly" class="text-white mr-2 text-2xl" />Ami Says:
+          <span class="text-xl block">{{ amiStream }}</span>
         </div>
       </div>
     </div>
@@ -42,7 +42,7 @@ const amiStream = ref('');
 let index = 0;
 let amiIndex = 0;
 let timer: number;
-const streamStatus = ref<'silas' | 'ami' | 'pause'>('silas');
+let streamStatus = ref<'silas' | 'ami' | 'pause'>('silas');
 
 const randomAction = ref('');
 

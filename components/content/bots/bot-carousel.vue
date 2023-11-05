@@ -1,26 +1,26 @@
 <template>
-  <div class="bg-base-200 relative flex h-screen flex-col items-center overflow-auto rounded-2xl p-2">
+  <div class="relative flex flex-col items-center p-2 bg-base-200 overflow-auto h-screen rounded-2xl">
     <div class="m-4 mx-auto max-w-4xl">
-      <div class="carousel carousel-vertical rounded-box h-96">
+      <div class="h-96 carousel carousel-vertical rounded-box">
         <div
           v-for="bot in bots"
           :id="`bot-${bot.id}`"
           :key="bot.id"
-          class="carousel-item h-full cursor-pointer transition-colors duration-200 ease-in-out"
+          class="carousel-item h-full cursor-pointer transition-colors ease-in-out duration-200"
           :class="{
             'bg-accent text-default': currentBot?.id === bot.id,
             'bg-primary': currentBot?.id !== bot.id,
           }"
           @click="setCurrentBot(bot.id)"
         >
-          <img :src="bot.avatarImage ?? undefined" class="h-full w-full rounded-lg object-cover" />
+          <img :src="bot.avatarImage ?? undefined" class="w-full h-full object-cover rounded-lg" />
         </div>
       </div>
-      <div v-if="currentBot" class="text-dark mt-4 text-center text-2xl font-semibold">
-        <div class="card bg-info w-fit rounded-2xl">
+      <div v-if="currentBot" class="mt-4 text-2xl text-dark font-semibold text-center">
+        <div class="card bg-info rounded-2xl w-fit">
           {{ currentBot.name }}
         </div>
-        <p class="text-dark mt-2 text-center text-xl">{{ currentBot.description }}</p>
+        <p class="mt-2 text-xl text-dark text-center">{{ currentBot.description }}</p>
       </div>
     </div>
   </div>

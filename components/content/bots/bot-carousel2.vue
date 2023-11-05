@@ -1,28 +1,28 @@
 <template>
-  <div class="bg-base relative flex h-screen flex-col items-center overflow-auto">
+  <div class="relative flex flex-col items-center bg-base overflow-auto h-screen">
     <div
-      class="from-base to-base pointer-events-none absolute inset-0 z-10 bg-gradient-to-t via-transparent opacity-30"
+      class="absolute inset-0 bg-gradient-to-t from-base via-transparent to-base opacity-30 pointer-events-none z-10"
     ></div>
-    <h1 class="mt-8 text-center text-3xl font-semibold">Welcome to Kind Robots</h1>
-    <div class="mx-auto mt-24 max-w-4xl">
-      <div class="carousel carousel-vertical rounded-box h-96">
+    <h1 class="mt-8 text-3xl font-semibold text-center">Welcome to Kind Robots</h1>
+    <div class="mt-24 mx-auto max-w-4xl">
+      <div class="h-96 carousel carousel-vertical rounded-box">
         <div
           v-for="bot in bots"
           :id="`bot-${bot.id}`"
           :key="bot.id"
-          class="carousel-item h-full cursor-pointer transition-colors duration-200 ease-in-out"
+          class="carousel-item h-full cursor-pointer transition-colors ease-in-out duration-200"
           :class="{
             'bg-accent text-default': currentBot?.id === bot.id,
             'bg-primary': currentBot?.id !== bot.id,
           }"
           @click="setCurrentBot(bot.id)"
         >
-          <img :src="bot.avatarImage ?? undefined" class="w-full rounded-lg object-cover" />
+          <img :src="bot.avatarImage ?? undefined" class="w-full object-cover rounded-lg" />
         </div>
       </div>
-      <div v-if="currentBot" class="text-dark mt-4 text-center text-2xl font-semibold">
+      <div v-if="currentBot" class="mt-4 text-2xl text-dark font-semibold text-center">
         {{ currentBot.name }}
-        <p class="text-dark mt-2 text-center text-xl">{{ currentBot.description }}</p>
+        <p class="mt-2 text-xl text-dark text-center">{{ currentBot.description }}</p>
       </div>
     </div>
   </div>

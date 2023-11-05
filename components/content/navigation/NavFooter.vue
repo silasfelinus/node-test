@@ -1,25 +1,25 @@
 <template>
   <footer
-    class="relative m-2 flex flex-col items-center p-0"
+    class="m-2 p-0 relative flex flex-col items-center"
     :class="{ 'min-h-56': !isExtended, 'h-auto': isExtended }"
   >
-    <nav class="bg-primary flex w-auto flex-col items-center rounded-2xl border p-2">
+    <nav class="w-auto p-2 rounded-2xl bg-primary flex flex-col items-center border">
       <!-- Highlight Section -->
       <div class="flex flex-nowrap justify-center space-x-2 overflow-x-auto pb-10">
         <div
           v-for="page in pagesByTagAndSort('home', 'highlight')"
           :key="page._id"
-          class="group relative m-1 flex-shrink-0"
+          class="flex-shrink-0 m-1 relative group"
         >
-          <NuxtLink :to="page._path" class="text-md group flex flex-col items-center px-1 py-1 shadow-lg">
+          <NuxtLink :to="page._path" class="flex flex-col items-center py-1 px-1 text-md shadow-lg group">
             <div
-              class="bg-base-200 group-hover:border-secondary flex items-center justify-center overflow-hidden rounded-2xl border p-2 transition-colors"
+              class="bg-base-200 p-2 rounded-2xl overflow-hidden flex items-center justify-center border transition-colors group-hover:border-secondary"
             >
-              <img :src="`/images/${page.image}`" alt="Page Image" class="h-24 w-24 rounded-2xl object-cover" />
+              <img :src="`/images/${page.image}`" alt="Page Image" class="w-24 h-24 object-cover rounded-2xl" />
             </div>
-            <div class="mt-1 p-1 text-center">
+            <div class="mt-1 text-center p-1">
               {{ page.title }}
-              <div v-if="page._path === $route.path" class="text-md bg-secondary m-1 rounded-2xl border p-1">
+              <div v-if="page._path === $route.path" class="m-1 text-md bg-secondary rounded-2xl border p-1">
                 <icon name="line-md:download-outline-loop" class="text-lg" />
                 You are here
               </div>
@@ -29,29 +29,29 @@
       </div>
 
       <!-- Icon and Text Sections (Displayed only when extended) -->
-      <div v-if="isExtended" class="order-last mt-4 rounded-2xl p-2">
+      <div v-if="isExtended" class="order-last mt-4 p-2 rounded-2xl">
         <div class="grid grid-cols-2 gap-2 md:grid-cols-4 lg:grid-cols-6">
           <div
             v-for="page in [...pagesByTagAndSort('home', 'icon'), ...pagesByTagAndSort('home', 'text')]"
             :key="page._id"
-            class="group relative m-2"
+            class="m-2 relative group"
           >
             <NuxtLink
               :to="page._path"
-              class="bg-secondary hover:bg-accent group flex items-center justify-center space-x-2 rounded-2xl p-2 text-center transition-colors duration-300"
+              class="p-2 text-center bg-secondary rounded-2xl flex items-center justify-center space-x-2 group hover:bg-accent transition-colors duration-300"
             >
               <div v-if="page.icon" class="text-3xl">
                 <icon :name="page.icon" />
               </div>
-              <div class="p-1 text-lg">
+              <div class="text-lg p-1">
                 {{ page.title }}
-                <div v-if="page._path === $route.path" class="text-md text-secondary mt-1 rounded-full border p-1">
+                <div v-if="page._path === $route.path" class="mt-1 text-md text-secondary rounded-full border p-1">
                   <icon name="line-md:download-outline-loop" class="text-lg" />
                   You are here
                 </div>
               </div>
             </NuxtLink>
-            <div v-if="page.underConstruction" class="bg-warning mt-1 rounded-2xl p-1 text-center text-xs">
+            <div v-if="page.underConstruction" class="mt-1 bg-warning text-xs rounded-2xl p-1 text-center">
               Under Construction
             </div>
           </div>
@@ -59,12 +59,12 @@
       </div>
     </nav>
     <div
-      class="duration-600 bg-base-400 absolute bottom-4 left-1/2 -translate-x-1/2 transform cursor-pointer rounded-2xl border p-2 shadow-lg transition ease-in-out"
+      class="transition duration-600 ease-in-out absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-base-400 border rounded-2xl p-2 cursor-pointer shadow-lg"
       @click.stop="toggleExtend"
     >
       <icon
         :name="isExtended ? 'line-md:chevron-small-double-down' : 'line-md:chevron-small-double-up'"
-        class="text-default h-6 w-6"
+        class="w-6 h-6 text-default"
       />
     </div>
   </footer>

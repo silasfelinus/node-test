@@ -1,7 +1,7 @@
 <template>
   <div>
-    <p class="text-base-content text-center text-sm">{{ description }}</p>
-    <div class="relative mt-1 rounded-md shadow-sm">
+    <p class="text-sm text-center text-base-content">{{ description }}</p>
+    <div class="mt-1 relative rounded-md shadow-sm">
       <input
         id="slider"
         v-model="temperature"
@@ -9,7 +9,7 @@
         step="0.1"
         min="0"
         max="1"
-        class="slider bg-accent h-1 w-full cursor-pointer overflow-hidden rounded-full"
+        class="slider bg-accent h-1 w-full overflow-hidden cursor-pointer rounded-full"
       />
     </div>
     <p class="text-md text-base-content">{{ leftLabel }} ---- {{ rightLabel }}</p>
@@ -87,7 +87,9 @@ watchEffect(() => {
   height: 16px;
   cursor: pointer;
   transition: 0.2s;
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  box-shadow:
+    1px 1px 1px #000000,
+    0px 0px 1px #0d0d0d;
   background: #3071a9;
   border-radius: 1.3px;
   border: 0.2px solid #010101;
@@ -98,7 +100,9 @@ watchEffect(() => {
   height: 16px;
   cursor: pointer;
   transition: 0.2s;
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  box-shadow:
+    1px 1px 1px #000000,
+    0px 0px 1px #0d0d0d;
   background: #3071a9;
   border-radius: 1.3px;
   border: 0.2px solid #010101;

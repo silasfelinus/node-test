@@ -1,16 +1,16 @@
 <template>
-  <div v-if="product && cartItem" class="cart-item bg-base-200 flex flex-col rounded-2xl p-4">
+  <div v-if="product && cartItem" class="cart-item bg-base-200 rounded-2xl p-4 flex flex-col">
     <!-- Pass the product to the ProductCard component -->
     <ProductCard :product="product" />
 
     <!-- Cart specific actions -->
-    <div class="cart-item-actions mt-2 flex items-center">
-      <button class="bg-warning rounded px-2 py-1 text-lg" @click="decrementQuantity">-</button>
-      <div class="quantity mx-2 text-lg">
+    <div class="cart-item-actions flex items-center mt-2">
+      <button class="bg-warning text-lg px-2 py-1 rounded" @click="decrementQuantity">-</button>
+      <div class="quantity text-lg mx-2">
         {{ cartItem.quantity }}
       </div>
-      <button class="bg-primary rounded px-2 py-1 text-lg" @click="incrementQuantity">+</button>
-      <button class="bg-accent ml-4 rounded px-2 py-1 text-lg" @click="removeFromCart">Remove</button>
+      <button class="bg-primary text-lg px-2 py-1 rounded" @click="incrementQuantity">+</button>
+      <button class="bg-accent text-lg px-2 py-1 rounded ml-4" @click="removeFromCart">Remove</button>
     </div>
   </div>
   <div v-else class="bg-warning rounded-2xl p-4 text-lg">Loading or item not available...</div>
@@ -19,7 +19,7 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue';
 import { useCartStore } from '@/stores/cartStore';
-import { useProductStore, Product } from '@/stores/productStore'; // Import Product type
+import { useProductStore, type Product } from '@/stores/productStore'; // Import Product type
 import { errorHandler } from '@/server/api/utils/error';
 
 // Define the prop type for 'item'

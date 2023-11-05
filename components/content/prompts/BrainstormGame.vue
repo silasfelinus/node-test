@@ -1,24 +1,24 @@
 <template>
-  <div class="bg-base-200 m-2 flex flex-col items-center rounded-2xl border p-2">
-    <h1 class="mb-4 text-3xl font-bold">Brainstorm Café</h1>
-    <img :src="pageImage" alt="Brainstorming" class="mb-4 h-40 w-40 rounded-full" />
-    <p class="mb-4 text-lg">
+  <div class="flex flex-col items-center bg-base-200 rounded-2xl p-2 m-2 border">
+    <h1 class="text-3xl font-bold mb-4">Brainstorm Café</h1>
+    <img :src="pageImage" alt="Brainstorming" class="rounded-full h-40 w-40 mb-4" />
+    <p class="text-lg mb-4">
       Welcome to the Brainstorm Café! Click the button below to get some fresh, creative ideas.
     </p>
-    <button class="bg-primary m-4 rounded-full p-4 text-lg text-white" :disabled="isLoading" @click="fetchBrainstorm">
+    <button class="bg-primary text-white p-4 rounded-full text-lg m-4" :disabled="isLoading" @click="fetchBrainstorm">
       Get New Ideas
     </button>
     <milestone-reward v-if="shouldShowMilestoneCheck" :id="2"></milestone-reward>
     <div
       v-if="isLoading"
-      class="loader mb-4 h-16 w-16 rounded-full border-8 border-t-8 border-gray-200 ease-linear"
+      class="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-16 w-16 mb-4"
     ></div>
     <transition-group name="list" tag="div" class="flex flex-wrap justify-center">
       <div v-for="idea in allIdeas" :key="idea.title" class="m-2">
         <BrainstormCard :idea="idea" @click="handleCardClick(idea)" />
       </div>
     </transition-group>
-    <div v-if="errorMessage" class="bg-warning rounded-full p-4 text-white">
+    <div v-if="errorMessage" class="bg-warning text-white p-4 rounded-full">
       <icon name="error" class="text-lg" /> {{ errorMessage }}
     </div>
   </div>
@@ -123,7 +123,9 @@ const parseIdeasFromAPI = (rawContent: string) => {
   background-color: var(--bg-secondary);
   border-radius: 1rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  transition:
+    transform 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out;
 }
 
 .card-style:hover {

@@ -3,9 +3,9 @@
     <!-- Always show Galaxy Link -->
     <NuxtLink
       :to="randomHighlightPage._path"
-      class="bg-base-200 hover:glow-animation flex flex-col items-center justify-center rounded-2xl text-center hover:scale-110"
+      class="flex flex-col items-center justify-center rounded-2xl bg-base-200 text-center hover:scale-110 hover:glow-animation"
     >
-      <div class="flex flex-grow items-center space-x-2">
+      <div class="flex items-center space-x-2 flex-grow">
         <icon name="game-icons:galaxy" class="icon-effect" />
       </div>
     </NuxtLink>
@@ -14,7 +14,7 @@
     <NuxtLink
       v-if="!isHomePage"
       to="/"
-      class="bg-base-200 hover:glow-animation flex items-center justify-center rounded-2xl text-center hover:scale-110"
+      class="flex items-center justify-center rounded-2xl bg-base-200 text-center hover:scale-110 hover:glow-animation"
     >
       <icon name="line-md:home-md-twotone" class="icon-effect" />
     </NuxtLink>
@@ -39,7 +39,7 @@ const randomHighlightPage = computed(() => {
 
 <style scoped>
 .icon-effect {
-  @apply h-6 w-6 cursor-pointer transition-shadow md:h-16 md:w-16;
+  @apply w-6 h-6 md:w-16 md:h-16 cursor-pointer transition-shadow;
 }
 
 @keyframes glow {
@@ -47,7 +47,9 @@ const randomHighlightPage = computed(() => {
     box-shadow: 0 0 5px #fff;
   }
   50% {
-    box-shadow: 0 0 20px #fff, 0 0 30px #ff73fd;
+    box-shadow:
+      0 0 20px #fff,
+      0 0 30px #ff73fd;
   }
   100% {
     box-shadow: 0 0 5px #fff;

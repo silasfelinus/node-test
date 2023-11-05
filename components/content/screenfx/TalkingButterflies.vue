@@ -7,7 +7,7 @@
       :style="{ left: butterfly.goal.x + 20 + 'px', top: butterfly.goal.y + 20 + 'px' }"
       class="text-bubble"
     >
-      <icon name="mdi:butterfly" class="mr-2 inline-block" /> {{ butterfly.text }}
+      <icon name="mdi:butterfly" class="inline-block mr-2" /> {{ butterfly.text }}
     </div>
   </div>
 </template>
@@ -61,6 +61,8 @@ onMounted(() => {
   color: var(--bg-primary);
   white-space: nowrap;
   transform: translate(-50%, -100%);
-  transition: top 0.3s, left 0.3s;
+  transition:
+    top 0.3s,
+    left 0.3s;
 }
 </style>

@@ -1,16 +1,16 @@
 <template>
   <div class="min-h-screen bg-gray-200 p-5">
-    <div v-if="error" class="my-10 text-center text-red-500">An error occurred: {{ error }}</div>
-    <div class="my-5 text-center">
+    <div v-if="error" class="text-red-500 text-center my-10">An error occurred: {{ error }}</div>
+    <div class="text-center my-5">
       <button
-        class="refresh-btn rounded px-8 py-2 transition-colors duration-300 hover:bg-red-500"
+        class="refresh-btn px-8 py-2 rounded transition-colors duration-300 hover:bg-red-500"
         @click="refreshImages"
       >
         Refresh Images
       </button>
     </div>
-    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-      <div v-for="gallery in galleries" :key="gallery.id" class="gallery-card rounded bg-white p-4 shadow-lg">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div v-for="gallery in galleries" :key="gallery.id" class="gallery-card shadow-lg rounded bg-white p-4">
         <div class="flip-container">
           <div class="flip-content" :style="{ transform: computeTransform(gallery) }">
             <!-- Front -->
@@ -34,8 +34,8 @@
           </div>
         </div>
         <!-- Gallery Name and Description -->
-        <h2 class="mt-3 text-xl font-semibold">{{ gallery.name }}</h2>
-        <p class="mt-1 text-sm text-gray-600">{{ gallery.description }}</p>
+        <h2 class="text-xl font-semibold mt-3">{{ gallery.name }}</h2>
+        <p class="text-sm text-gray-600 mt-1">{{ gallery.description }}</p>
       </div>
     </div>
   </div>

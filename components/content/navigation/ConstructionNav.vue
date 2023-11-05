@@ -1,11 +1,11 @@
 <template>
-  <div class="relative mb-1 flex flex-wrap justify-center space-x-2">
+  <div class="relative flex flex-wrap justify-center space-x-2 mb-1">
     <!-- Under Construction Section -->
     <div
-      class="bg-secondary mb-2 flex items-center justify-center rounded-2xl border px-1 text-2xl font-extrabold shadow-lg"
+      class="flex items-center justify-center text-2xl font-extrabold border shadow-lg bg-secondary rounded-2xl mb-2 px-1"
     >
       Under Construction
-      <icon name="line-md:construction" class="ml-2 text-2xl" />
+      <icon name="line-md:construction" class="text-2xl ml-2" />
     </div>
 
     <!-- Links -->
@@ -13,22 +13,22 @@
       v-for="page in underConstructionPages"
       :key="page._id"
       :to="page._path"
-      class="hover:bg-accent bg-warning group relative mb-4 flex w-64 flex-row items-center space-x-2 rounded-2xl border transition-colors"
+      class="group hover:bg-accent transition-colors relative rounded-2xl border bg-warning flex flex-row items-center space-x-2 w-64 mb-4"
       @mouseover="isHovered = page._id"
       @mouseleave="isHovered = null"
       @click="handleLinkClick"
     >
       <!-- Image -->
-      <div class="min-w-20 bg-secondary h-20 w-20 overflow-hidden rounded-lg border">
-        <img :src="`/images/${page.image}`" alt="Page Image" class="h-full w-full object-cover" />
+      <div class="w-20 h-20 min-w-20 rounded-lg overflow-hidden border bg-secondary">
+        <img :src="`/images/${page.image}`" alt="Page Image" class="object-cover w-full h-full" />
       </div>
       <!-- You are here indicator -->
-      <div v-if="page._path === $route.path" class="bg-secondary m-1 flex items-center rounded-2xl border p-1 text-xl">
-        You are here <icon name="line-md:download-outline-loop" class="mr-2 text-lg" />
+      <div v-if="page._path === $route.path" class="flex items-center m-1 p-1 text-xl rounded-2xl border bg-secondary">
+        You are here <icon name="line-md:download-outline-loop" class="text-lg mr-2" />
       </div>
       <!-- Page Title and Popup -->
       <div class="flex flex-col items-start">
-        <div class="bg-base-200 rounded-2xl border px-2 text-lg font-bold">
+        <div class="text-lg font-bold bg-base-200 px-2 rounded-2xl border">
           {{ page.title }}
         </div>
         <popup-description

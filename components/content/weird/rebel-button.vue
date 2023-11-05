@@ -1,22 +1,22 @@
 <template>
-  <div class="hero bg-base-200 m-2 flex h-full w-full flex-col items-center justify-center rounded-2xl border">
+  <div class="hero flex flex-col items-center justify-center bg-base-200 rounded-2xl border m-2 h-full w-full">
     <div
-      class="flex h-full w-full flex-col items-center justify-center space-y-4 md:flex-row md:space-x-4 md:space-y-0"
+      class="flex flex-col md:flex-row items-center justify-center w-full h-full space-y-4 md:space-y-0 md:space-x-4"
     >
       <!-- Left Section -->
-      <div class="m-2 flex w-full flex-col items-center space-y-4 p-2 md:w-1/3">
-        <div class="bg-base-200 rounded-lg p-4 shadow-lg">
-          <click-leaderboard class="m-2 rounded-2xl p-2" />
+      <div class="flex flex-col items-center w-full md:w-1/3 space-y-4 m-2 p-2">
+        <div class="bg-base-200 p-4 rounded-lg shadow-lg">
+          <click-leaderboard class="rounded-2xl m-2 p-2" />
         </div>
         <transition name="slide-fade-slow">
-          <div v-if="state.topScore >= 100" class="bg-base-200 rounded-lg p-4 shadow-lg">
+          <div v-if="state.topScore >= 100" class="bg-base-200 p-4 rounded-lg shadow-lg">
             <milestone-reward v-if="state.pressCount >= 100" :id="6"></milestone-reward>
           </div>
         </transition>
         <transition name="slide-fade">
           <div
             v-if="state.topScore >= 20 && state.pressCount >= 1"
-            class="bg-accent m-2 rounded-lg border p-4 shadow-lg"
+            class="bg-accent p-4 rounded-lg shadow-lg border m-2"
           >
             <h2 class="text-xl">Last Milestone</h2>
             <p class="text-lg">{{ state.lastMilestone }}</p>
@@ -25,7 +25,7 @@
         <transition name="slide-fade-slow">
           <div
             v-if="state.topScore >= 21 && state.pressCount >= 1"
-            class="bg-base-200 m-2 rounded-lg border p-4 shadow-lg"
+            class="bg-base-200 p-4 rounded-lg shadow-lg border m-2"
           >
             <p class="text-lg">Previous message: {{ state.previousMessage }}</p>
           </div>
@@ -33,10 +33,10 @@
       </div>
 
       <!-- Center Section -->
-      <div class="flex w-full flex-col items-center space-y-4 md:w-1/3">
+      <div class="flex flex-col items-center w-full md:w-1/3 space-y-4">
         <div
           ref="buttonRef"
-          :class="`button flex h-60 w-full items-center justify-center rounded-lg border p-2 text-2xl font-bold shadow-lg transition ${
+          :class="`button w-full h-60 rounded-lg flex items-center justify-center transition text-2xl border font-bold shadow-lg p-2 ${
             state.pressed ? 'bg-accent text-default' : 'bg-primary text-default'
           }`"
           @click="pressedButton"
@@ -44,24 +44,24 @@
           {{ state.buttonText }}
         </div>
         <div v-if="state.pressed" class="text-center">
-          <button class="mb-4 rounded-lg p-2 text-blue-500" @click="openResetPopup">Reset</button>
+          <button class="text-blue-500 p-2 rounded-lg mb-4" @click="openResetPopup">Reset</button>
           <p class="text-lg">Button has been pressed {{ state.pressCount }} times.</p>
         </div>
       </div>
 
       <!-- Right Section -->
-      <div class="flex w-full flex-col items-center space-y-4 md:w-1/3">
+      <div class="flex flex-col items-center w-full md:w-1/3 space-y-4">
         <transition name="slide-fade">
           <div
             v-if="state.showLeaderboard && state.topScore >= 10"
-            class="bg-accent m-2 rounded-lg border p-4 shadow-lg"
+            class="bg-accent p-4 rounded-lg shadow-lg border m-2"
           >
-            <h2 class="mb-2 text-2xl">Leaderboard</h2>
+            <h2 class="text-2xl mb-2">Leaderboard</h2>
             <p class="text-lg">Top Score: {{ state.topScore }}</p>
           </div>
         </transition>
         <transition name="slide-fade-slow">
-          <div v-if="state.topScore >= 30" class="bg-base-200 m-2 rounded-lg border p-4 shadow-lg">
+          <div v-if="state.topScore >= 30" class="bg-base-200 p-4 rounded-lg shadow-lg border m-2">
             <!-- Butterfly Toggle Component -->
             You've unlocked our mascot AMI - The Anti-Malaria Intelligence. AMI's job is to flutter around (for now),
             but eventually she'll help raise funds to fight malaria.
@@ -69,7 +69,7 @@
           </div>
         </transition>
         <transition name="slide-fade-slow">
-          <div v-if="state.topScore >= 40" class="bg-base-200 m-2 rounded-lg border p-4 shadow-lg">
+          <div v-if="state.topScore >= 40" class="bg-base-200 p-4 rounded-lg shadow-lg border m-2">
             <!-- Theme Select -->
             Feel free to change the theme!
             <theme-toggle />
@@ -81,16 +81,16 @@
     <transition name="slide-fade">
       <div
         v-if="state.showResetPopup"
-        class="fixed left-0 top-0 flex h-full w-full items-center justify-center bg-black bg-opacity-50"
+        class="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-opacity-50 bg-black"
         @click.self="state.showResetPopup = false"
       >
-        <div class="rounded-lg bg-white p-4">
+        <div class="bg-white p-4 rounded-lg">
           <p>Are you sure you want to reset the leaderboard?</p>
-          <div class="mt-4 flex justify-end space-x-4">
-            <button class="rounded-lg bg-red-500 px-4 py-2 text-white" @click="state.showResetPopup = false">
+          <div class="flex justify-end space-x-4 mt-4">
+            <button class="bg-red-500 text-white px-4 py-2 rounded-lg" @click="state.showResetPopup = false">
               Cancel
             </button>
-            <button class="rounded-lg bg-green-500 px-4 py-2 text-white" @click="reset">Confirm</button>
+            <button class="bg-green-500 text-white px-4 py-2 rounded-lg" @click="reset">Confirm</button>
           </div>
         </div>
       </div>
@@ -154,7 +154,7 @@ const pressedButton = () => {
   state.pressed = true;
   state.pressCount++;
 
-  const tempMessage = state.buttonText; // Store the current message temporarily
+  let tempMessage = state.buttonText; // Store the current message temporarily
 
   // Update the top score immediately on every click
   if (state.pressCount > state.topScore) {

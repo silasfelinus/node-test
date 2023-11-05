@@ -1,14 +1,14 @@
 <template>
   <div class="bg-base-200 rounded-2xl border p-4 text-lg">
-    <h1 class="mb-4 text-2xl">Art-Maker</h1>
+    <h1 class="text-2xl mb-4">Art-Maker</h1>
 
     <!-- Prompt Input -->
     <div class="mt-4">
-      <input v-model="prompt" placeholder="Enter your art prompt" class="w-full rounded-2xl p-2 text-lg" />
+      <input v-model="prompt" placeholder="Enter your art prompt" class="rounded-2xl p-2 w-full text-lg" />
     </div>
 
     <!-- Generate Art Button -->
-    <button class="bg-primary hover:bg-primary-dark mt-4 w-full rounded-2xl p-2 text-white" @click="generateArt">
+    <button class="bg-primary rounded-2xl p-2 text-white mt-4 w-full hover:bg-primary-dark" @click="generateArt">
       Generate Art
     </button>
   </div>

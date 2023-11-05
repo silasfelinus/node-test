@@ -1,10 +1,10 @@
 <template>
   <!-- Base Card Container -->
-  <div class="flex h-full items-center justify-center rounded-xl">
+  <div class="flex justify-center items-center h-full rounded-xl">
     <!-- Base Card -->
     <div :class="baseCardClasses">
       <!-- Card Header -->
-      <div class="mb-4 flex items-center justify-center">
+      <div class="flex items-center justify-center mb-4">
         <icon :name="iconName" class="mr-2 text-3xl" />
         <h3 class="text-3xl font-semibold">{{ title }}</h3>
       </div>

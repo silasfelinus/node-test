@@ -5,10 +5,10 @@
       <div v-if="isLoggedIn">
         <div class="hidden lg:inline">Salutations,</div>
         {{ username }}!
-        <button class="b rounded-lg p-2 text-sm text-white" @click="logout">logout</button>
+        <button class="b p-2 rounded-lg text-white text-sm" @click="logout">logout</button>
       </div>
       <div v-else>
-        <button class="bg-primary rounded-lg p-2 text-lg text-white" @click="showLogin = true">Login</button>
+        <button class="bg-primary p-2 rounded-lg text-white text-lg" @click="showLogin = true">Login</button>
       </div>
     </div>
   </div>

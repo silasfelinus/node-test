@@ -1,26 +1,26 @@
 <template>
-  <div class="bg-base-200 flex flex-col p-8 md:flex-row">
+  <div class="bg-base-200 p-8 flex flex-col md:flex-row">
     <!-- Main Content -->
-    <header class="mb-12 text-center">
-      <img :src="image" alt="Background Image" class="mx-auto mb-4 w-1/4" />
+    <header class="text-center mb-12">
+      <img :src="image" alt="Background Image" class="w-1/4 mx-auto mb-4" />
       <h1 class="text-4xl font-bold">{{ title }}</h1>
       <h2 class="text-2xl font-semibold">{{ subtitle }}</h2>
-      <a :href="amazonLink" class="btn btn-primary mx-auto mb-8 block w-max">Amazon link</a>
+      <a :href="amazonLink" class="btn btn-primary block w-max mx-auto mb-8">Amazon link</a>
     </header>
     <!-- Quotes on the Right Side Panel -->
-    <aside class="mt-8 w-full md:mt-0 md:w-1/3">
-      <blockquote class="mb-6 border-l-4 border-gray-800 p-4 text-center italic">
+    <aside class="w-full md:w-1/3 mt-8 md:mt-0">
+      <blockquote class="p-4 mb-6 border-l-4 border-gray-800 italic text-center">
         "Mermaids of Venice is a literary ballerina - supple, strong, astonishing, and captivating in a way that makes
         your heart race. From the first line to the last, I was thoroughly engrossed. It's akin to a roller-coaster -
         once you're on, you're committed to the ride." - Amazon Review
       </blockquote>
 
-      <blockquote class="mb-6 border-l-4 border-gray-800 p-4 italic">
+      <blockquote class="p-4 mb-6 border-l-4 border-gray-800 italic">
         "Smart, sexy, and delightfully subversive, I devoured 'Mermaids of Venice' the first time I read it. It made me
         laugh, cry, and gave me goosebumps. A linguistically unique treat I highly recommend!" -C Curtis
       </blockquote>
 
-      <blockquote class="mb-6 border-l-4 border-gray-800 p-4 italic">
+      <blockquote class="p-4 mb-6 border-l-4 border-gray-800 italic">
         "It's a rarity for a novel to make me laugh out loud, but this one managed that feat frequently – for its humor,
         surprises, wit, heart, and magical richness. Silas Knight is truly a master of prose." -C. Kinnamon
       </blockquote>

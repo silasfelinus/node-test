@@ -1,12 +1,12 @@
 <template>
-  <nav class="bg-base w-full p-4 transition-all duration-500 ease-in-out">
-    <div class="mb-2 flex flex-wrap justify-center space-x-2">
+  <nav class="w-full bg-base p-4 transition-all duration-500 ease-in-out">
+    <div class="flex justify-center mb-2 flex-wrap space-x-2">
       <button
         v-for="tag in allTags"
         :key="tag"
         :class="`btn ${
           activeSection === tag ? 'bg-primary' : 'bg-accent'
-        } mx-1 my-2 flex-1 text-center transition-all duration-300 ease-in-out`"
+        } my-2 mx-1 flex-1 text-center transition-all duration-300 ease-in-out`"
         @click="changeSection(tag)"
       >
         {{ tag ? tag.charAt(0).toUpperCase() + tag.slice(1) : '' }}
@@ -14,7 +14,7 @@
     </div>
 
     <!-- Always Visible Home Links -->
-    <div class="mt-2 flex flex-wrap justify-center space-x-2">
+    <div class="flex justify-center mt-2 flex-wrap space-x-2">
       <div v-for="page in pagesByTag('home')" :key="page._id" class="home-link">
         <NuxtLink :to="page._path" class="oval-link">{{ page.title }}</NuxtLink>
       </div>
@@ -44,7 +44,7 @@
       class="transition-all duration-500 ease-in-out"
     >
       <bot-carousel :layout="screenStore.currentLayout"></bot-carousel>
-      <div class="text-primary text-xl">{{ currentBotName }}</div>
+      <div class="text-xl text-primary">{{ currentBotName }}</div>
     </div>
   </nav>
 </template>

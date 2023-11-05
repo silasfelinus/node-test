@@ -1,15 +1,15 @@
 <template>
   <div>
-    <h2 class="mb-4 text-xl font-bold">Locked Milestones</h2>
-    <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+    <h2 class="text-xl font-bold mb-4">Locked Milestones</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       <div
         v-for="milestone in lockedMilestones"
         :key="milestone.id"
-        class="card bg-base-200 relative rounded-2xl p-4 transition duration-300 ease-in-out"
+        class="card bg-base-200 rounded-2xl p-4 transition duration-300 ease-in-out relative"
       >
         <div class="text-center">
           <!-- Milestone Icon -->
-          <icon :name="milestone.icon" class="mb-2 text-6xl" />
+          <icon :name="milestone.icon" class="text-6xl mb-2" />
           <!-- Milestone Label -->
           <div class="text-xl font-bold text-gray-700">{{ milestone.label }}</div>
           <!-- Subtle Hint -->
@@ -17,9 +17,9 @@
             {{ milestone.subtleHint }}
           </div>
           <!-- Question Mark Icon for Directions -->
-          <div class="z-6 absolute right-2 top-2">
+          <div class="absolute top-2 right-2 z-6">
             <nuxt-link :to="milestone.pageHint || '#'">
-              <icon name="ph:question-bold" class="text-2xl text-blue-500" />
+              <icon name="ph:question-bold" class="text-blue-500 text-2xl" />
             </nuxt-link>
           </div>
         </div>

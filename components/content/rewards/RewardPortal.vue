@@ -1,6 +1,6 @@
 <template>
   <div class="bg-base-200 p-4">
-    <h1 class="mb-4 text-2xl">Reward Portal</h1>
+    <h1 class="text-2xl mb-4">Reward Portal</h1>
 
     <!-- Show Rewards -->
     <div class="mb-4">
@@ -16,7 +16,7 @@
     </div>
 
     <!-- Add Reward Button -->
-    <button class="bg-primary text-default mb-4 rounded p-2" @click="showAddReward = !showAddReward">
+    <button class="bg-primary text-default p-2 rounded mb-4" @click="showAddReward = !showAddReward">
       Add New Reward
     </button>
 

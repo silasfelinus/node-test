@@ -1,7 +1,7 @@
 <template>
-  <div class="flex h-full w-full flex-col">
+  <div class="flex flex-col h-full w-full">
     <!-- Messages Area -->
-    <div class="m-2 flex h-[15vh] items-center justify-center gap-2">
+    <div class="flex items-center justify-center gap-2 h-[15vh] m-2">
       <div v-if="page.tooltip" class="message-card bg-accent">
         <img src="/images/silasfelinus.webp" alt="Silas" class="rounded-full" />
         <div>

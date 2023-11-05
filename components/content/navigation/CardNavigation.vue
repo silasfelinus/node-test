@@ -1,11 +1,11 @@
 <template>
-  <div class="mx-auto max-w-lg overflow-y-auto p-4">
+  <div class="overflow-y-auto max-w-lg mx-auto p-4">
     <ul class="space-y-4">
       <li v-for="(item, index) in navigationTree" :key="index" class="space-y-4">
         <div :class="cardClass(item.state)">
           <NuxtLink
             :to="item.link"
-            class="mb-4 block overflow-hidden overflow-ellipsis text-center text-2xl font-semibold leading-tight text-black"
+            class="block text-center text-2xl font-semibold leading-tight text-black overflow-hidden overflow-ellipsis mb-4"
           >
             <template v-if="item.state === 'icon'">
               <icon :icon="item.icon"></icon>
@@ -18,13 +18,13 @@
               <img
                 :src="item.image || item.gallery || '/images/backtree.webp'"
                 alt="Section Image"
-                class="h-full w-full object-cover"
+                class="w-full h-full object-cover"
               />
             </div>
-            <div class="bg-secondary col-span-3 rounded p-4 text-black">
+            <div class="col-span-3 p-4 bg-secondary text-black rounded">
               <NuxtLink
                 :to="item.link"
-                class="mb-4 block overflow-hidden overflow-ellipsis text-center text-2xl font-semibold leading-tight text-black"
+                class="block text-center text-2xl font-semibold leading-tight text-black overflow-hidden overflow-ellipsis mb-4"
               >
                 {{ item.title }}
               </NuxtLink>
@@ -51,7 +51,7 @@ const fetchContentNavigation = async () => {
 fetchContentNavigation();
 
 const cardClass = (state) => {
-  const baseClass =
+  let baseClass =
     'transform transition-all duration-200 hover:scale-105 bg-primary rounded-lg shadow-lg overflow-hidden grid grid-cols-4 gap-4';
   if (state === 'collapsed') {
     return `${baseClass} hidden`;

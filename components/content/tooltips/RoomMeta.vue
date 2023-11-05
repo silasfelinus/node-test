@@ -1,13 +1,13 @@
 <!-- RoomMeta.vue -->
 <template>
-  <div class="flex flex-col items-center justify-center">
+  <div class="flex flex-col justify-center items-center">
     <!-- Image -->
-    <div class="m-1 flex items-center justify-center">
-      <img :src="'/images/' + page.image" alt="Main Image" class="medium rounded-2xl border shadow-md" />
+    <div class="flex justify-center items-center m-1">
+      <img :src="'/images/' + page.image" alt="Main Image" class="rounded-2xl border shadow-md medium" />
     </div>
     <!-- Title and Subtitle -->
-    <div class="flex flex-col items-center justify-center">
-      <room-title class="m-2 text-lg font-semibold" />
+    <div class="flex flex-col justify-center items-center">
+      <room-title class="text-lg font-semibold m-2" />
       <h2 class="text-md font-medium">{{ page.subtitle }}</h2>
     </div>
   </div>

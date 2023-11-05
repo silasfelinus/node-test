@@ -1,13 +1,13 @@
 <template>
-  <div class="bg-base-200 relative m-1 rounded-2xl p-0">
+  <div class="relative bg-base-200 rounded-2xl m-1 p-0">
     <div
-      class="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 transform rounded-full bg-white p-2 shadow-lg"
+      class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-full p-2 shadow-lg"
     >
       <div class="flex space-x-2">
-        <icon name="grommet-icons:grid" class="cursor-pointer text-2xl" @click="setView('fourRow')" />
-        <icon name="mdi:view-dashboard-outline" class="cursor-pointer text-2xl" @click="setView('threeRow')" />
-        <icon name="ion:grid-outline" class="cursor-pointer text-2xl" @click="setView('twoRow')" />
-        <icon name="bi:fullscreen" class="cursor-pointer text-2xl" @click="setView('single')" />
+        <icon name="grommet-icons:grid" class="text-2xl cursor-pointer" @click="setView('fourRow')" />
+        <icon name="mdi:view-dashboard-outline" class="text-2xl cursor-pointer" @click="setView('threeRow')" />
+        <icon name="ion:grid-outline" class="text-2xl cursor-pointer" @click="setView('twoRow')" />
+        <icon name="bi:fullscreen" class="text-2xl cursor-pointer" @click="setView('single')" />
       </div>
     </div>
     <div class="flex flex-wrap">

@@ -1,11 +1,11 @@
 <template>
   <div class="status-manager">
-    <button class="summon-inspiration mt-4 text-center" @click="summonInspiration">Summon Inspiration</button>
+    <button class="mt-4 text-center summon-inspiration" @click="summonInspiration">Summon Inspiration</button>
     <div class="flex flex-col space-y-4">
       <div
         v-for="(status, index) in statusHistory.slice(-3).reverse()"
         :key="index"
-        class="rounded-lg bg-white p-4 shadow-md"
+        class="rounded-lg shadow-md p-4 bg-white"
         :class="status.type"
         @click="toggleTimestamp(index)"
       >
@@ -28,7 +28,7 @@ const statusMessage = computed(() => statusStore.message);
 const statusType = computed(() => statusStore.type);
 const statusHistory = computed(() => statusStore.history);
 
-const showTimestamp = reactive(new Array(statusHistory.value.length).fill(false));
+let showTimestamp = reactive(new Array(statusHistory.value.length).fill(false));
 
 let idleTimer: NodeJS.Timeout | null = null;
 

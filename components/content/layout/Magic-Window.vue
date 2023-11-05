@@ -58,7 +58,7 @@ const fetchImage = async () => {
 };
 
 const handleScroll = (event) => {
-  const scrollY = window.scrollY;
+  let scrollY = window.scrollY;
   document.documentElement.style.setProperty('--offsetY', `${-scrollY * 0.5}px`);
 };
 
@@ -143,7 +143,9 @@ onUnmounted(() => {
   transform: translate(-50%, -50%);
   border-radius: 4px; /* Rounded corners */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions for hover */
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease; /* Smooth transitions for hover */
 }
 
 .teleport-button:hover {

@@ -6,11 +6,11 @@
       :class="{ 'pixelate-out': isPixelatingOut, 'pixelate-in': isPixelatingIn }"
       :style="imageStyle"
     ></div>
-    <new-eyeball position="top-left" class="absolute left-0 top-0" />
-    <new-eyeball position="top-right" class="absolute right-0 top-0" />
+    <new-eyeball position="top-left" class="absolute top-0 left-0" />
+    <new-eyeball position="top-right" class="absolute top-0 right-0" />
 
     <div class="game-overlay">
-      <div class="relative max-w-xl space-y-6 rounded-xl bg-opacity-70 p-10 text-center shadow-2xl">
+      <div class="p-10 rounded-xl shadow-2xl bg-opacity-70 max-w-xl text-center space-y-6 relative">
         <weirdlandia-game />
         <!-- Moved the teleport button here -->
         <button class="teleport-button btn btn-primary shadow-xl" @click="teleportButton">Teleport</button>
@@ -110,7 +110,9 @@ onUnmounted(() => {
   margin-top: 20px; /* Adding margin-top to space it out from the game element */
   border-radius: 4px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
 }
 
 .teleport-button:hover {

@@ -1,6 +1,6 @@
 <template>
-  <div class="rounded bg-white p-4 shadow">
-    <h2 class="mb-4 text-lg font-bold">Gallery Management</h2>
+  <div class="p-4 bg-white rounded shadow">
+    <h2 class="text-lg font-bold mb-4">Gallery Management</h2>
 
     <div class="mb-4">
       <input v-model="newGallery.name" type="text" placeholder="Gallery name" class="input input-bordered" />
@@ -8,7 +8,7 @@
 
     <button class="btn btn-primary" @click="addGallery">Add Gallery</button>
 
-    <div class="mt-6 grid gap-4">
+    <div class="grid gap-4 mt-6">
       <div v-for="gallery in galleries" :key="gallery.id" class="card bordered">
         <div class="card-body">
           <h2 class="card-title">{{ gallery.name }}</h2>

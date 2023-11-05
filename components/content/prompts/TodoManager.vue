@@ -1,7 +1,7 @@
 <template>
   <div class="bg-base-200 p-4">
-    <h1 class="mb-4 text-2xl">Quests</h1>
-    <div v-for="todo in todos" :key="todo.id" class="bg-primary mb-2 p-2">
+    <h1 class="text-2xl mb-4">Quests</h1>
+    <div v-for="todo in todos" :key="todo.id" class="bg-primary p-2 mb-2">
       <div>
         <span class="font-bold">{{ todo.task }}</span> - {{ todo.category }}
       </div>
@@ -11,7 +11,7 @@
     </div>
     <!-- Add Todo Form -->
     <div class="bg-secondary p-4">
-      <h2 class="mb-2 text-xl">Add new Quest</h2>
+      <h2 class="text-xl mb-2">Add new Quest</h2>
       <form @submit.prevent="addTodo">
         <input v-model="newTodo.task" placeholder="Task" class="input input-bordered" />
         <input v-model="newTodo.category" placeholder="Category" class="input input-bordered" />

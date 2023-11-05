@@ -1,18 +1,18 @@
 <template>
   <div class="flex items-center">
     <SiteLogo />
-    <button v-if="!isLoading" class="btn btn-primary ml-4" @click="showIframe">AMI's Fundraiser!</button>
+    <button v-if="!isLoading" class="ml-4 btn btn-primary" @click="showIframe">AMI's Fundraiser!</button>
     <div v-if="isLoading" class="fixed inset-0 flex items-center justify-center">
-      <div class="border-primary-500 h-32 w-32 animate-spin rounded-full border-b-2 border-t-2"></div>
+      <div class="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-primary-500"></div>
     </div>
     <iframe v-if="iframeVisible" :src="iframeSrc" class="iframe-class" />
   </div>
 </template>
 
 <script setup>
-const isLoading = ref(false);
-const iframeVisible = ref(false);
-const iframeSrc = ref('');
+let isLoading = ref(false);
+let iframeVisible = ref(false);
+let iframeSrc = ref('');
 
 const showIframe = () => {
   isLoading.value = true;

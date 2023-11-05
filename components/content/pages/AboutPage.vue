@@ -4,7 +4,7 @@
     <base-card
       v-for="(card, index) in cards"
       :key="index"
-      class="bg-primary mx-auto max-w-xl text-center"
+      class="bg-primary text-center max-w-xl mx-auto"
       :title="card.title"
       :icon="card.icon"
       :content="card.content"

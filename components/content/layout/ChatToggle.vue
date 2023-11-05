@@ -1,32 +1,32 @@
 <template>
-  <div class="fixed bottom-4 right-4 m-2 p-4">
+  <div class="fixed bottom-4 right-4 p-4 m-2">
     <!-- Chat Icon -->
     <div v-if="!chatOpen" class="cursor-pointer" @click="toggleChat">
       <icon :name="page.icon || 'icon-park-twotone:butterfly'" class="animate-pulse" />
     </div>
 
     <!-- Chat Component -->
-    <div v-else class="bg-base-200 rounded-lg p-4">
+    <div v-else class="p-4 rounded-lg bg-base-200">
       <!-- Chatbot Bubble -->
-      <div class="bg-primary mb-2 rounded-lg p-2">
+      <div class="p-2 rounded-lg bg-primary mb-2">
         {{ page.title || 'Hello, Kind Guest!' }}
       </div>
 
       <!-- User Intro Bubble -->
-      <div class="bg-secondary mb-2 rounded-lg p-2">
+      <div class="p-2 rounded-lg bg-secondary mb-2">
         {{ page.description || 'Welcome to the chat!' }}
       </div>
 
       <!-- Suggestion Bubbles -->
-      <button class="bg-accent mb-2 rounded-lg p-2">
+      <button class="p-2 rounded-lg bg-accent mb-2">
         {{ page.suggestion1 || 'Tell me more about this page.' }}
       </button>
-      <button class="bg-accent mb-2 rounded-lg p-2">
+      <button class="p-2 rounded-lg bg-accent mb-2">
         {{ page.suggestion2 || 'Tell me more about your fundraiser.' }}
       </button>
 
       <!-- Text Input -->
-      <textarea v-model="userInput" class="mb-2 w-full rounded-lg p-2" placeholder="Type your message..."></textarea>
+      <textarea v-model="userInput" class="w-full p-2 rounded-lg mb-2" placeholder="Type your message..."></textarea>
 
       <!-- User Avatar -->
       <div>

@@ -14,10 +14,10 @@
       <p class="text-xl">🔥 Power: {{ rewardStore.currentReward.power }}</p>
       <p class="text-xl">📚 Collection: {{ rewardStore.currentReward.collection }}</p>
       <p class="text-xl">🌟 Rarity: {{ rewardStore.currentReward.rarity }}</p>
-      <button class="bg-primary rounded p-2" @click="endReward">
+      <button class="bg-primary p-2 rounded" @click="endReward">
         <icon name="game-icons:fast-backward-button" class="text-6xl" />
       </button>
-      <button class="bg-accent rounded p-2" @click="showEditReward = true">✏️ Edit</button>
+      <button class="bg-accent p-2 rounded" @click="showEditReward = true">✏️ Edit</button>
     </div>
 
     <!-- Edit Reward Form -->
@@ -29,7 +29,7 @@
       <div
         v-for="reward in rewardStore.rewards"
         :key="reward.id"
-        class="hover:bg-primary hover:text-default cursor-pointer rounded-lg p-4 transition duration-300 ease-in-out"
+        class="p-4 rounded-lg hover:bg-primary hover:text-default cursor-pointer transition duration-300 ease-in-out"
         @click="selectReward(reward)"
       >
         <div class="text-center">
@@ -45,7 +45,7 @@
     </div>
 
     <!-- Add New Reward Button -->
-    <button class="bg-primary mt-4 rounded p-2" @click="showAddReward = true">➕ Add New Reward</button>
+    <button class="bg-primary p-2 rounded mt-4" @click="showAddReward = true">➕ Add New Reward</button>
   </div>
 </template>
 

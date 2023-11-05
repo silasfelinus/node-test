@@ -1,13 +1,13 @@
 <template>
   <div
-    class="bg-base-200 border-accent m-4 flex flex-col items-center justify-center rounded-md border-2 p-4 shadow-md"
+    class="bg-base-200 border-2 border-accent rounded-md shadow-md m-4 p-4 flex flex-col items-center justify-center"
   >
     <!-- Avatar Image -->
-    <avatar-image class="mb-4 h-1/3 w-1/3 rounded-full object-cover" />
+    <avatar-image class="w-1/3 h-1/3 rounded-full object-cover mb-4" />
     <!-- Bot Information -->
     <div class="text-center">
-      <h2 class="mb-2 text-xl font-bold">{{ currentBot ? currentBot.name : 'Loading...' }}</h2>
-      <p class="mb-2 text-sm">{{ currentBot ? currentBot.userIntro : 'Loading...' }}</p>
+      <h2 class="text-xl font-bold mb-2">{{ currentBot ? currentBot.name : 'Loading...' }}</h2>
+      <p class="text-sm mb-2">{{ currentBot ? currentBot.userIntro : 'Loading...' }}</p>
     </div>
     <bot-collectible />
   </div>
@@ -18,7 +18,7 @@ import { computed } from 'vue';
 import { useBotStore } from '../../../stores/botStore';
 
 const botsStore = useBotStore();
-const currentBot = computed(() => botsStore.currentBot);
+let currentBot = computed(() => botsStore.currentBot);
 </script>
 
 <style scoped>

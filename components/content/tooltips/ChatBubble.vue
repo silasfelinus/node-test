@@ -3,7 +3,7 @@
     <div :class="bubbleClasses">
       <p class="text-sm">{{ message }}</p>
     </div>
-    <div :class="{ 'ml-auto': align === 'right' }" class="mt-1 text-sm">{{ sender }}</div>
+    <div :class="{ 'ml-auto': align === 'right' }" class="text-sm mt-1">{{ sender }}</div>
   </div>
 </template>
 

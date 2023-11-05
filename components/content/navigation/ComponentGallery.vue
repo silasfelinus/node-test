@@ -19,7 +19,7 @@
       <div
         v-for="folder in folderNames"
         :key="folder"
-        class="hover:bg-primary hover:text-default cursor-pointer rounded-lg p-4 transition duration-300 ease-in-out"
+        class="p-4 rounded-lg hover:bg-primary hover:text-default cursor-pointer transition duration-300 ease-in-out"
         @click="fetchComponents(folder)"
       >
         <div class="text-center">
@@ -32,29 +32,29 @@
     <!-- Component View -->
     <div v-else class="grid grid-cols-3 gap-4">
       <!-- Back Button -->
-      <div class="col-span-full mb-4 text-right">
-        <icon name="game-icons:fast-backward-button" class="cursor-pointer text-4xl" @click="clearSelectedComponents" />
+      <div class="col-span-full text-right mb-4">
+        <icon name="game-icons:fast-backward-button" class="text-4xl cursor-pointer" @click="clearSelectedComponents" />
       </div>
       <!-- Components -->
       <!-- Cube Icon to End Component -->
-      <div v-if="selectedComponent" class="absolute left-0 top-0 ml-4 mt-4">
-        <icon name="game-icons:companion-cube" class="cursor-pointer text-4xl" @click="endComponent" />
+      <div v-if="selectedComponent" class="absolute top-0 left-0 mt-4 ml-4">
+        <icon name="game-icons:companion-cube" class="text-4xl cursor-pointer" @click="endComponent" />
       </div>
       <div
         v-for="component in selectedComponents"
         :key="component"
-        class="hover:bg-secondary hover:text-default cursor-pointer rounded-lg p-4 transition duration-300 ease-in-out"
+        class="p-4 rounded-lg hover:bg-secondary hover:text-default cursor-pointer transition duration-300 ease-in-out"
         @click="openModal(component)"
       >
         <div class="text-center">
-          <icon name="game-icons:companion-cube" class="mb-2 text-4xl" />
+          <icon name="game-icons:companion-cube" class="text-4xl mb-2" />
           <p>{{ component }}</p>
         </div>
       </div>
     </div>
 
     <!-- Error Reporting -->
-    <div v-if="errorComponents.length > 0" class="mt-4 text-red-500">
+    <div v-if="errorComponents.length > 0" class="text-red-500 mt-4">
       🚨 Error loading these components: {{ errorComponents.join(', ') }}
     </div>
   </div>

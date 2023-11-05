@@ -7,7 +7,7 @@
         :key="pitch.id"
         :class="[
           selectedPitch?.id === pitch.id ? 'bg-primary text-white' : 'bg-base-200',
-          'm-2 rounded-2xl border p-2',
+          'rounded-2xl border p-2 m-2',
         ]"
         @click="updateSelectedPitch(pitch.id)"
       >
@@ -17,9 +17,9 @@
 
     <!-- User-Specific Toggles, Edit, and Delete -->
     <div v-if="selectedPitch && userStore.userId === selectedPitch?.userId" class="flex items-center space-x-4">
-      <button class="bg-warning rounded-2xl p-2 text-white" @click="editSelectedPitch">Edit</button>
-      <button class="bg-info rounded-2xl p-2 text-white" @click="deleteSelectedPitch">Delete</button>
-      <button class="bg-accent rounded-2xl p-2 text-white" @click="togglePitchMature">
+      <button class="bg-warning text-white rounded-2xl p-2" @click="editSelectedPitch">Edit</button>
+      <button class="bg-info text-white rounded-2xl p-2" @click="deleteSelectedPitch">Delete</button>
+      <button class="bg-accent text-white rounded-2xl p-2" @click="togglePitchMature">
         {{ selectedPitch.isMature ? 'Hide' : 'Show' }} Mature
       </button>
     </div>

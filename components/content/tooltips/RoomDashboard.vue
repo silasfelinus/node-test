@@ -1,7 +1,7 @@
 <template>
   <header :class="headerClass">
     <user-avatar :size="avatarSize" class="avatar" @click="toggleMinimize" />
-    <div class="flex w-full flex-col">
+    <div class="flex flex-col w-full">
       <div class="info-section">
         <span class="username">{{ username }}</span>
         <span v-if="!isCompact" class="jellybeans">{{ jellybeansInfo }}</span>

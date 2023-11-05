@@ -1,27 +1,27 @@
 <template>
-  <div class="bg-base-200 flex flex-col items-center rounded-lg p-8 shadow-lg">
+  <div class="flex flex-col items-center p-8 bg-base-200 rounded-lg shadow-lg">
     <!-- Minimized Avatar -->
     <div
       v-if="minimized"
-      class="bg-accent relative flex h-16 w-16 cursor-pointer items-center justify-center rounded-full"
+      class="rounded-full w-16 h-16 bg-accent flex items-center justify-center cursor-pointer relative"
       @click="toggleMinimize"
     >
       <img
         :src="page.image ? `/images/${page.image}` : '/images/default-image.webp'"
         alt="Chat Avatar"
-        class="h-14 w-14 rounded-full"
+        class="rounded-full w-14 h-14"
       />
       <!-- Ripple Effect -->
       <div class="ripple bg-primary opacity-50"></div>
     </div>
 
     <!-- Chat Window -->
-    <div v-else class="bg-secondary border-accent mt-4 w-full rounded-lg border-4 p-4">
-      <h3 class="text-primary mb-2 text-lg font-semibold">Silas Says...</h3>
+    <div v-else class="w-full mt-4 p-4 bg-secondary rounded-lg border-4 border-accent">
+      <h3 class="text-lg font-semibold text-primary mb-2">Silas Says...</h3>
 
       <!-- Text Container -->
       <div class="streaming-container bg-base rounded-lg p-4">
-        <div class="streaming-text text-info text-base">
+        <div class="streaming-text text-base text-info">
           {{ streamingText || 'Hey there, welcome to KindRobots!' }}
         </div>
       </div>

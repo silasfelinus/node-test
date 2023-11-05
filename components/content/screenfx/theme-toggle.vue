@@ -1,12 +1,12 @@
 <template>
   <div class="theme-selector flex flex-col items-center">
-    <div class="flex w-full flex-row items-center justify-center space-x-2">
+    <div class="flex flex-row items-center justify-center space-x-2 w-full">
       <button
         ref="buttonRef"
         tabindex="0"
         aria-haspopup="true"
         aria-label="Change theme"
-        class="theme-btn border-accent focus:ring-accent transform rounded-full border p-2 text-lg transition-all duration-200 ease-in-out hover:scale-110 focus:outline-none focus:ring"
+        class="theme-btn p-2 rounded-full border border-accent focus:outline-none focus:ring focus:ring-accent transform hover:scale-110 transition-all ease-in-out duration-200 text-lg"
         @click="toggleMenu"
       >
         theme: {{ themeStore.currentTheme }}
@@ -16,13 +16,13 @@
       <div
         v-show="open"
         :style="modalPosition"
-        class="theme-menu bg-base-200 z-10 m-1 flex w-full flex-wrap justify-center rounded-2xl border p-2 transition-opacity duration-200"
+        class="theme-menu flex flex-wrap justify-center bg-base-200 border p-2 m-1 rounded-2xl z-10 transition-opacity duration-200 w-full"
       >
         <button
           v-for="(theme, index) in themeStore.themes"
           :key="index"
-          class="theme-item flex flex-grow cursor-pointer items-center justify-center rounded-lg p-2"
-          :class="theme === themeStore.currentTheme ? 'ring-accent ring-2' : ''"
+          class="theme-item flex items-center justify-center cursor-pointer p-2 rounded-lg flex-grow"
+          :class="theme === themeStore.currentTheme ? 'ring-2 ring-accent' : ''"
           role="menuitem"
           tabindex="0"
           @click="themeStore.changeTheme(theme)"

@@ -2,11 +2,11 @@
   <div class="fixed bottom-4 right-4" @click="toggleTooltip">
     <!-- Pulsing Butterfly Icon -->
     <div v-if="!tooltipOpen && page.tooltip" class="cursor-pointer">
-      <icon name="ph:butterfly-duotone" class="animate-pulse text-3xl" />
+      <icon name="ph:butterfly-duotone" class="text-3xl animate-pulse" />
     </div>
 
     <!-- Tooltip Popup -->
-    <div v-else-if="tooltipOpen && page.tooltip" class="tooltip-popup bg-base-200 rounded-2xl border p-4">
+    <div v-else-if="tooltipOpen && page.tooltip" class="tooltip-popup bg-base-200 p-4 rounded-2xl border">
       <div v-if="page.tooltip">
         <span class="font-semibold">
           <butterfly-loader />
