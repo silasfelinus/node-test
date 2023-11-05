@@ -1,20 +1,20 @@
 <template>
-  <div class="p-4 border rounded-lg cursor-pointer hover:bg-accent" @click="selectPitch">
+  <div class="hover:bg-accent cursor-pointer rounded-lg border p-4" @click="selectPitch">
     <h3>{{ pitch.title }}</h3>
     <p>{{ pitch.pitch }}</p>
   </div>
 </template>
 
 <script setup lang="ts">
-import { usePitchStore, Pitch } from '@/stores/pitchStore'
+import { usePitchStore, Pitch } from '@/stores/pitchStore';
 
 const props = defineProps<{
-  pitch: Pitch
-}>()
+  pitch: Pitch;
+}>();
 
-const pitchStore = usePitchStore()
+const pitchStore = usePitchStore();
 
 const selectPitch = () => {
-  pitchStore.selectPitch(props.pitch.id)
-}
+  pitchStore.selectPitch(props.pitch.id);
+};
 </script>

@@ -1,37 +1,33 @@
 <template>
-  <div class="flex flex-col h-screen text-gray-800">
+  <div class="flex h-screen flex-col text-gray-800">
     <!-- Sidebar -->
     <div
-      class="flex flex-col items-center bg-gradient-to-r from-bg-base-200 via-base-400 to-bg-base-600 rounded-r-xl space-y-4"
+      class="from-bg-base-200 via-base-400 to-bg-base-600 flex flex-col items-center space-y-4 rounded-r-xl bg-gradient-to-r"
     >
       <!-- Toggle Switch -->
-      <div class="flex justify-center items-center w-full px-4 bg-info rounded-2xl border">
-        <button class="relative w-36 h-10" @click="toggleFlip">
+      <div class="bg-info flex w-full items-center justify-center rounded-2xl border px-4">
+        <button class="relative h-10 w-36" @click="toggleFlip">
           <div
             :class="[
-              'absolute inset-0 bg-accent transition-all duration-300',
-              isChecked ? 'transform -skew-x-12' : 'transform skew-x-12'
+              'bg-accent absolute inset-0 transition-all duration-300',
+              isChecked ? '-skew-x-12 transform' : 'skew-x-12 transform',
             ]"
           ></div>
           <div
             v-if="isChecked"
-            class="absolute inset-0 flex items-center justify-center transition-all duration-300 transform skew-x-12"
+            class="absolute inset-0 flex skew-x-12 transform items-center justify-center transition-all duration-300"
           >
-            <span class="transform skew-x-12">App View</span>
+            <span class="skew-x-12 transform">App View</span>
           </div>
           <div
             v-if="!isChecked"
-            class="absolute inset-0 flex items-center justify-center transition-all duration-300 transform -skew-x-12"
+            class="absolute inset-0 flex -skew-x-12 transform items-center justify-center transition-all duration-300"
           >
-            <span class="transform -skew-x-12">Bot View</span>
+            <span class="-skew-x-12 transform">Bot View</span>
           </div>
         </button>
       </div>
-      <div
-        ref="flipContainer"
-        :class="{ flipped: !isChecked }"
-        class="flex-grow flip-container w-full"
-      >
+      <div ref="flipContainer" :class="{ flipped: !isChecked }" class="flip-container w-full flex-grow">
         <!-- App View -->
         <div class="flip-front sidebar-content w-full">
           <img alt="Kind Robots Logo" src="/images/fulltitle.png" class="mx-auto rounded-l" />
@@ -39,7 +35,7 @@
         </div>
 
         <!-- Bot View -->
-        <div class="flip-back sidebar-content w-full text-center profile-center">
+        <div class="flip-back sidebar-content profile-center w-full text-center">
           <h1>Welcome to Kind Robots</h1>
           <bot-selector />
           <div class="carousel-container">
@@ -52,48 +48,48 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import { useRoute } from 'vue-router'
+import { ref, onMounted } from 'vue';
+import { useRoute } from 'vue-router';
 
-const isChecked = ref(true)
-const flipContainer = ref<HTMLDivElement | null>(null)
-const hasLocalStorage = ref(storageAvailable('localStorage'))
+const isChecked = ref(true);
+const flipContainer = ref<HTMLDivElement | null>(null);
+const hasLocalStorage = ref(storageAvailable('localStorage'));
 
 const toggleFlip = () => {
   if (flipContainer.value) {
-    flipContainer.value.classList.toggle('flipped')
-    const isFlipped = flipContainer.value.classList.contains('flipped')
+    flipContainer.value.classList.toggle('flipped');
+    const isFlipped = flipContainer.value.classList.contains('flipped');
     if (hasLocalStorage.value) {
-      window.localStorage.setItem('flipState', isFlipped ? 'flipped' : 'unflipped')
+      window.localStorage.setItem('flipState', isFlipped ? 'flipped' : 'unflipped');
     }
-    isChecked.value = !isFlipped
+    isChecked.value = !isFlipped;
   }
-}
+};
 
 function storageAvailable(type: 'localStorage' | 'sessionStorage'): boolean {
   try {
-    const storage = window[type]
-    const testKey = '__storage_test__'
-    storage.setItem(testKey, testKey)
-    storage.removeItem(testKey)
-    return true
+    const storage = window[type];
+    const testKey = '__storage_test__';
+    storage.setItem(testKey, testKey);
+    storage.removeItem(testKey);
+    return true;
   } catch (e) {
-    return false
+    return false;
   }
 }
 
 onMounted(() => {
-  if (!hasLocalStorage.value) return
+  if (!hasLocalStorage.value) return;
 
-  const route = useRoute()
-  const isBotRoute = route.path.startsWith('/bot/')
-  const flipState = window.localStorage.getItem('flipState')
+  const route = useRoute();
+  const isBotRoute = route.path.startsWith('/bot/');
+  const flipState = window.localStorage.getItem('flipState');
 
   if (isBotRoute || flipState === 'flipped') {
-    flipContainer.value?.classList.add('flipped')
-    isChecked.value = false
+    flipContainer.value?.classList.add('flipped');
+    isChecked.value = false;
   }
-})
+});
 </script>
 
 <style scoped>

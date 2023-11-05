@@ -1,10 +1,8 @@
 <template>
-  <div
-    class="icon-container flex items-center justify-center space-x-3 p-4 rounded-lg bg-accent-100"
-  >
+  <div class="icon-container bg-accent-100 flex items-center justify-center space-x-3 rounded-lg p-4">
     <butterfly-toggle />
     <div
-      class="icon-box transition-transform transform hover:scale-125 cursor-pointer p-3 rounded-full hover:bg-accent-200"
+      class="icon-box hover:bg-accent-200 transform cursor-pointer rounded-full p-3 transition-transform hover:scale-125"
       @click="toggleRainEffect"
     >
       <icon
@@ -12,11 +10,11 @@
         title="Kind Weather"
         :active="fxStore.showRainEffect"
         :class="{ glow: fxStore.showRainEffect }"
-        class="w-6 h-6 md:w-8 md:h-8"
+        class="h-6 w-6 md:h-8 md:w-8"
       />
     </div>
     <div
-      class="icon-box transition-transform transform hover:scale-125 cursor-pointer p-3 rounded-full hover:bg-accent-200"
+      class="icon-box hover:bg-accent-200 transform cursor-pointer rounded-full p-3 transition-transform hover:scale-125"
       @click="toggleSoapBubbles"
     >
       <icon
@@ -24,19 +22,19 @@
         title="Kind Bubbles"
         :active="fxStore.showSoapBubbles"
         :class="{ glow: fxStore.showSoapBubbles }"
-        class="w-6 h-6 md:w-8 md:h-8"
+        class="h-6 w-6 md:h-8 md:w-8"
       />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { useScreenStore } from '../../../stores/screenStore'
+import { useScreenStore } from '../../../stores/screenStore';
 
-const fxStore = useScreenStore()
+const fxStore = useScreenStore();
 
-const toggleRainEffect = () => fxStore.toggleRainEffect()
-const toggleSoapBubbles = () => fxStore.toggleSoapBubbles()
+const toggleRainEffect = () => fxStore.toggleRainEffect();
+const toggleSoapBubbles = () => fxStore.toggleSoapBubbles();
 </script>
 <style scoped>
 .icon-box {
@@ -51,18 +49,10 @@ const toggleSoapBubbles = () => fxStore.toggleSoapBubbles()
 
 @keyframes glow {
   from {
-    box-shadow:
-      0 0 5px #ffcc00,
-      0 0 10px #ffcc00,
-      0 0 15px #ffcc00,
-      0 0 20px #ffcc00;
+    box-shadow: 0 0 5px #ffcc00, 0 0 10px #ffcc00, 0 0 15px #ffcc00, 0 0 20px #ffcc00;
   }
   to {
-    box-shadow:
-      0 0 10px #ffaa00,
-      0 0 20px #ffaa00,
-      0 0 30px #ffaa00,
-      0 0 40px #ffaa00;
+    box-shadow: 0 0 10px #ffaa00, 0 0 20px #ffaa00, 0 0 30px #ffaa00, 0 0 40px #ffaa00;
   }
 }
 </style>

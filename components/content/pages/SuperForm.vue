@@ -1,20 +1,14 @@
 <template>
-  <div class="bg-gray-50 min-h-screen flex justify-center items-center">
-    <div class="bg-white max-w-md mx-auto rounded-xl shadow-lg p-10 space-y-5">
-      <h1 class="text-4xl font-bold text-center text-indigo-600 mb-10">Hair by Superkate!</h1>
-      <div class="flex justify-center mb-5">
+  <div class="flex min-h-screen items-center justify-center bg-gray-50">
+    <div class="mx-auto max-w-md space-y-5 rounded-xl bg-white p-10 shadow-lg">
+      <h1 class="mb-10 text-center text-4xl font-bold text-indigo-600">Hair by Superkate!</h1>
+      <div class="mb-5 flex justify-center">
         <site-logo />
       </div>
       <form class="space-y-5">
         <label class="block text-gray-700">
           Date
-          <input
-            v-model="date"
-            type="date"
-            class="input input-bordered w-full"
-            aria-label="Date"
-            required
-          />
+          <input v-model="date" type="date" class="input input-bordered w-full" aria-label="Date" required />
         </label>
         <label class="block text-gray-700">
           Client's Name
@@ -29,12 +23,7 @@
         </label>
         <label class="block text-gray-700">
           Services Provided
-          <input
-            v-model="servicesProvided"
-            type="text"
-            class="input input-bordered w-full"
-            placeholder="Services"
-          />
+          <input v-model="servicesProvided" type="text" class="input input-bordered w-full" placeholder="Services" />
         </label>
         <div class="card bordered">
           <div class="card-body space-y-5">
@@ -50,12 +39,7 @@
               </label>
               <label class="block text-gray-700">
                 Rate per Hour ($)
-                <input
-                  v-model="rate"
-                  type="number"
-                  class="input input-bordered w-full"
-                  placeholder="Rate per hour"
-                />
+                <input v-model="rate" type="number" class="input input-bordered w-full" placeholder="Rate per hour" />
               </label>
             </div>
             <hr />
@@ -71,13 +55,12 @@
               </label>
             </div>
             <hr />
-            <div class="bg-gray-100 p-2 rounded-md">Total cost: ${{ totalCost }}</div>
+            <div class="rounded-md bg-gray-100 p-2">Total cost: ${{ totalCost }}</div>
             <hr />
-            <div class="bg-gray-100 p-2 rounded-md">
-              Calculation: (${{ rate }} Rate per hour x {{ hours }} hours) + ${{
-                productCost
+            <div class="rounded-md bg-gray-100 p-2">
+              Calculation: (${{ rate }} Rate per hour x {{ hours }} hours) + ${{ productCost }} Product Cost = ${{
+                totalCost
               }}
-              Product Cost = ${{ totalCost }}
             </div>
           </div>
         </div>
@@ -90,7 +73,7 @@
               class="input input-bordered w-full pr-20"
               placeholder="Client's Email"
             />
-            <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
               + superkate@gmail.com
             </div>
           </div>
@@ -102,20 +85,20 @@
 </template>
 
 <script setup>
-let date = ref(new Date().toISOString().substr(0, 10))
-let clientName = ref('')
-let servicesProvided = ref('')
-let hours = ref('')
-let rate = ref('')
-let productCost = ref('')
-let clientEmail = ref('')
+const date = ref(new Date().toISOString().substr(0, 10));
+const clientName = ref('');
+const servicesProvided = ref('');
+const hours = ref('');
+const rate = ref('');
+const productCost = ref('');
+const clientEmail = ref('');
 
-let totalCost = computed(() => {
-  return hours.value * rate.value + Number(productCost.value)
-})
+const totalCost = computed(() => {
+  return hours.value * rate.value + Number(productCost.value);
+});
 
 const submitForm = async (event) => {
-  event.preventDefault()
+  event.preventDefault();
 
   // Call the function to send the email
   await sendBrevoEmail({
@@ -126,27 +109,23 @@ const submitForm = async (event) => {
     rate: rate.value,
     productCost: productCost.value,
     totalCost: totalCost.value,
-    clientEmail: clientEmail.value
-  })
+    clientEmail: clientEmail.value,
+  });
 
   // Clear the form
-  date.value = new Date().toISOString().substr(0, 10)
-  clientName.value = ''
-  servicesProvided.value = ''
-  hours.value = ''
-  rate.value = ''
-  productCost.value = ''
-  clientEmail.value = ''
-}
+  date.value = new Date().toISOString().substr(0, 10);
+  clientName.value = '';
+  servicesProvided.value = '';
+  hours.value = '';
+  rate.value = '';
+  productCost.value = '';
+  clientEmail.value = '';
+};
 
 const sendBrevoEmail = async (data) => {
   const emailData = {
     sender: { name: 'Your Name', email: 'your-email@example.com' },
-    to: [
-      { email: 'silasfelinus@gmail.com' },
-      { email: 'superkate@gmail.com' },
-      { email: data.clientEmail }
-    ],
+    to: [{ email: 'silasfelinus@gmail.com' }, { email: 'superkate@gmail.com' }, { email: data.clientEmail }],
     subject: 'Hair by Superkate!',
     htmlContent: `
       <p>Date: ${data.date}</p>
@@ -156,8 +135,8 @@ const sendBrevoEmail = async (data) => {
       <p>Rate: ${data.rate}</p>
       <p>Product Cost: ${data.productCost}</p>
       <p>Total Cost: ${data.totalCost}</p>
-    `
-  }
+    `,
+  };
 
   try {
     await $fetch('https://api.brevo.com/v3/smtp/email', {
@@ -165,13 +144,13 @@ const sendBrevoEmail = async (data) => {
       headers: {
         'api-key': process.env.BREVO_API_KEY,
         accept: 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify(emailData)
-    })
-    console.log('Email sent')
+      body: JSON.stringify(emailData),
+    });
+    console.log('Email sent');
   } catch (error) {
-    console.error(`Error sending email: ${error}`)
+    console.error(`Error sending email: ${error}`);
   }
-}
+};
 </script>

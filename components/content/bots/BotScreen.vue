@@ -1,9 +1,9 @@
 <template>
-  <div class="container mx-auto p-4 relative h-full flex flex-col">
+  <div class="container relative mx-auto flex h-full flex-col p-4">
     <!-- Main Content -->
-    <div class="flex flex-col md:flex-row flex-grow">
+    <div class="flex flex-grow flex-col md:flex-row">
       <!-- Main Content for Kind Robot: Takes the remaining space -->
-      <div class="flex-grow p-2 rounded-2xl m-2 border">
+      <div class="m-2 flex-grow rounded-2xl border p-2">
         <kind-robot />
       </div>
     </div>

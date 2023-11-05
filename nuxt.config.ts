@@ -1,14 +1,12 @@
-
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ['@nuxt/content', '@nuxtjs/tailwindcss',  '@pinia/nuxt', 'nuxt-icon'],
+  modules: ['@nuxt/content', '@nuxtjs/tailwindcss', '@pinia/nuxt', 'nuxt-icon'],
   css: ['~/assets/css/tailwind.css'],
   runtimeConfig: {
-    OPENAI_API_KEY: process.env.OPENAI_API_KEY
+    OPENAI_API_KEY: process.env.OPENAI_API_KEY,
   },
   content: {
-    documentDriven: true
+    documentDriven: true,
   },
-  devtools: { enabled: false }
-
-})
+  devtools: { enabled: false },
+});

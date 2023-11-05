@@ -12,22 +12,22 @@
 </template>
 
 <script setup lang="ts">
-import { useRouter } from 'vue-router'
+import { useRouter } from 'vue-router';
 
-const router = useRouter()
+const router = useRouter();
 
 const goBack = () => {
   if (typeof window !== 'undefined' && window.history.length > 1) {
-    router.go(-1)
+    router.go(-1);
   } else {
-    router.push('/')
+    router.push('/');
   }
-}
+};
 </script>
 
 <style scoped>
 .icon-effect {
-  @apply w-6 h-6 md:w-16 md:h-16 cursor-pointer transition-shadow;
+  @apply h-6 w-6 cursor-pointer transition-shadow md:h-16 md:w-16;
 }
 
 /* Glow animation */
@@ -36,9 +36,7 @@ const goBack = () => {
     box-shadow: 0 0 5px #fff;
   }
   50% {
-    box-shadow:
-      0 0 20px #fff,
-      0 0 30px #ff73fd;
+    box-shadow: 0 0 20px #fff, 0 0 30px #ff73fd;
   }
   100% {
     box-shadow: 0 0 5px #fff;

@@ -1,7 +1,7 @@
 <template>
-  <div class="flex flex-col h-screen w-screen relative">
+  <div class="relative flex h-screen w-screen flex-col">
     <!-- Toggle Navigation Button -->
-    <button class="absolute top-[10vh] left-3 z-50" @click="toggleNav">
+    <button class="absolute left-3 top-[10vh] z-50" @click="toggleNav">
       <icon name="fluent:row-triple-20-filled" class="text-2xl" />
     </button>
 
@@ -16,56 +16,53 @@
     </div>
     <smart-links />
 
-    <div class="flex-grow flex">
+    <div class="flex flex-grow">
       <!-- User Navigation -->
       <div
         :class="{
           'w-[50%]': isNavVisible && isLargeScreen,
           hidden: !isNavVisible || !isLargeScreen,
-          'w-full': isNavVisible && !isLargeScreen
+          'w-full': isNavVisible && !isLargeScreen,
         }"
-        class="flex-none h-full overflow-y-auto transition-all duration-600 ease-in-out bg-base-200 rounded-lg shadow-lg"
+        class="duration-600 bg-base-200 h-full flex-none overflow-y-auto rounded-lg shadow-lg transition-all ease-in-out"
         @click.stop
       >
-        <navigation-trimmed class="rounded-2xl p-1 m-1" />
+        <navigation-trimmed class="m-1 rounded-2xl p-1" />
       </div>
 
       <!-- Main Slot -->
-      <div
-        class="flex-grow h-full overflow-y-auto bg-gray-100 rounded-lg shadow-lg"
-        @click="closeNav"
-      >
-        <div class="h-full w-full border border-gray-300 rounded">
-          <slot class="bg-grey-200 rounded-2xl p-1 m-1" />
+      <div class="h-full flex-grow overflow-y-auto rounded-lg bg-gray-100 shadow-lg" @click="closeNav">
+        <div class="h-full w-full rounded border border-gray-300">
+          <slot class="bg-grey-200 m-1 rounded-2xl p-1" />
         </div>
       </div>
     </div>
   </div>
 </template>
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { ref, onMounted, onBeforeUnmount } from 'vue';
 
-const isNavVisible = ref(false)
-const isLargeScreen = ref(false)
+const isNavVisible = ref(false);
+const isLargeScreen = ref(false);
 
 const toggleNav = () => {
-  isNavVisible.value = !isNavVisible.value
-}
+  isNavVisible.value = !isNavVisible.value;
+};
 
 const closeNav = () => {
-  isNavVisible.value = false
-}
+  isNavVisible.value = false;
+};
 
 const handleResize = () => {
-  isLargeScreen.value = window.innerWidth > 1024
-}
+  isLargeScreen.value = window.innerWidth > 1024;
+};
 
 onMounted(() => {
-  handleResize()
-  window.addEventListener('resize', handleResize)
-})
+  handleResize();
+  window.addEventListener('resize', handleResize);
+});
 
 onBeforeUnmount(() => {
-  window.removeEventListener('resize', handleResize)
-})
+  window.removeEventListener('resize', handleResize);
+});
 </script>

@@ -12,37 +12,37 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
-import { useRouter } from 'vue-router'
+import { ref, onMounted, onUnmounted } from 'vue';
+import { useRouter } from 'vue-router';
 
-const router = useRouter()
-const canGoForward = ref(false)
+const router = useRouter();
+const canGoForward = ref(false);
 
 const updateCanGoForward = () => {
-  canGoForward.value = typeof window !== 'undefined' && window.history.length > 1
-}
+  canGoForward.value = typeof window !== 'undefined' && window.history.length > 1;
+};
 
 const goForward = () => {
   if (canGoForward.value) {
-    router.go(1)
+    router.go(1);
   } else {
-    console.warn('No forward history available.')
+    console.warn('No forward history available.');
   }
-}
+};
 
 onMounted(() => {
-  updateCanGoForward()
-  window.addEventListener('popstate', updateCanGoForward)
-})
+  updateCanGoForward();
+  window.addEventListener('popstate', updateCanGoForward);
+});
 
 onUnmounted(() => {
-  window.removeEventListener('popstate', updateCanGoForward)
-})
+  window.removeEventListener('popstate', updateCanGoForward);
+});
 </script>
 
 <style scoped>
 .icon-effect {
-  @apply w-6 h-6 md:w-16 md:h-16 cursor-pointer transition-shadow;
+  @apply h-6 w-6 cursor-pointer transition-shadow md:h-16 md:w-16;
 }
 
 /* Glow animation */
@@ -51,9 +51,7 @@ onUnmounted(() => {
     box-shadow: 0 0 5px #fff;
   }
   50% {
-    box-shadow:
-      0 0 20px #fff,
-      0 0 30px #ff73fd;
+    box-shadow: 0 0 20px #fff, 0 0 30px #ff73fd;
   }
   100% {
     box-shadow: 0 0 5px #fff;

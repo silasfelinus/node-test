@@ -1,12 +1,12 @@
 <template>
   <div
-    class="flex flex-col items-center justify-center p-4 rounded-lg cursor-pointer"
+    class="flex cursor-pointer flex-col items-center justify-center rounded-lg p-4"
     :class="cardColor"
     @click="handleClick"
   >
-    <div v-if="label" class="text-lg font-semibold mb-2">{{ label }}</div>
+    <div v-if="label" class="mb-2 text-lg font-semibold">{{ label }}</div>
     <div class="flex items-center justify-center">
-      <img v-if="image" :src="image" class="h-16 w-16 mr-2" />
+      <img v-if="image" :src="image" class="mr-2 h-16 w-16" />
       <div>{{ description }}</div>
       <slot />
     </div>
@@ -17,28 +17,28 @@
 const props = defineProps({
   image: {
     type: String,
-    default: ''
+    default: '',
   },
   description: {
     type: String,
-    default: ''
+    default: '',
   },
   colorId: {
     type: Number,
-    default: 1
+    default: 1,
   },
   label: {
     type: String,
-    default: ''
-  }
-})
+    default: '',
+  },
+});
 
 const cardColor = computed(() => {
-  const baseColors = ['bg-accent', 'bg-secondary', 'bg-accent', 'bg-warning']
-  return baseColors[props.colorId - 1] || baseColors[0]
-})
+  const baseColors = ['bg-accent', 'bg-secondary', 'bg-accent', 'bg-warning'];
+  return baseColors[props.colorId - 1] || baseColors[0];
+});
 
 const handleClick = () => {
-  emit('click')
-}
+  emit('click');
+};
 </script>

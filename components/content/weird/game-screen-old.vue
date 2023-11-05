@@ -1,19 +1,17 @@
 <template>
-  <div
-    class="h-screen flex flex-col bg-gradient-to-r from-primary to-secondary rounded-br-3xl rounded-tr-3xl"
-  >
+  <div class="from-primary to-secondary flex h-screen flex-col rounded-br-3xl rounded-tr-3xl bg-gradient-to-r">
     <!-- Header -->
-    <div class="flex items-center justify-between px-6 py-4 bg-primary rounded-tl-3xl"></div>
+    <div class="bg-primary flex items-center justify-between rounded-tl-3xl px-6 py-4"></div>
 
     <!-- Body -->
-    <div class="flex-grow grid grid-cols-4 gap-4 p-6">
+    <div class="grid flex-grow grid-cols-4 gap-4 p-6">
       <!-- Main content -->
-      <div class="col-span-3 bg-secondary rounded-lg p-4">
+      <div class="bg-secondary col-span-3 rounded-lg p-4">
         <slot />
       </div>
 
       <!-- Right Panel -->
-      <div class="flex flex-col gap-4 bg-primary rounded-lg p-4">
+      <div class="bg-primary flex flex-col gap-4 rounded-lg p-4">
         <button-card label="Button 1" description="Button 1 description" :color-id="1" />
         <button-card label="Button 2" description="Button 2 description" :color-id="2" />
         <button-card label="Button 3" description="Button 3 description" :color-id="3" />
@@ -22,7 +20,7 @@
     </div>
 
     <!-- Footer -->
-    <div class="flex justify-end px-6 py-4 bg-primary rounded-br-3xl">
+    <div class="bg-primary flex justify-end rounded-br-3xl px-6 py-4">
       <AmiLink />
     </div>
   </div>

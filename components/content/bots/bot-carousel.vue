@@ -1,61 +1,59 @@
 <template>
-  <div
-    class="relative flex flex-col items-center p-2 bg-base-200 overflow-auto h-screen rounded-2xl"
-  >
+  <div class="bg-base-200 relative flex h-screen flex-col items-center overflow-auto rounded-2xl p-2">
     <div class="m-4 mx-auto max-w-4xl">
-      <div class="h-96 carousel carousel-vertical rounded-box">
+      <div class="carousel carousel-vertical rounded-box h-96">
         <div
           v-for="bot in bots"
           :id="`bot-${bot.id}`"
           :key="bot.id"
-          class="carousel-item h-full cursor-pointer transition-colors ease-in-out duration-200"
+          class="carousel-item h-full cursor-pointer transition-colors duration-200 ease-in-out"
           :class="{
             'bg-accent text-default': currentBot?.id === bot.id,
-            'bg-primary': currentBot?.id !== bot.id
+            'bg-primary': currentBot?.id !== bot.id,
           }"
           @click="setCurrentBot(bot.id)"
         >
-          <img :src="bot.avatarImage ?? undefined" class="w-full h-full object-cover rounded-lg" />
+          <img :src="bot.avatarImage ?? undefined" class="h-full w-full rounded-lg object-cover" />
         </div>
       </div>
-      <div v-if="currentBot" class="mt-4 text-2xl text-dark font-semibold text-center">
-        <div class="card bg-info rounded-2xl w-fit">
+      <div v-if="currentBot" class="text-dark mt-4 text-center text-2xl font-semibold">
+        <div class="card bg-info w-fit rounded-2xl">
           {{ currentBot.name }}
         </div>
-        <p class="mt-2 text-xl text-dark text-center">{{ currentBot.description }}</p>
+        <p class="text-dark mt-2 text-center text-xl">{{ currentBot.description }}</p>
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, watch } from 'vue'
-import { useBotStore } from '../../../stores/botStore'
+import { computed, onMounted, watch } from 'vue';
+import { useBotStore } from '../../../stores/botStore';
 
-const botStore = useBotStore()
-const bots = computed(() => botStore.bots)
-const currentBot = computed(() => botStore.currentBot)
+const botStore = useBotStore();
+const bots = computed(() => botStore.bots);
+const currentBot = computed(() => botStore.currentBot);
 
 const setCurrentBot = (botId: number) => {
-  botStore.getBotById(botId)
-}
+  botStore.getBotById(botId);
+};
 
 onMounted(async () => {
   if (bots.value.length === 0) {
-    await botStore.loadStore()
+    await botStore.loadStore();
   }
-})
+});
 
 watch(
   () => currentBot.value,
   (newCurrentBot) => {
     if (newCurrentBot) {
-      const id = newCurrentBot.id
-      const botElement = document.getElementById(`bot-${id}`)
-      botElement?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+      const id = newCurrentBot.id;
+      const botElement = document.getElementById(`bot-${id}`);
+      botElement?.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
-  }
-)
+  },
+);
 </script>
 
 <style>

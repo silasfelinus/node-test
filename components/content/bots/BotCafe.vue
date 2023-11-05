@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+  <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
     <div
       v-for="bot in botStore.bots"
       :key="bot.id"
@@ -28,9 +28,9 @@
 </template>
 
 <script setup>
-import { useBotStore } from '../../../stores/botStore'
+import { useBotStore } from '../../../stores/botStore';
 
-const botStore = useBotStore()
+const botStore = useBotStore();
 </script>
 
 <style scoped>

@@ -1,66 +1,60 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import { useRoute } from 'vue-router'
+import { ref, onMounted } from 'vue';
+import { useRoute } from 'vue-router';
 
-const isChecked = ref(true)
-const flipContainer = ref<HTMLDivElement | null>(null)
-const hasLocalStorage = ref(storageAvailable('localStorage'))
+const isChecked = ref(true);
+const flipContainer = ref<HTMLDivElement | null>(null);
+const hasLocalStorage = ref(storageAvailable('localStorage'));
 
 const toggleFlip = () => {
   if (flipContainer.value) {
-    flipContainer.value.classList.toggle('flipped')
-    const isFlipped = flipContainer.value.classList.contains('flipped')
+    flipContainer.value.classList.toggle('flipped');
+    const isFlipped = flipContainer.value.classList.contains('flipped');
     if (hasLocalStorage.value) {
-      window.localStorage.setItem('flipState', isFlipped ? 'flipped' : 'unflipped')
+      window.localStorage.setItem('flipState', isFlipped ? 'flipped' : 'unflipped');
     }
-    isChecked.value = !isFlipped
+    isChecked.value = !isFlipped;
   }
-}
+};
 
 function storageAvailable(type: 'localStorage' | 'sessionStorage'): boolean {
   try {
-    const storage = window[type]
-    const testKey = '__storage_test__'
-    storage.setItem(testKey, testKey)
-    storage.removeItem(testKey)
-    return true
+    const storage = window[type];
+    const testKey = '__storage_test__';
+    storage.setItem(testKey, testKey);
+    storage.removeItem(testKey);
+    return true;
   } catch (e) {
-    return false
+    return false;
   }
 }
 
 onMounted(() => {
-  if (!hasLocalStorage.value) return // Return early if local storage isn't available
+  if (!hasLocalStorage.value) return; // Return early if local storage isn't available
 
-  const route = useRoute()
-  const isBotRoute = route.path.startsWith('/bot/')
-  const flipState = window.localStorage.getItem('flipState')
+  const route = useRoute();
+  const isBotRoute = route.path.startsWith('/bot/');
+  const flipState = window.localStorage.getItem('flipState');
 
   if (isBotRoute || flipState === 'flipped') {
-    flipContainer.value?.classList.add('flipped')
-    isChecked.value = false
+    flipContainer.value?.classList.add('flipped');
+    isChecked.value = false;
   }
-})
+});
 </script>
 <template>
-  <div
-    class="flex flex-col md:flex-row h-screen text-gray-800 p-4 space-y-4 md:space-y-0 md:space-x-4"
-  >
+  <div class="flex h-screen flex-col space-y-4 p-4 text-gray-800 md:flex-row md:space-x-4 md:space-y-0">
     <!-- Sidebar -->
     <div
-      class="md:w-1/5 flex flex-col items-center bg-gradient-to-r from-bg-base-200 via-base-400 to-bg-base-600 rounded-r-xl space-y-4"
+      class="from-bg-base-200 via-base-400 to-bg-base-600 flex flex-col items-center space-y-4 rounded-r-xl bg-gradient-to-r md:w-1/5"
     >
-      <div
-        ref="flipContainer"
-        :class="{ flipped: !isChecked }"
-        class="flex-grow flip-container w-full"
-      >
+      <div ref="flipContainer" :class="{ flipped: !isChecked }" class="flip-container w-full flex-grow">
         <div class="flip-front sidebar-content w-full">
           <img alt="Kind Robots Logo" src="/images/fulltitle.png" class="mx-auto rounded-l" />
           <sort-nav />
           <theme-toggle />
         </div>
-        <div class="flip-back sidebar-content w-full text-center profile-center">
+        <div class="flip-back sidebar-content profile-center w-full text-center">
           <h1>Welcome to Kind Robots</h1>
           <bot-selector />
           <div class="carousel-container">
@@ -69,16 +63,10 @@ onMounted(() => {
         </div>
       </div>
       <!-- Toggle Switch -->
-      <div class="toggle-container flex justify-between items-center w-full">
+      <div class="toggle-container flex w-full items-center justify-between">
         <span>Bot View</span>
         <label class="switch">
-          <input
-            type="checkbox"
-            role="switch"
-            aria-label="Toggle view"
-            :checked="isChecked"
-            @change="toggleFlip"
-          />
+          <input type="checkbox" role="switch" aria-label="Toggle view" :checked="isChecked" @change="toggleFlip" />
           <span class="slider"></span>
         </label>
         <span>Nav View</span>

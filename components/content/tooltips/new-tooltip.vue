@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { page } = useContent()
+const { page } = useContent();
 </script>
 
 <template>
@@ -7,6 +7,6 @@ const { page } = useContent()
     v-if="page.tooltip && page.amitip"
     :tooltip="page.tooltip"
     :amitip="page.amitip"
-    class="w-full h-full overflow-visible"
+    class="h-full w-full overflow-visible"
   />
 </template>

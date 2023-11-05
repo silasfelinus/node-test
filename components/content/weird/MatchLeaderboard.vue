@@ -1,5 +1,5 @@
 <template>
-  <div class="rounded-2xl border p-3 m-3 bg-base-200">
+  <div class="bg-base-200 m-3 rounded-2xl border p-3">
     <h1>Global Match Leaderboard</h1>
     <table>
       <thead>
@@ -21,22 +21,22 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted } from 'vue';
 
 // Define the type for the leaderboard
 interface LeaderboardUser {
-  id: number
-  username: string
-  matchRecord: number
+  id: number;
+  username: string;
+  matchRecord: number;
 }
 
-const leaderboard = ref<LeaderboardUser[]>([])
+const leaderboard = ref<LeaderboardUser[]>([]);
 
 onMounted(async () => {
-  const response = await fetch('/api/milestones/fetchHighMatchScores')
-  const data = await response.json()
+  const response = await fetch('/api/milestones/fetchHighMatchScores');
+  const data = await response.json();
   if (data.success) {
-    leaderboard.value = data.users
+    leaderboard.value = data.users;
   }
-})
+});
 </script>

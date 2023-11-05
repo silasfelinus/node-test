@@ -2,7 +2,7 @@
   <transition name="slide-fade" mode="out-in">
     <div :key="currentMessage">
       <div
-        class="loader-message text-default text-lg font-semibold text-center bg-purple-600 p-4 rounded-md shadow-xl transition-transform duration-300 hover:scale-105 cursor-pointer"
+        class="loader-message text-default cursor-pointer rounded-md bg-purple-600 p-4 text-center text-lg font-semibold shadow-xl transition-transform duration-300 hover:scale-105"
         @click="updateMessage"
       >
         {{ currentMessage }}
@@ -12,38 +12,36 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted, watchEffect } from 'vue'
-import { useLoadStore } from '../../../stores/loadStore'
+import { ref, onMounted, onUnmounted, watchEffect } from 'vue';
+import { useLoadStore } from '../../../stores/loadStore';
 
-const { randomLoadMessage } = useLoadStore()
-const currentMessage = ref(randomLoadMessage())
+const { randomLoadMessage } = useLoadStore();
+const currentMessage = ref(randomLoadMessage());
 
 const updateMessage = () => {
-  currentMessage.value = `${randomLoadMessage()}`
-}
+  currentMessage.value = `${randomLoadMessage()}`;
+};
 
-let intervalId: any
+let intervalId: any;
 onMounted(() => {
-  intervalId = setInterval(updateMessage, 20 * 1000)
-})
+  intervalId = setInterval(updateMessage, 20 * 1000);
+});
 
 onUnmounted(() => {
   if (intervalId) {
-    clearInterval(intervalId)
+    clearInterval(intervalId);
   }
-})
+});
 
 watchEffect(() => {
-  currentMessage.value = `${currentMessage.value}`
-})
+  currentMessage.value = `${currentMessage.value}`;
+});
 </script>
 
 <style scoped>
 .slide-fade-enter-active,
 .slide-fade-leave-active {
-  transition:
-    transform 1s,
-    opacity 1s;
+  transition: transform 1s, opacity 1s;
 }
 
 .slide-fade-enter,

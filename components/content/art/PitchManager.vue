@@ -1,6 +1,6 @@
 <template>
   <div class="container mx-auto px-4">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
       <!-- Pitch Selector -->
       <div class="col-span-1">
         <pitch-selector />
@@ -33,9 +33,9 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
-import { usePitchStore } from '@/stores/pitchStore'
+import { computed } from 'vue';
+import { usePitchStore } from '@/stores/pitchStore';
 
-const pitchStore = usePitchStore()
-const selectedPitch = computed(() => pitchStore.selectedPitch)
+const pitchStore = usePitchStore();
+const selectedPitch = computed(() => pitchStore.selectedPitch);
 </script>

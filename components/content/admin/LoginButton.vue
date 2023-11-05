@@ -5,12 +5,10 @@
       <div v-if="isLoggedIn">
         <div class="hidden lg:inline">Salutations,</div>
         {{ username }}!
-        <button class="b p-2 rounded-lg text-white text-sm" @click="logout">logout</button>
+        <button class="b rounded-lg p-2 text-sm text-white" @click="logout">logout</button>
       </div>
       <div v-else>
-        <button class="bg-primary p-2 rounded-lg text-white text-lg" @click="showLogin = true">
-          Login
-        </button>
+        <button class="bg-primary rounded-lg p-2 text-lg text-white" @click="showLogin = true">Login</button>
       </div>
     </div>
   </div>
@@ -18,33 +16,33 @@
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue'
-import { useUserStore } from '@/stores/userStore'
+import { computed } from 'vue';
+import { useUserStore } from '@/stores/userStore';
 
-const userStore = useUserStore()
-const user = computed(() => userStore.user)
-const isLoggedIn = computed(() => userStore.isLoggedIn)
-const isLoading = ref(false)
-const errorMessage = ref('')
+const userStore = useUserStore();
+const user = computed(() => userStore.user);
+const isLoggedIn = computed(() => userStore.isLoggedIn);
+const isLoading = ref(false);
+const errorMessage = ref('');
 
-const showLogin = ref(false)
+const showLogin = ref(false);
 
-const username = computed(() => user.value?.username || 'Kind Guest')
+const username = computed(() => user.value?.username || 'Kind Guest');
 
 watch(isLoggedIn, (newValue) => {
   if (newValue) {
-    showLogin.value = false
+    showLogin.value = false;
   }
-})
+});
 
 const logout = async () => {
   try {
-    isLoading.value = true
-    await userStore.logout()
+    isLoading.value = true;
+    await userStore.logout();
   } catch (error: any) {
-    errorMessage.value = 'Failed to logout. Please try again.'
+    errorMessage.value = 'Failed to logout. Please try again.';
   } finally {
-    isLoading.value = false
+    isLoading.value = false;
   }
-}
+};
 </script>

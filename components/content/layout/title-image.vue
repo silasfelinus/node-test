@@ -1,8 +1,8 @@
 <template>
-  <nuxt-link to="/" class="block transition-colors duration-500 hover:text-default rounded-md">
+  <nuxt-link to="/" class="hover:text-default block rounded-md transition-colors duration-500">
     <img
       src="/images/fulltitle.png"
-      class="mx-auto shadow-lg hover:shadow-2xl transition-shadow duration-500 rounded-3xl"
+      class="mx-auto rounded-3xl shadow-lg transition-shadow duration-500 hover:shadow-2xl"
       alt="Title"
     />
   </nuxt-link>

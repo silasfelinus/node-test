@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+  <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
     <div v-for="bot in bots" :key="bot.id" class="cursor-pointer" @click="selectBot(bot.id)">
       <div class="card bordered">
         <figure>
@@ -18,14 +18,14 @@
 </template>
 
 <script setup>
-import { useBotStore } from '../../../stores/botStore'
+import { useBotStore } from '../../../stores/botStore';
 
-const botStore = useBotStore()
-const selectedBotId = ref(null)
+const botStore = useBotStore();
+const selectedBotId = ref(null);
 
-const bots = computed(() => botStore.bots)
+const bots = computed(() => botStore.bots);
 const selectBot = (id) => {
-  selectedBotId.value = id
-}
-const isSelectedBot = (id) => id === selectedBotId.value
+  selectedBotId.value = id;
+};
+const isSelectedBot = (id) => id === selectedBotId.value;
 </script>
