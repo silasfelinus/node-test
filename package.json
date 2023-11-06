@@ -20,6 +20,7 @@
   },
   "devDependencies": {
     "@interactjs/interact": "^1.10.19",
+    "@nuxt/devtools": "^1.0.0",
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
     "@nuxtjs/tailwindcss": "^6.9.4",
     "@types/bcrypt": "^5.0.1",

@@ -1,0 +1,12 @@
+version: "3.7"
+services:
+  kindrobots:
+    image: kind/robots:latest
+    container_name: kindrobots
+    environment:
+      - PUID=100
+      - PGID=1000
+      - TZ=America/New_York
+    volumes:
+      - /mnt/user/appdata/kindrobots:/config
+    restart: unless-stopped
